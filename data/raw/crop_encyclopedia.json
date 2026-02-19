@@ -1,0 +1,1213 @@
+[
+    {
+        "id": 1,
+        "name": "Rice",
+        "hindi_name": "चावल",
+        "min_n": 60,
+        "max_n": 100,
+        "min_p": 35,
+        "max_p": 60,
+        "min_k": 35,
+        "max_k": 50,
+        "min_ph": 5.5,
+        "max_ph": 7.5,
+        "min_temp": 20,
+        "max_temp": 27,
+        "min_rainfall": 150,
+        "max_rainfall": 300,
+        "min_humidity": 75,
+        "max_humidity": 90,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Canal",
+            "Borewell",
+            "Rainfed"
+        ],
+        "soil_types": [
+            "Clayey",
+            "Loamy"
+        ],
+        "growth_days": 120,
+        "avg_cost_per_hectare": 35000,
+        "pest_info": [
+            "Stem Borer",
+            "Brown Plant Hopper",
+            "Blast",
+            "Leaf Folder"
+        ],
+        "cultivation_tips": [
+            "Maintain 5cm water level during tillering",
+            "Apply nitrogen in 3 splits",
+            "Use certified seeds for better yield",
+            "Practice alternate wetting and drying to save water"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Wheat",
+        "hindi_name": "गेहूं",
+        "min_n": 40,
+        "max_n": 60,
+        "min_p": 20,
+        "max_p": 35,
+        "min_k": 25,
+        "max_k": 40,
+        "min_ph": 6.0,
+        "max_ph": 7.5,
+        "min_temp": 15,
+        "max_temp": 25,
+        "min_rainfall": 50,
+        "max_rainfall": 100,
+        "min_humidity": 40,
+        "max_humidity": 65,
+        "seasons": [
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Canal",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam",
+            "Clayey Loam"
+        ],
+        "growth_days": 130,
+        "avg_cost_per_hectare": 30000,
+        "pest_info": [
+            "Aphids",
+            "Termites",
+            "Rust",
+            "Karnal Bunt"
+        ],
+        "cultivation_tips": [
+            "Sow by mid-November for best results",
+            "Ensure 4-6 irrigations at critical growth stages",
+            "Use seed treatment to prevent smut",
+            "Apply potash to strengthen stems"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Maize",
+        "hindi_name": "मक्का",
+        "min_n": 15,
+        "max_n": 30,
+        "min_p": 110,
+        "max_p": 140,
+        "min_k": 65,
+        "max_k": 80,
+        "min_ph": 5.5,
+        "max_ph": 7.5,
+        "min_temp": 21,
+        "max_temp": 27,
+        "min_rainfall": 80,
+        "max_rainfall": 150,
+        "min_humidity": 55,
+        "max_humidity": 75,
+        "seasons": [
+            "Kharif",
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Canal",
+            "Borewell",
+            "Rainfed"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam"
+        ],
+        "growth_days": 100,
+        "avg_cost_per_hectare": 25000,
+        "pest_info": [
+            "Fall Armyworm",
+            "Stem Borer",
+            "Shoot Fly",
+            "Downy Mildew"
+        ],
+        "cultivation_tips": [
+            "Ensure proper spacing of 60x20 cm",
+            "Apply zinc sulfate at sowing",
+            "Harvest when husk turns brown",
+            "Intercrop with legumes for soil health"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Chickpea",
+        "hindi_name": "चना",
+        "min_n": 0,
+        "max_n": 10,
+        "min_p": 30,
+        "max_p": 50,
+        "min_k": 25,
+        "max_k": 40,
+        "min_ph": 6.0,
+        "max_ph": 8.0,
+        "min_temp": 20,
+        "max_temp": 30,
+        "min_rainfall": 50,
+        "max_rainfall": 80,
+        "min_humidity": 55,
+        "max_humidity": 70,
+        "seasons": [
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam",
+            "Black Soil"
+        ],
+        "growth_days": 110,
+        "avg_cost_per_hectare": 22000,
+        "pest_info": [
+            "Pod Borer",
+            "Wilt",
+            "Ascochyta Blight",
+            "Cut Worm"
+        ],
+        "cultivation_tips": [
+            "Treat seeds with Rhizobium culture",
+            "Avoid waterlogging",
+            "Single irrigation at pod filling stage",
+            "Use pheromone traps for pod borer"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Kidney Beans",
+        "hindi_name": "राजमा",
+        "min_n": 30,
+        "max_n": 45,
+        "min_p": 60,
+        "max_p": 75,
+        "min_k": 20,
+        "max_k": 30,
+        "min_ph": 6.0,
+        "max_ph": 7.0,
+        "min_temp": 18,
+        "max_temp": 25,
+        "min_rainfall": 90,
+        "max_rainfall": 120,
+        "min_humidity": 65,
+        "max_humidity": 80,
+        "seasons": [
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Canal",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam"
+        ],
+        "growth_days": 120,
+        "avg_cost_per_hectare": 28000,
+        "pest_info": [
+            "White Fly",
+            "Aphids",
+            "Anthracnose",
+            "Root Rot"
+        ],
+        "cultivation_tips": [
+            "Sow in October-November",
+            "Use staking for climbing varieties",
+            "Avoid moisture stress during flowering",
+            "Harvest when pods are fully dry"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Pigeon Peas",
+        "hindi_name": "अरहर/तूर",
+        "min_n": 10,
+        "max_n": 25,
+        "min_p": 65,
+        "max_p": 85,
+        "min_k": 40,
+        "max_k": 50,
+        "min_ph": 5.5,
+        "max_ph": 7.0,
+        "min_temp": 25,
+        "max_temp": 30,
+        "min_rainfall": 40,
+        "max_rainfall": 60,
+        "min_humidity": 50,
+        "max_humidity": 65,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam",
+            "Red Soil"
+        ],
+        "growth_days": 160,
+        "avg_cost_per_hectare": 20000,
+        "pest_info": [
+            "Pod Borer",
+            "Pod Fly",
+            "Wilt",
+            "Sterility Mosaic"
+        ],
+        "cultivation_tips": [
+            "Intercrop with sorghum or maize",
+            "Use neem-based pest control",
+            "Apply phosphorus before sowing",
+            "Harvest when 80% pods turn brown"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Moth Beans",
+        "hindi_name": "मोठ",
+        "min_n": 30,
+        "max_n": 40,
+        "min_p": 25,
+        "max_p": 35,
+        "min_k": 30,
+        "max_k": 40,
+        "min_ph": 6.0,
+        "max_ph": 7.0,
+        "min_temp": 22,
+        "max_temp": 25,
+        "min_rainfall": 160,
+        "max_rainfall": 190,
+        "min_humidity": 80,
+        "max_humidity": 90,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed"
+        ],
+        "soil_types": [
+            "Sandy",
+            "Sandy Loam"
+        ],
+        "growth_days": 75,
+        "avg_cost_per_hectare": 12000,
+        "pest_info": [
+            "White Fly",
+            "Jassids",
+            "Yellow Mosaic"
+        ],
+        "cultivation_tips": [
+            "Drought tolerant - minimal irrigation needed",
+            "Good for sandy soils in arid regions",
+            "Harvest before over-ripening",
+            "Use as green manure crop"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Mung Bean",
+        "hindi_name": "मूंग",
+        "min_n": 15,
+        "max_n": 25,
+        "min_p": 50,
+        "max_p": 65,
+        "min_k": 45,
+        "max_k": 55,
+        "min_ph": 6.5,
+        "max_ph": 7.5,
+        "min_temp": 27,
+        "max_temp": 30,
+        "min_rainfall": 130,
+        "max_rainfall": 160,
+        "min_humidity": 78,
+        "max_humidity": 90,
+        "seasons": [
+            "Kharif",
+            "Summer"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam"
+        ],
+        "growth_days": 65,
+        "avg_cost_per_hectare": 18000,
+        "pest_info": [
+            "Yellow Mosaic",
+            "Whitefly",
+            "Pod Borer",
+            "Cercospora Leaf Spot"
+        ],
+        "cultivation_tips": [
+            "Short duration crop ideal for intercropping",
+            "Treat seeds with fungicide before sowing",
+            "Light irrigation at flowering helps yield",
+            "Excellent nitrogen fixer for soil"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Black Gram",
+        "hindi_name": "उड़द",
+        "min_n": 0,
+        "max_n": 5,
+        "min_p": 15,
+        "max_p": 25,
+        "min_k": 8,
+        "max_k": 15,
+        "min_ph": 6.0,
+        "max_ph": 7.5,
+        "min_temp": 27,
+        "max_temp": 30,
+        "min_rainfall": 80,
+        "max_rainfall": 100,
+        "min_humidity": 88,
+        "max_humidity": 95,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Black Soil"
+        ],
+        "growth_days": 80,
+        "avg_cost_per_hectare": 16000,
+        "pest_info": [
+            "Stem Fly",
+            "Yellow Mosaic",
+            "Powdery Mildew"
+        ],
+        "cultivation_tips": [
+            "Avoid waterlogging",
+            "Excellent crop for rice fallows",
+            "Apply phosphorus at sowing for nodulation",
+            "Harvest when pods turn black"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Lentil",
+        "hindi_name": "मसूर",
+        "min_n": 15,
+        "max_n": 25,
+        "min_p": 25,
+        "max_p": 35,
+        "min_k": 45,
+        "max_k": 55,
+        "min_ph": 6.5,
+        "max_ph": 7.5,
+        "min_temp": 22,
+        "max_temp": 28,
+        "min_rainfall": 85,
+        "max_rainfall": 100,
+        "min_humidity": 45,
+        "max_humidity": 60,
+        "seasons": [
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam",
+            "Clayey Loam"
+        ],
+        "growth_days": 110,
+        "avg_cost_per_hectare": 20000,
+        "pest_info": [
+            "Aphids",
+            "Pod Borer",
+            "Rust",
+            "Wilt"
+        ],
+        "cultivation_tips": [
+            "Best sown in October-November",
+            "Requires minimal irrigation",
+            "Good rotation crop after rice",
+            "Apply Rhizobium seed treatment"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Pomegranate",
+        "hindi_name": "अनार",
+        "min_n": 90,
+        "max_n": 115,
+        "min_p": 14,
+        "max_p": 24,
+        "min_k": 45,
+        "max_k": 55,
+        "min_ph": 6.5,
+        "max_ph": 7.5,
+        "min_temp": 28,
+        "max_temp": 32,
+        "min_rainfall": 25,
+        "max_rainfall": 40,
+        "min_humidity": 30,
+        "max_humidity": 45,
+        "seasons": [
+            "Kharif",
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Borewell",
+            "Canal"
+        ],
+        "soil_types": [
+            "Sandy Loam",
+            "Loamy"
+        ],
+        "growth_days": 180,
+        "avg_cost_per_hectare": 120000,
+        "pest_info": [
+            "Fruit Borer",
+            "Bacterial Blight",
+            "Anar Butterfly",
+            "Mealybug"
+        ],
+        "cultivation_tips": [
+            "Prune regularly for better fruiting",
+            "Apply mulch to retain moisture",
+            "Drip irrigation is most efficient",
+            "Bahar treatment for off-season fruiting"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Banana",
+        "hindi_name": "केला",
+        "min_n": 20,
+        "max_n": 35,
+        "min_p": 120,
+        "max_p": 140,
+        "min_k": 190,
+        "max_k": 210,
+        "min_ph": 6.5,
+        "max_ph": 7.0,
+        "min_temp": 26,
+        "max_temp": 30,
+        "min_rainfall": 80,
+        "max_rainfall": 100,
+        "min_humidity": 44,
+        "max_humidity": 55,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Canal",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Alluvial",
+            "Clayey Loam"
+        ],
+        "growth_days": 300,
+        "avg_cost_per_hectare": 150000,
+        "pest_info": [
+            "Banana Weevil",
+            "Sigatoka Leaf Spot",
+            "Panama Wilt",
+            "Bunchy Top"
+        ],
+        "cultivation_tips": [
+            "Use tissue culture plants for disease-free planting",
+            "Apply potassium-rich fertilizer for fruit development",
+            "Prop plants to prevent lodging",
+            "Harvest when fingers are 3/4 round"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Mango",
+        "hindi_name": "आम",
+        "min_n": 35,
+        "max_n": 45,
+        "min_p": 40,
+        "max_p": 50,
+        "min_k": 50,
+        "max_k": 60,
+        "min_ph": 6.5,
+        "max_ph": 7.0,
+        "min_temp": 23,
+        "max_temp": 27,
+        "min_rainfall": 230,
+        "max_rainfall": 270,
+        "min_humidity": 78,
+        "max_humidity": 90,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Alluvial",
+            "Laterite"
+        ],
+        "growth_days": 150,
+        "avg_cost_per_hectare": 80000,
+        "pest_info": [
+            "Mango Hopper",
+            "Fruit Fly",
+            "Anthracnose",
+            "Powdery Mildew"
+        ],
+        "cultivation_tips": [
+            "Spray neem oil before flowering for hopper control",
+            "Prune dead wood after harvest",
+            "Apply organic manure in September",
+            "Use fruit bags to protect from fruit fly"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Grapes",
+        "hindi_name": "अंगूर",
+        "min_n": 5,
+        "max_n": 15,
+        "min_p": 45,
+        "max_p": 55,
+        "min_k": 40,
+        "max_k": 50,
+        "min_ph": 6.0,
+        "max_ph": 6.5,
+        "min_temp": 28,
+        "max_temp": 32,
+        "min_rainfall": 180,
+        "max_rainfall": 215,
+        "min_humidity": 88,
+        "max_humidity": 98,
+        "seasons": [
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Borewell",
+            "Canal"
+        ],
+        "soil_types": [
+            "Sandy Loam",
+            "Loamy"
+        ],
+        "growth_days": 120,
+        "avg_cost_per_hectare": 250000,
+        "pest_info": [
+            "Downy Mildew",
+            "Powdery Mildew",
+            "Thrips",
+            "Mealy Bug"
+        ],
+        "cultivation_tips": [
+            "Pruning twice a year is essential",
+            "Use drip irrigation with fertigation",
+            "Apply potash for better berry quality",
+            "Maintain canopy management for air circulation"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Watermelon",
+        "hindi_name": "तरबूज",
+        "min_n": 35,
+        "max_n": 45,
+        "min_p": 5,
+        "max_p": 12,
+        "min_k": 40,
+        "max_k": 50,
+        "min_ph": 6.0,
+        "max_ph": 7.0,
+        "min_temp": 24,
+        "max_temp": 27,
+        "min_rainfall": 90,
+        "max_rainfall": 120,
+        "min_humidity": 74,
+        "max_humidity": 85,
+        "seasons": [
+            "Summer",
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Canal",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Sandy Loam",
+            "Sandy"
+        ],
+        "growth_days": 85,
+        "avg_cost_per_hectare": 45000,
+        "pest_info": [
+            "Fruit Fly",
+            "Aphids",
+            "Fusarium Wilt",
+            "Anthracnose"
+        ],
+        "cultivation_tips": [
+            "Use raised beds for better drainage",
+            "Pollination is critical - avoid pesticide spray during flowering",
+            "Harvest when tendril nearest to fruit dries",
+            "Mulching reduces weed and retains moisture"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Muskmelon",
+        "hindi_name": "खरबूजा",
+        "min_n": 55,
+        "max_n": 65,
+        "min_p": 7,
+        "max_p": 15,
+        "min_k": 40,
+        "max_k": 50,
+        "min_ph": 6.5,
+        "max_ph": 7.0,
+        "min_temp": 22,
+        "max_temp": 25,
+        "min_rainfall": 45,
+        "max_rainfall": 65,
+        "min_humidity": 55,
+        "max_humidity": 68,
+        "seasons": [
+            "Summer"
+        ],
+        "irrigation_types": [
+            "Borewell",
+            "Canal"
+        ],
+        "soil_types": [
+            "Sandy Loam",
+            "Sandy"
+        ],
+        "growth_days": 80,
+        "avg_cost_per_hectare": 40000,
+        "pest_info": [
+            "Fruit Fly",
+            "Red Pumpkin Beetle",
+            "Powdery Mildew",
+            "Downy Mildew"
+        ],
+        "cultivation_tips": [
+            "Sow in February-March for summer harvest",
+            "Stop irrigation a week before harvest for sweetness",
+            "Use coir/straw bedding under fruit",
+            "Pick when stem slips easily from fruit"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Apple",
+        "hindi_name": "सेब",
+        "min_n": 30,
+        "max_n": 40,
+        "min_p": 12,
+        "max_p": 20,
+        "min_k": 30,
+        "max_k": 40,
+        "min_ph": 7.0,
+        "max_ph": 7.8,
+        "min_temp": 21,
+        "max_temp": 24,
+        "min_rainfall": 100,
+        "max_rainfall": 125,
+        "min_humidity": 85,
+        "max_humidity": 95,
+        "seasons": [
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam"
+        ],
+        "growth_days": 180,
+        "avg_cost_per_hectare": 200000,
+        "pest_info": [
+            "Codling Moth",
+            "Apple Scab",
+            "Woolly Aphid",
+            "Fire Blight"
+        ],
+        "cultivation_tips": [
+            "Requires chilling hours below 7°C for bud break",
+            "Cross-pollination with crabapple improves yield",
+            "Apply dormant spray in winter",
+            "Thin fruits for larger apple size"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Orange",
+        "hindi_name": "संतरा",
+        "min_n": 55,
+        "max_n": 65,
+        "min_p": 20,
+        "max_p": 30,
+        "min_k": 15,
+        "max_k": 25,
+        "min_ph": 6.5,
+        "max_ph": 7.5,
+        "min_temp": 23,
+        "max_temp": 27,
+        "min_rainfall": 30,
+        "max_rainfall": 50,
+        "min_humidity": 65,
+        "max_humidity": 75,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Borewell",
+            "Canal"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam",
+            "Red Soil"
+        ],
+        "growth_days": 210,
+        "avg_cost_per_hectare": 100000,
+        "pest_info": [
+            "Citrus Psylla",
+            "Leaf Miner",
+            "Citrus Canker",
+            "Greening Disease"
+        ],
+        "cultivation_tips": [
+            "Basin irrigation is preferred",
+            "Apply micronutrients (zinc, manganese)",
+            "Prune water shoots regularly",
+            "Stress management for Ambia Bahar yielding"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Papaya",
+        "hindi_name": "पपीता",
+        "min_n": 15,
+        "max_n": 25,
+        "min_p": 50,
+        "max_p": 60,
+        "min_k": 12,
+        "max_k": 20,
+        "min_ph": 6.5,
+        "max_ph": 7.5,
+        "min_temp": 22,
+        "max_temp": 25,
+        "min_rainfall": 55,
+        "max_rainfall": 75,
+        "min_humidity": 75,
+        "max_humidity": 85,
+        "seasons": [
+            "Kharif",
+            "Summer"
+        ],
+        "irrigation_types": [
+            "Borewell",
+            "Canal"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam",
+            "Alluvial"
+        ],
+        "growth_days": 240,
+        "avg_cost_per_hectare": 70000,
+        "pest_info": [
+            "Papaya Ring Spot Virus",
+            "Mealybug",
+            "Fruit Fly",
+            "Anthracnose"
+        ],
+        "cultivation_tips": [
+            "Plant 3 seedlings per pit, remove males later",
+            "Ensure excellent drainage to prevent root rot",
+            "Apply calcium for fruit firmness",
+            "Use reflective mulch for virus vector control"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Coconut",
+        "hindi_name": "नारियल",
+        "min_n": 55,
+        "max_n": 65,
+        "min_p": 14,
+        "max_p": 22,
+        "min_k": 35,
+        "max_k": 45,
+        "min_ph": 6.0,
+        "max_ph": 7.0,
+        "min_temp": 30,
+        "max_temp": 35,
+        "min_rainfall": 35,
+        "max_rainfall": 55,
+        "min_humidity": 74,
+        "max_humidity": 85,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Sandy Loam",
+            "Laterite",
+            "Coastal Alluvial"
+        ],
+        "growth_days": 365,
+        "avg_cost_per_hectare": 60000,
+        "pest_info": [
+            "Rhinoceros Beetle",
+            "Red Palm Weevil",
+            "Bud Rot",
+            "Leaf Blight"
+        ],
+        "cultivation_tips": [
+            "Husk burial in basin improves moisture retention",
+            "Intercrop with cocoa, pepper, or banana",
+            "Apply salt to improve yield",
+            "Regular crown cleaning prevents pest harboring"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Cotton",
+        "hindi_name": "कपास",
+        "min_n": 110,
+        "max_n": 125,
+        "min_p": 20,
+        "max_p": 30,
+        "min_k": 30,
+        "max_k": 40,
+        "min_ph": 6.5,
+        "max_ph": 7.5,
+        "min_temp": 23,
+        "max_temp": 27,
+        "min_rainfall": 95,
+        "max_rainfall": 120,
+        "min_humidity": 72,
+        "max_humidity": 82,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Canal",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Black Soil",
+            "Loamy",
+            "Clayey Loam"
+        ],
+        "growth_days": 170,
+        "avg_cost_per_hectare": 40000,
+        "pest_info": [
+            "Bollworm",
+            "Whitefly",
+            "Jassids",
+            "Leaf Curl Virus"
+        ],
+        "cultivation_tips": [
+            "Use Bt cotton varieties for bollworm resistance",
+            "Last picking should be within 160 days",
+            "Apply potash for fiber quality",
+            "Destroy crop residue to break pest cycle"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Jute",
+        "hindi_name": "जूट",
+        "min_n": 35,
+        "max_n": 45,
+        "min_p": 55,
+        "max_p": 65,
+        "min_k": 50,
+        "max_k": 60,
+        "min_ph": 6.0,
+        "max_ph": 7.0,
+        "min_temp": 23,
+        "max_temp": 26,
+        "min_rainfall": 185,
+        "max_rainfall": 210,
+        "min_humidity": 78,
+        "max_humidity": 88,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Canal"
+        ],
+        "soil_types": [
+            "Alluvial",
+            "Loamy",
+            "Clayey Loam"
+        ],
+        "growth_days": 120,
+        "avg_cost_per_hectare": 25000,
+        "pest_info": [
+            "Stem Weevil",
+            "Yellow Mite",
+            "Stem Rot",
+            "Hooghly Wilt"
+        ],
+        "cultivation_tips": [
+            "Sow broadcast or in lines with 25cm spacing",
+            "Retting in clean slow-flowing water gives best fiber",
+            "Top-dress nitrogen after first weeding",
+            "Harvest at small pod stage for best fiber quality"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Coffee",
+        "hindi_name": "कॉफी",
+        "min_n": 75,
+        "max_n": 85,
+        "min_p": 7,
+        "max_p": 15,
+        "min_k": 7,
+        "max_k": 15,
+        "min_ph": 4.0,
+        "max_ph": 5.0,
+        "min_temp": 23,
+        "max_temp": 28,
+        "min_rainfall": 260,
+        "max_rainfall": 290,
+        "min_humidity": 65,
+        "max_humidity": 78,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Laterite",
+            "Red Soil",
+            "Loamy"
+        ],
+        "growth_days": 270,
+        "avg_cost_per_hectare": 90000,
+        "pest_info": [
+            "White Stem Borer",
+            "Berry Borer",
+            "Leaf Rust",
+            "Black Rot"
+        ],
+        "cultivation_tips": [
+            "Shade trees are essential for quality",
+            "Pick only ripe red cherries for premium grade",
+            "Maintain 50-60% shade canopy",
+            "Use pulp as organic mulch after processing"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Sugarcane",
+        "hindi_name": "गन्ना",
+        "min_n": 50,
+        "max_n": 80,
+        "min_p": 40,
+        "max_p": 60,
+        "min_k": 30,
+        "max_k": 50,
+        "min_ph": 6.0,
+        "max_ph": 7.5,
+        "min_temp": 25,
+        "max_temp": 35,
+        "min_rainfall": 150,
+        "max_rainfall": 250,
+        "min_humidity": 70,
+        "max_humidity": 90,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Canal",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Alluvial",
+            "Clayey Loam"
+        ],
+        "growth_days": 330,
+        "avg_cost_per_hectare": 85000,
+        "pest_info": [
+            "Top Shoot Borer",
+            "Pyrilla",
+            "Red Rot",
+            "Smut"
+        ],
+        "cultivation_tips": [
+            "Use sett treatment before planting",
+            "Earthing up at 90 and 120 days",
+            "Trash mulching conserves moisture",
+            "Avoid ratoon after 2nd crop for best yield"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Groundnut",
+        "hindi_name": "मूंगफली",
+        "min_n": 20,
+        "max_n": 40,
+        "min_p": 50,
+        "max_p": 70,
+        "min_k": 40,
+        "max_k": 60,
+        "min_ph": 6.0,
+        "max_ph": 7.0,
+        "min_temp": 25,
+        "max_temp": 30,
+        "min_rainfall": 80,
+        "max_rainfall": 120,
+        "min_humidity": 60,
+        "max_humidity": 75,
+        "seasons": [
+            "Kharif",
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Sandy Loam",
+            "Red Soil",
+            "Loamy"
+        ],
+        "growth_days": 110,
+        "avg_cost_per_hectare": 32000,
+        "pest_info": [
+            "White Grub",
+            "Leaf Miner",
+            "Tikka Disease",
+            "Collar Rot"
+        ],
+        "cultivation_tips": [
+            "Apply gypsum at pegging stage for pod filling",
+            "Avoid waterlogging during pegging",
+            "Use seed treatment with fungicide",
+            "Harvest when leaves yellow and fall"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Mustard",
+        "hindi_name": "सरसों",
+        "min_n": 40,
+        "max_n": 60,
+        "min_p": 25,
+        "max_p": 40,
+        "min_k": 20,
+        "max_k": 35,
+        "min_ph": 6.0,
+        "max_ph": 7.5,
+        "min_temp": 15,
+        "max_temp": 25,
+        "min_rainfall": 40,
+        "max_rainfall": 70,
+        "min_humidity": 40,
+        "max_humidity": 60,
+        "seasons": [
+            "Rabi"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell",
+            "Canal"
+        ],
+        "soil_types": [
+            "Loamy",
+            "Sandy Loam",
+            "Clayey Loam"
+        ],
+        "growth_days": 110,
+        "avg_cost_per_hectare": 22000,
+        "pest_info": [
+            "Aphids",
+            "Painted Bug",
+            "White Rust",
+            "Alternaria Blight"
+        ],
+        "cultivation_tips": [
+            "Sow in October for best results",
+            "First irrigation at 25-30 DAS is critical",
+            "Use yellow sticky traps for aphid monitoring",
+            "Harvest when 75% pods turn golden"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Soybean",
+        "hindi_name": "सोयाबीन",
+        "min_n": 15,
+        "max_n": 30,
+        "min_p": 50,
+        "max_p": 70,
+        "min_k": 40,
+        "max_k": 60,
+        "min_ph": 6.0,
+        "max_ph": 7.0,
+        "min_temp": 24,
+        "max_temp": 30,
+        "min_rainfall": 80,
+        "max_rainfall": 130,
+        "min_humidity": 60,
+        "max_humidity": 75,
+        "seasons": [
+            "Kharif"
+        ],
+        "irrigation_types": [
+            "Rainfed",
+            "Borewell"
+        ],
+        "soil_types": [
+            "Black Soil",
+            "Loamy",
+            "Clayey Loam"
+        ],
+        "growth_days": 95,
+        "avg_cost_per_hectare": 28000,
+        "pest_info": [
+            "Stem Fly",
+            "Girdle Beetle",
+            "Yellow Mosaic",
+            "Rust"
+        ],
+        "cultivation_tips": [
+            "Inoculate seeds with Bradyrhizobium",
+            "Sow with onset of monsoon rains",
+            "Maintain plant population of 4.5 lakh/ha",
+            "Avoid deep planting beyond 3-4 cm"
+        ]
+    }
+]

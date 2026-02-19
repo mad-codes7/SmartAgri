@@ -1,0 +1,76 @@
+state,district,crop,season,area_hectares,production_tonnes,yield_tonnes_per_hectare
+Maharashtra,Pune,rice,Kharif,12000,36000,3.0
+Maharashtra,Nashik,wheat,Rabi,8500,22100,2.6
+Maharashtra,Nagpur,cotton,Kharif,15000,22500,1.5
+Maharashtra,Aurangabad,soybean,Kharif,10000,12000,1.2
+Maharashtra,Kolhapur,sugarcane,Kharif,9000,630000,70.0
+Punjab,Ludhiana,rice,Kharif,20000,80000,4.0
+Punjab,Amritsar,wheat,Rabi,25000,112500,4.5
+Punjab,Jalandhar,maize,Kharif,5000,17500,3.5
+Punjab,Patiala,cotton,Kharif,8000,16000,2.0
+Punjab,Bathinda,wheat,Rabi,18000,81000,4.5
+Uttar Pradesh,Lucknow,rice,Kharif,22000,55000,2.5
+Uttar Pradesh,Kanpur,wheat,Rabi,30000,120000,4.0
+Uttar Pradesh,Varanasi,sugarcane,Kharif,12000,840000,70.0
+Uttar Pradesh,Agra,mustard,Rabi,7000,8400,1.2
+Uttar Pradesh,Meerut,maize,Kharif,6000,15000,2.5
+Madhya Pradesh,Bhopal,wheat,Rabi,20000,60000,3.0
+Madhya Pradesh,Indore,soybean,Kharif,25000,30000,1.2
+Madhya Pradesh,Jabalpur,rice,Kharif,15000,30000,2.0
+Madhya Pradesh,Gwalior,mustard,Rabi,8000,9600,1.2
+Madhya Pradesh,Ujjain,chickpea,Rabi,12000,12000,1.0
+Rajasthan,Jaipur,mustard,Rabi,18000,21600,1.2
+Rajasthan,Jodhpur,bajra,Kharif,20000,16000,0.8
+Rajasthan,Udaipur,maize,Kharif,10000,20000,2.0
+Rajasthan,Kota,soybean,Kharif,8000,9600,1.2
+Rajasthan,Alwar,wheat,Rabi,15000,52500,3.5
+Karnataka,Bangalore,rice,Kharif,10000,30000,3.0
+Karnataka,Mysore,sugarcane,Kharif,8000,560000,70.0
+Karnataka,Dharwad,cotton,Kharif,12000,14400,1.2
+Karnataka,Belgaum,maize,Kharif,7000,17500,2.5
+Karnataka,Shimoga,coffee,Kharif,5000,5000,1.0
+Tamil Nadu,Chennai,rice,Kharif,18000,54000,3.0
+Tamil Nadu,Coimbatore,cotton,Kharif,10000,12000,1.2
+Tamil Nadu,Madurai,banana,Kharif,4000,120000,30.0
+Tamil Nadu,Salem,mango,Kharif,6000,60000,10.0
+Tamil Nadu,Thanjavur,rice,Kharif,25000,87500,3.5
+Andhra Pradesh,Guntur,cotton,Kharif,15000,22500,1.5
+Andhra Pradesh,Krishna,rice,Kharif,20000,70000,3.5
+Andhra Pradesh,Kurnool,groundnut,Kharif,10000,15000,1.5
+Andhra Pradesh,Visakhapatnam,sugarcane,Kharif,5000,350000,70.0
+Andhra Pradesh,Chittoor,mango,Kharif,8000,80000,10.0
+Gujarat,Ahmedabad,cotton,Kharif,20000,30000,1.5
+Gujarat,Rajkot,groundnut,Kharif,15000,22500,1.5
+Gujarat,Surat,sugarcane,Kharif,7000,490000,70.0
+Gujarat,Junagadh,wheat,Rabi,10000,30000,3.0
+Gujarat,Bhavnagar,bajra,Kharif,8000,8000,1.0
+West Bengal,Kolkata,rice,Kharif,30000,90000,3.0
+West Bengal,Burdwan,rice,Kharif,25000,75000,3.0
+West Bengal,Malda,jute,Kharif,10000,25000,2.5
+West Bengal,Murshidabad,wheat,Rabi,5000,12500,2.5
+West Bengal,Nadia,rice,Kharif,20000,60000,3.0
+Haryana,Karnal,rice,Kharif,15000,60000,4.0
+Haryana,Hisar,wheat,Rabi,20000,90000,4.5
+Haryana,Sirsa,cotton,Kharif,12000,18000,1.5
+Haryana,Ambala,sugarcane,Kharif,6000,420000,70.0
+Haryana,Rohtak,mustard,Rabi,8000,12000,1.5
+Kerala,Wayanad,coffee,Kharif,4000,4000,1.0
+Kerala,Idukki,cardamom,Kharif,3000,600,0.2
+Kerala,Thrissur,rice,Kharif,8000,20000,2.5
+Kerala,Palakkad,coconut,Kharif,10000,80000,8.0
+Kerala,Ernakulam,banana,Kharif,3000,90000,30.0
+Bihar,Patna,rice,Kharif,20000,44000,2.2
+Bihar,Gaya,wheat,Rabi,12000,33600,2.8
+Bihar,Muzaffarpur,banana,Kharif,5000,150000,30.0
+Bihar,Bhagalpur,maize,Kharif,8000,24000,3.0
+Bihar,Darbhanga,jute,Kharif,4000,10000,2.5
+Telangana,Hyderabad,rice,Kharif,15000,45000,3.0
+Telangana,Warangal,cotton,Kharif,12000,14400,1.2
+Telangana,Karimnagar,maize,Kharif,8000,24000,3.0
+Telangana,Nizamabad,turmeric,Kharif,5000,25000,5.0
+Telangana,Medak,soybean,Kharif,6000,7200,1.2
+Odisha,Cuttack,rice,Kharif,20000,50000,2.5
+Odisha,Puri,rice,Kharif,15000,37500,2.5
+Odisha,Sambalpur,cotton,Kharif,6000,7200,1.2
+Odisha,Ganjam,sugarcane,Kharif,4000,280000,70.0
+Odisha,Balasore,jute,Kharif,5000,12500,2.5

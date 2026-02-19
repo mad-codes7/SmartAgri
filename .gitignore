@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+*.env.local
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# ML artifacts
+*.joblib
+data/processed/
+data/raw/disease_images/
+
+# Database
+*.db
+*.sqlite3
+
+# Uploads
+server/uploads/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
