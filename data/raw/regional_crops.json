@@ -1,0 +1,1058 @@
+{
+    "Punjab": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Cotton",
+                "Sugarcane"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Mustard",
+                "Barley"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Loamy",
+                "Alluvial"
+            ]
+        },
+        "Ludhiana": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Cotton"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Loamy",
+                "Sandy Loam"
+            ]
+        },
+        "Amritsar": {
+            "Kharif": [
+                "Rice",
+                "Sugarcane"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Loamy",
+                "Alluvial"
+            ]
+        },
+        "Patiala": {
+            "Kharif": [
+                "Rice",
+                "Maize"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Loamy",
+                "Clayey Loam"
+            ]
+        }
+    },
+    "Uttar Pradesh": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Sugarcane",
+                "Maize",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Lentil",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Lucknow": {
+            "Kharif": [
+                "Rice",
+                "Sugarcane",
+                "Maize"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Varanasi": {
+            "Kharif": [
+                "Rice",
+                "Pigeon Peas",
+                "Black Gram"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Lentil",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Agra": {
+            "Kharif": [
+                "Maize",
+                "Pigeon Peas",
+                "Black Gram"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Sandy Loam",
+                "Loamy"
+            ]
+        }
+    },
+    "Madhya Pradesh": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Pigeon Peas",
+                "Cotton"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Loamy"
+            ]
+        },
+        "Indore": {
+            "Kharif": [
+                "Cotton",
+                "Pigeon Peas",
+                "Maize"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Clayey"
+            ]
+        },
+        "Bhopal": {
+            "Kharif": [
+                "Rice",
+                "Pigeon Peas",
+                "Maize"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Loamy"
+            ]
+        },
+        "Jabalpur": {
+            "Kharif": [
+                "Rice",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Loamy"
+            ]
+        }
+    },
+    "Maharashtra": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Cotton",
+                "Pigeon Peas",
+                "Mung Bean"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Grapes"
+            ],
+            "Summer": [
+                "Watermelon",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Red Soil",
+                "Laterite"
+            ]
+        },
+        "Pune": {
+            "Kharif": [
+                "Rice",
+                "Pigeon Peas",
+                "Mung Bean"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Grapes"
+            ],
+            "Summer": [
+                "Watermelon",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Red Soil"
+            ]
+        },
+        "Nagpur": {
+            "Kharif": [
+                "Cotton",
+                "Pigeon Peas",
+                "Orange"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Loamy"
+            ]
+        },
+        "Nashik": {
+            "Kharif": [
+                "Rice",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Grapes",
+                "Pomegranate"
+            ],
+            "Summer": [
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Loamy"
+            ]
+        }
+    },
+    "Rajasthan": {
+        "_default": {
+            "Kharif": [
+                "Moth Beans",
+                "Mung Bean",
+                "Maize",
+                "Cotton"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Watermelon",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Sandy",
+                "Sandy Loam"
+            ]
+        },
+        "Jaipur": {
+            "Kharif": [
+                "Moth Beans",
+                "Mung Bean",
+                "Maize"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Sandy Loam",
+                "Loamy"
+            ]
+        },
+        "Jodhpur": {
+            "Kharif": [
+                "Moth Beans",
+                "Mung Bean"
+            ],
+            "Rabi": [
+                "Mustard",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Watermelon",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Sandy",
+                "Sandy Loam"
+            ]
+        },
+        "Udaipur": {
+            "Kharif": [
+                "Maize",
+                "Mung Bean",
+                "Black Gram"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Loamy",
+                "Red Soil"
+            ]
+        }
+    },
+    "Karnataka": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Pigeon Peas",
+                "Cotton"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Black Soil",
+                "Laterite"
+            ]
+        },
+        "Bangalore": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Chickpea",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Loamy"
+            ]
+        },
+        "Belgaum": {
+            "Kharif": [
+                "Rice",
+                "Cotton",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Red Soil"
+            ]
+        },
+        "Mysore": {
+            "Kharif": [
+                "Rice",
+                "Maize"
+            ],
+            "Rabi": [
+                "Chickpea",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Loamy"
+            ]
+        }
+    },
+    "Tamil Nadu": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Cotton",
+                "Banana",
+                "Sugarcane"
+            ],
+            "Rabi": [
+                "Rice",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Alluvial",
+                "Black Soil"
+            ]
+        },
+        "Chennai": {
+            "Kharif": [
+                "Rice",
+                "Sugarcane"
+            ],
+            "Rabi": [
+                "Rice",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Red Soil"
+            ]
+        },
+        "Coimbatore": {
+            "Kharif": [
+                "Cotton",
+                "Banana",
+                "Sugarcane"
+            ],
+            "Rabi": [
+                "Rice",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Black Soil"
+            ]
+        },
+        "Madurai": {
+            "Kharif": [
+                "Rice",
+                "Cotton"
+            ],
+            "Rabi": [
+                "Rice",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Alluvial"
+            ]
+        }
+    },
+    "Gujarat": {
+        "_default": {
+            "Kharif": [
+                "Cotton",
+                "Rice",
+                "Pigeon Peas",
+                "Mung Bean"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Sandy Loam"
+            ]
+        },
+        "Ahmedabad": {
+            "Kharif": [
+                "Cotton",
+                "Rice",
+                "Mung Bean"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Sandy Loam",
+                "Loamy"
+            ]
+        },
+        "Rajkot": {
+            "Kharif": [
+                "Cotton",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Watermelon",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Sandy Loam"
+            ]
+        },
+        "Surat": {
+            "Kharif": [
+                "Rice",
+                "Sugarcane",
+                "Cotton"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Alluvial"
+            ]
+        }
+    },
+    "West Bengal": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Black Gram"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Lentil",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Kolkata": {
+            "Kharif": [
+                "Rice",
+                "Black Gram"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard",
+                "Lentil"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Burdwan": {
+            "Kharif": [
+                "Rice",
+                "Maize"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Lentil",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        }
+    },
+    "Haryana": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Cotton"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard",
+                "Chickpea",
+                "Barley"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Sandy Loam"
+            ]
+        },
+        "Karnal": {
+            "Kharif": [
+                "Rice",
+                "Maize"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Hisar": {
+            "Kharif": [
+                "Cotton",
+                "Maize",
+                "Moth Beans"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Mustard",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Sandy Loam",
+                "Sandy"
+            ]
+        }
+    },
+    "Kerala": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Banana",
+                "Black Gram"
+            ],
+            "Rabi": [
+                "Rice"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Laterite",
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Thrissur": {
+            "Kharif": [
+                "Rice",
+                "Banana"
+            ],
+            "Rabi": [
+                "Rice"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Laterite",
+                "Alluvial"
+            ]
+        },
+        "Palakkad": {
+            "Kharif": [
+                "Rice",
+                "Banana"
+            ],
+            "Rabi": [
+                "Rice",
+                "Black Gram"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Laterite",
+                "Loamy"
+            ]
+        }
+    },
+    "Bihar": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Lentil",
+                "Chickpea",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Patna": {
+            "Kharif": [
+                "Rice",
+                "Maize"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Lentil",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        },
+        "Muzaffarpur": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Banana"
+            ],
+            "Rabi": [
+                "Wheat",
+                "Lentil",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Muskmelon"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Loamy"
+            ]
+        }
+    },
+    "Andhra Pradesh": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Cotton",
+                "Pigeon Peas",
+                "Maize"
+            ],
+            "Rabi": [
+                "Rice",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Black Soil",
+                "Alluvial"
+            ]
+        },
+        "Guntur": {
+            "Kharif": [
+                "Rice",
+                "Cotton",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Rice",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Black Soil",
+                "Red Soil"
+            ]
+        },
+        "Kurnool": {
+            "Kharif": [
+                "Cotton",
+                "Pigeon Peas",
+                "Maize"
+            ],
+            "Rabi": [
+                "Chickpea",
+                "Rice"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Black Soil"
+            ]
+        }
+    },
+    "Telangana": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Cotton",
+                "Pigeon Peas",
+                "Maize"
+            ],
+            "Rabi": [
+                "Rice",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Black Soil"
+            ]
+        },
+        "Hyderabad": {
+            "Kharif": [
+                "Rice",
+                "Cotton",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Rice",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Black Soil"
+            ]
+        },
+        "Warangal": {
+            "Kharif": [
+                "Rice",
+                "Cotton",
+                "Maize"
+            ],
+            "Rabi": [
+                "Chickpea",
+                "Rice"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Black Soil"
+            ]
+        }
+    },
+    "Odisha": {
+        "_default": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Black Gram",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Lentil",
+                "Chickpea",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Laterite",
+                "Alluvial"
+            ]
+        },
+        "Cuttack": {
+            "Kharif": [
+                "Rice",
+                "Black Gram"
+            ],
+            "Rabi": [
+                "Lentil",
+                "Mustard"
+            ],
+            "Summer": [
+                "Mung Bean"
+            ],
+            "soil_types": [
+                "Alluvial",
+                "Red Soil"
+            ]
+        },
+        "Sambalpur": {
+            "Kharif": [
+                "Rice",
+                "Maize",
+                "Pigeon Peas"
+            ],
+            "Rabi": [
+                "Lentil",
+                "Chickpea"
+            ],
+            "Summer": [
+                "Mung Bean",
+                "Watermelon"
+            ],
+            "soil_types": [
+                "Red Soil",
+                "Laterite"
+            ]
+        }
+    }
+}

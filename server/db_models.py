@@ -166,3 +166,51 @@ class AlertSubscription(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     user = relationship("User", back_populates="alert_subscriptions")
+
+
+# ─────────────────────────────────────────────────────────
+#  Community
+# ─────────────────────────────────────────────────────────
+
+class CommunityPost(Base):
+    __tablename__ = "community_posts"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    user_name = Column(String(100), nullable=False)
+    district = Column(String(80), nullable=False, index=True)
+    state = Column(String(80), nullable=False)
+    category = Column(String(40), nullable=False)   # tip | price | pest | question | general
+    content = Column(Text, nullable=False)
+    photo_url = Column(String(300), nullable=True)
+    upvote_count = Column(Integer, default=0)
+    comment_count = Column(Integer, default=0)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    comments = relationship("CommunityComment", back_populates="post", cascade="all, delete-orphan", lazy="select")
+    upvotes = relationship("CommunityUpvote", back_populates="post", cascade="all, delete-orphan", lazy="select")
+
+
+class CommunityComment(Base):
+    __tablename__ = "community_comments"
+
+    id = Column(Integer, primary_key=True, index=True)
+    post_id = Column(Integer, ForeignKey("community_posts.id", ondelete="CASCADE"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    user_name = Column(String(100), nullable=False)
+    content = Column(Text, nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    post = relationship("CommunityPost", back_populates="comments")
+
+
+class CommunityUpvote(Base):
+    __tablename__ = "community_upvotes"
+
+    id = Column(Integer, primary_key=True)
+    post_id = Column(Integer, ForeignKey("community_posts.id", ondelete="CASCADE"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    post = relationship("CommunityPost", back_populates="upvotes")
+

@@ -28,13 +28,15 @@ class MarketService:
             print(f"⚠ Could not load market data: {e}")
             self._price_data = pd.DataFrame()
 
-    def get_all_prices(self, state: Optional[str] = None) -> List[Dict]:
-        """Get latest prices for all commodities, optionally filtered by state."""
+    def get_all_prices(self, state: Optional[str] = None, district: Optional[str] = None) -> List[Dict]:
+        """Get latest prices for all commodities, optionally filtered by state/district."""
         if self._price_data.empty:
             return []
         df = self._price_data.copy()
         if state:
             df = df[df["state"].str.lower() == state.lower()]
+        if district:
+            df = df[df["district"].str.lower() == district.lower()]
         # Get the latest record per commodity
         latest = df.sort_values("date", ascending=False).groupby("commodity").first().reset_index()
         records = latest.to_dict("records")

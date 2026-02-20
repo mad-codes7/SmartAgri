@@ -1,5 +1,7 @@
 /**
- * SmartAgri AI Mobile - Main App (Bottom Tab Navigation)
+ * SmartAgri AI Mobile - Main App
+ * RootStack ➜ Auth screens OR MainStack
+ * MainStack ➜ HomeTabs + all secondary screens at the same level.
  */
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
@@ -26,8 +28,14 @@ import DiseaseDetectionScreen from './src/screens/DiseaseDetectionScreen';
 import FarmMapScreen from './src/screens/FarmMapScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import MoreScreen from './src/screens/MoreScreen';
+import DistrictScreen from './src/screens/DistrictScreen';
+import CommunityScreen from './src/screens/CommunityScreen';
+import CreatePostScreen from './src/screens/CreatePostScreen';
+import PostDetailScreen from './src/screens/PostDetailScreen';
 
-const Stack = createNativeStackNavigator();
+// IMPORTANT: separate navigator instances to avoid conflicts
+const RootStack = createNativeStackNavigator();
+const AppStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const headerStyle = {
@@ -36,69 +44,77 @@ const headerStyle = {
   headerTitleStyle: { fontWeight: '700', fontSize: 17 },
 };
 
-// Inner stack for "More" section screens
-function MoreStack() {
+// Bottom tabs (5 tabs)
+function HomeTabs() {
   return (
-    <Stack.Navigator screenOptions={headerStyle}>
-      <Stack.Screen name="MoreHome" component={MoreScreen} options={{ title: '☰ More' }} />
-      <Stack.Screen name="Crops" component={CropsScreen} options={{ title: '🌾 Crop Library' }} />
-      <Stack.Screen name="Schemes" component={SchemesScreen} options={{ title: '🏛️ Schemes' }} />
-      <Stack.Screen name="History" component={HistoryScreen} options={{ title: '📋 History' }} />
-      <Stack.Screen name="DiseaseDetection" component={DiseaseDetectionScreen} options={{ title: '🔬 Disease Detection' }} />
-      <Stack.Screen name="FarmMap" component={FarmMapScreen} options={{ title: '🗺️ Farm Map' }} />
-      <Stack.Screen name="Profile" component={ProfileScreen} options={{ title: '👤 Profile' }} />
-    </Stack.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        ...headerStyle,
+        tabBarActiveTintColor: COLORS.green600,
+        tabBarInactiveTintColor: COLORS.gray400,
+        tabBarStyle: {
+          backgroundColor: COLORS.white,
+          borderTopWidth: 1,
+          borderTopColor: COLORS.borderSubtle,
+          paddingBottom: 6,
+          paddingTop: 6,
+          height: 60,
+        },
+        tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
+      }}
+    >
+      <Tab.Screen
+        name="Dashboard"
+        component={DashboardScreen}
+        options={{ title: 'Home', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>📊</Text> }}
+      />
+      <Tab.Screen
+        name="Recommend"
+        component={RecommendScreen}
+        options={{ title: 'Advisory', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🌱</Text> }}
+      />
+      <Tab.Screen
+        name="Market"
+        component={MarketScreen}
+        options={{ title: 'Market', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>📈</Text> }}
+      />
+      <Tab.Screen
+        name="Weather"
+        component={WeatherScreen}
+        options={{ title: 'Weather', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🌤️</Text> }}
+      />
+      <Tab.Screen
+        name="Community"
+        component={CommunityScreen}
+        options={{ title: 'Community', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🤝</Text> }}
+      />
+      <Tab.Screen
+        name="MoreTab"
+        component={MoreScreen}
+        options={{ title: 'More', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>☰</Text> }}
+      />
+    </Tab.Navigator>
   );
 }
 
-function MainTabs() {
+function MainNavigator() {
   return (
     <View style={{ flex: 1 }}>
-      <Tab.Navigator
-        screenOptions={{
-          ...headerStyle,
-          tabBarActiveTintColor: COLORS.green600,
-          tabBarInactiveTintColor: COLORS.gray400,
-          tabBarStyle: {
-            backgroundColor: COLORS.white,
-            borderTopWidth: 1,
-            borderTopColor: COLORS.borderSubtle,
-            paddingBottom: 6,
-            paddingTop: 6,
-            height: 60,
-          },
-          tabBarLabelStyle: {
-            fontSize: 11,
-            fontWeight: '600',
-          },
-        }}
-      >
-        <Tab.Screen
-          name="Dashboard"
-          component={DashboardScreen}
-          options={{ title: 'Dashboard', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>📊</Text> }}
-        />
-        <Tab.Screen
-          name="Recommend"
-          component={RecommendScreen}
-          options={{ title: 'Advisory', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🌱</Text> }}
-        />
-        <Tab.Screen
-          name="Market"
-          component={MarketScreen}
-          options={{ title: 'Market', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>📈</Text> }}
-        />
-        <Tab.Screen
-          name="Weather"
-          component={WeatherScreen}
-          options={{ title: 'Weather', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🌤️</Text> }}
-        />
-        <Tab.Screen
-          name="More"
-          component={MoreStack}
-          options={{ headerShown: false, title: 'More', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>☰</Text> }}
-        />
-      </Tab.Navigator>
+      <AppStack.Navigator screenOptions={headerStyle}>
+        {/* Tabs as home */}
+        <AppStack.Screen name="HomeTabs" component={HomeTabs} options={{ headerShown: false }} />
+
+        {/* All secondary screens — accessible from any screen */}
+        <AppStack.Screen name="Crops" component={CropsScreen} options={{ title: '🌾 Crop Library' }} />
+        <AppStack.Screen name="Schemes" component={SchemesScreen} options={{ title: '🏛️ Schemes' }} />
+        <AppStack.Screen name="History" component={HistoryScreen} options={{ title: '📋 History' }} />
+        <AppStack.Screen name="DiseaseDetection" component={DiseaseDetectionScreen} options={{ title: '🔬 Disease Detection' }} />
+        <AppStack.Screen name="FarmMap" component={FarmMapScreen} options={{ title: '🗺️ Farm Map' }} />
+        <AppStack.Screen name="Profile" component={ProfileScreen} options={{ title: '👤 Profile' }} />
+        <AppStack.Screen name="District" component={DistrictScreen} options={{ title: '🗺️ District Profile' }} />
+        <AppStack.Screen name="CreatePost" component={CreatePostScreen} options={{ title: '✏️ New Post' }} />
+        <AppStack.Screen name="PostDetail" component={PostDetailScreen} options={{ title: '💬 Post' }} />
+      </AppStack.Navigator>
       <ChatbotFAB />
     </View>
   );
@@ -117,16 +133,16 @@ function RootNavigator() {
   }
 
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <RootStack.Navigator screenOptions={{ headerShown: false }}>
       {user ? (
-        <Stack.Screen name="Main" component={MainTabs} />
+        <RootStack.Screen name="Main" component={MainNavigator} />
       ) : (
         <>
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Register" component={RegisterScreen} />
+          <RootStack.Screen name="Login" component={LoginScreen} />
+          <RootStack.Screen name="Register" component={RegisterScreen} />
         </>
       )}
-    </Stack.Navigator>
+    </RootStack.Navigator>
   );
 }
 

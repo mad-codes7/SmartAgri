@@ -1,0 +1,1446 @@
+{
+    "Pune": {
+        "division": "Pune",
+        "region": "Western Maharashtra",
+        "dominant_crops": [
+            {
+                "name": "Sugarcane",
+                "hindi_name": "गन्ना",
+                "sowing_months": [
+                    "October",
+                    "November",
+                    "February"
+                ],
+                "harvest_months": [
+                    "December",
+                    "January",
+                    "February"
+                ],
+                "avg_yield_ton_per_acre": 35,
+                "avg_price_per_quintal": 340,
+                "area_lakh_ha": 1.8
+            },
+            {
+                "name": "Wheat",
+                "hindi_name": "गहू",
+                "sowing_months": [
+                    "November",
+                    "December"
+                ],
+                "harvest_months": [
+                    "March",
+                    "April"
+                ],
+                "avg_yield_ton_per_acre": 2.5,
+                "avg_price_per_quintal": 2200,
+                "area_lakh_ha": 0.6
+            },
+            {
+                "name": "Soybean",
+                "hindi_name": "सोयाबीन",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November"
+                ],
+                "avg_yield_ton_per_acre": 1.2,
+                "avg_price_per_quintal": 4400,
+                "area_lakh_ha": 0.9
+            },
+            {
+                "name": "Grapes",
+                "hindi_name": "द्राक्षे",
+                "sowing_months": [
+                    "January",
+                    "February"
+                ],
+                "harvest_months": [
+                    "February",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 8,
+                "avg_price_per_quintal": 4000,
+                "area_lakh_ha": 0.4
+            }
+        ],
+        "soil_types": [
+            "Black (Regur)",
+            "Red-Yellow",
+            "Laterite"
+        ],
+        "irrigation": {
+            "type": "Canal + Well",
+            "coverage_percent": 62,
+            "main_source": "Khadakwasla Dam, Temghar Dam"
+        },
+        "mandis": [
+            {
+                "name": "Pune APMC (Gultekdi)",
+                "commodities": [
+                    "Grapes",
+                    "Tomato",
+                    "Onion",
+                    "Wheat"
+                ],
+                "address": "Gultekdi, Pune - 411037",
+                "contact": "020-24261000",
+                "distance_km": 0,
+                "weekly_volume_crore": 45
+            },
+            {
+                "name": "Baramati APMC",
+                "commodities": [
+                    "Sugarcane",
+                    "Onion",
+                    "Soybean",
+                    "Pomegranate"
+                ],
+                "address": "Baramati, Pune - 413102",
+                "contact": "02112-222366",
+                "distance_km": 80,
+                "weekly_volume_crore": 18
+            },
+            {
+                "name": "Indapur APMC",
+                "commodities": [
+                    "Soybean",
+                    "Bajra",
+                    "Wheat"
+                ],
+                "address": "Indapur, Pune - 413106",
+                "contact": "02111-225050",
+                "distance_km": 95,
+                "weekly_volume_crore": 8
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Pune",
+            "dao_name": "Shri Anil Deshmukh (District Agriculture Officer)",
+            "phone": "020-26136500",
+            "mobile": "9422398700",
+            "email": "dao-pune@mahaagri.gov.in",
+            "address": "Agriculture Department, Pune ZP, Swargate, Pune - 411037",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Baramati",
+                "phone": "02112-244371",
+                "address": "Baramati, Pune"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Grapes",
+                "change_percent": 22,
+                "direction": "up",
+                "detail": "Unseasonal rain reduced supply in Nashik belt"
+            },
+            {
+                "crop": "Onion",
+                "change_percent": 18,
+                "direction": "down",
+                "detail": "New arrivals from Lasalgaon pushing prices down"
+            }
+        ],
+        "agro_climate": "Semi-Arid, 700-800mm rainfall, 25-35°C summer"
+    },
+    "Nashik": {
+        "division": "Nashik",
+        "region": "Northern Maharashtra",
+        "dominant_crops": [
+            {
+                "name": "Onion",
+                "hindi_name": "कांदा",
+                "sowing_months": [
+                    "October",
+                    "January",
+                    "May"
+                ],
+                "harvest_months": [
+                    "January",
+                    "April",
+                    "August"
+                ],
+                "avg_yield_ton_per_acre": 10,
+                "avg_price_per_quintal": 1800,
+                "area_lakh_ha": 2.1
+            },
+            {
+                "name": "Grapes",
+                "hindi_name": "द्राक्षे",
+                "sowing_months": [
+                    "January",
+                    "February"
+                ],
+                "harvest_months": [
+                    "February",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 8,
+                "avg_price_per_quintal": 4500,
+                "area_lakh_ha": 0.9
+            },
+            {
+                "name": "Tomato",
+                "hindi_name": "टमाटर",
+                "sowing_months": [
+                    "June",
+                    "October"
+                ],
+                "harvest_months": [
+                    "September",
+                    "January"
+                ],
+                "avg_yield_ton_per_acre": 12,
+                "avg_price_per_quintal": 1200,
+                "area_lakh_ha": 0.5
+            },
+            {
+                "name": "Wheat",
+                "hindi_name": "गहू",
+                "sowing_months": [
+                    "November",
+                    "December"
+                ],
+                "harvest_months": [
+                    "March",
+                    "April"
+                ],
+                "avg_yield_ton_per_acre": 2.8,
+                "avg_price_per_quintal": 2200,
+                "area_lakh_ha": 0.7
+            }
+        ],
+        "soil_types": [
+            "Medium Black",
+            "Shallow Black",
+            "Alluvial"
+        ],
+        "irrigation": {
+            "type": "Canal + Drip",
+            "coverage_percent": 55,
+            "main_source": "Gangapur Dam, Palkhed Canal"
+        },
+        "mandis": [
+            {
+                "name": "Lasalgaon APMC",
+                "commodities": [
+                    "Onion",
+                    "Tomato",
+                    "Garlic"
+                ],
+                "address": "Lasalgaon, Nashik - 422306",
+                "contact": "02556-284300",
+                "distance_km": 65,
+                "weekly_volume_crore": 80
+            },
+            {
+                "name": "Nashik APMC",
+                "commodities": [
+                    "Grapes",
+                    "Onion",
+                    "Wheat",
+                    "Maize"
+                ],
+                "address": "APMC Market, Nashik - 422001",
+                "contact": "0253-2312000",
+                "distance_km": 0,
+                "weekly_volume_crore": 55
+            },
+            {
+                "name": "Niphad APMC",
+                "commodities": [
+                    "Onion",
+                    "Tomato",
+                    "Grapes"
+                ],
+                "address": "Niphad, Nashik - 422303",
+                "contact": "02550-250222",
+                "distance_km": 45,
+                "weekly_volume_crore": 30
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Nashik",
+            "dao_name": "Shri Vikas Patil (District Agriculture Officer)",
+            "phone": "0253-2577000",
+            "mobile": "9423398800",
+            "email": "dao-nashik@mahaagri.gov.in",
+            "address": "Agriculture Office, New CBS Road, Nashik - 422001",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Igatpuri",
+                "phone": "02553-244200",
+                "address": "Igatpuri, Nashik"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Onion",
+                "change_percent": 35,
+                "direction": "up",
+                "detail": "Lasalgaon export demand surging; stock limited"
+            },
+            {
+                "crop": "Grapes",
+                "change_percent": 12,
+                "direction": "up",
+                "detail": "Early harvest fetch premium in Feb season"
+            }
+        ],
+        "agro_climate": "Semi-Arid, 600-750mm rainfall, Moderate humidity"
+    },
+    "Nagpur": {
+        "division": "Nagpur",
+        "region": "Vidarbha",
+        "dominant_crops": [
+            {
+                "name": "Orange",
+                "hindi_name": "संत्रा",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "November",
+                    "December",
+                    "January"
+                ],
+                "avg_yield_ton_per_acre": 5,
+                "avg_price_per_quintal": 3500,
+                "area_lakh_ha": 1.7
+            },
+            {
+                "name": "Cotton",
+                "hindi_name": "कापूस",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "avg_yield_ton_per_acre": 0.6,
+                "avg_price_per_quintal": 6200,
+                "area_lakh_ha": 2.1
+            },
+            {
+                "name": "Soybean",
+                "hindi_name": "सोयाबीन",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November"
+                ],
+                "avg_yield_ton_per_acre": 1.1,
+                "avg_price_per_quintal": 4400,
+                "area_lakh_ha": 1.3
+            },
+            {
+                "name": "Wheat",
+                "hindi_name": "गहू",
+                "sowing_months": [
+                    "November",
+                    "December"
+                ],
+                "harvest_months": [
+                    "March",
+                    "April"
+                ],
+                "avg_yield_ton_per_acre": 2.2,
+                "avg_price_per_quintal": 2200,
+                "area_lakh_ha": 0.4
+            }
+        ],
+        "soil_types": [
+            "Deep Black (Regur)",
+            "Medium Black"
+        ],
+        "irrigation": {
+            "type": "Well + Bore-well",
+            "coverage_percent": 38,
+            "main_source": "Gorewada, Totladoh Dam"
+        },
+        "mandis": [
+            {
+                "name": "Nagpur APMC (Kalamna)",
+                "commodities": [
+                    "Orange",
+                    "Cotton",
+                    "Soybean",
+                    "Wheat"
+                ],
+                "address": "Kalamna Market Yard, Nagpur - 440035",
+                "contact": "0712-2723100",
+                "distance_km": 0,
+                "weekly_volume_crore": 65
+            },
+            {
+                "name": "Katol APMC",
+                "commodities": [
+                    "Orange",
+                    "Cotton",
+                    "Soybean"
+                ],
+                "address": "Katol, Nagpur - 441302",
+                "contact": "07188-233100",
+                "distance_km": 60,
+                "weekly_volume_crore": 22
+            },
+            {
+                "name": "Hingna APMC",
+                "commodities": [
+                    "Cotton",
+                    "Soybean",
+                    "Vegetables"
+                ],
+                "address": "Hingna, Nagpur - 441110",
+                "contact": "07104-252200",
+                "distance_km": 22,
+                "weekly_volume_crore": 18
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Nagpur",
+            "dao_name": "Shri Ramesh Wankhede (District Agriculture Officer)",
+            "phone": "0712-2560100",
+            "mobile": "9423098500",
+            "email": "dao-nagpur@mahaagri.gov.in",
+            "address": "Agriculture Department, ZP Building, Civil Lines, Nagpur - 440001",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Nagpur (PDKV)",
+                "phone": "0712-2500225",
+                "address": "Seminary Hills, Nagpur"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Orange",
+                "change_percent": 28,
+                "direction": "up",
+                "detail": "Festival demand + low carry-over stock from Katol"
+            },
+            {
+                "crop": "Cotton",
+                "change_percent": 8,
+                "direction": "down",
+                "detail": "CCI procurement at MSP; market softening"
+            }
+        ],
+        "agro_climate": "Hot semi-arid, 1000-1100mm rainfall, high summer temp 45°C"
+    },
+    "Aurangabad": {
+        "division": "Aurangabad",
+        "region": "Marathwada",
+        "dominant_crops": [
+            {
+                "name": "Cotton",
+                "hindi_name": "कापूस",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "avg_yield_ton_per_acre": 0.55,
+                "avg_price_per_quintal": 6200,
+                "area_lakh_ha": 2.5
+            },
+            {
+                "name": "Soybean",
+                "hindi_name": "सोयाबीन",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November"
+                ],
+                "avg_yield_ton_per_acre": 1.0,
+                "avg_price_per_quintal": 4400,
+                "area_lakh_ha": 1.8
+            },
+            {
+                "name": "Corn (Maize)",
+                "hindi_name": "मका",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "September",
+                    "October"
+                ],
+                "avg_yield_ton_per_acre": 2.5,
+                "avg_price_per_quintal": 1900,
+                "area_lakh_ha": 0.8
+            },
+            {
+                "name": "Mosambi (Sweet Lime)",
+                "hindi_name": "मोसंबी",
+                "sowing_months": [
+                    "June"
+                ],
+                "harvest_months": [
+                    "December",
+                    "January",
+                    "February"
+                ],
+                "avg_yield_ton_per_acre": 4,
+                "avg_price_per_quintal": 2800,
+                "area_lakh_ha": 0.5
+            }
+        ],
+        "soil_types": [
+            "Medium Black",
+            "Shallow Black",
+            "Red Laterite"
+        ],
+        "irrigation": {
+            "type": "Well + Bore-well (limited)",
+            "coverage_percent": 28,
+            "main_source": "Jayakwadi Dam (Nathsagar)"
+        },
+        "mandis": [
+            {
+                "name": "Aurangabad APMC",
+                "commodities": [
+                    "Cotton",
+                    "Soybean",
+                    "Jowar",
+                    "Mosambi"
+                ],
+                "address": "APMC Market, Garkheda, Aurangabad - 431005",
+                "contact": "0240-2369000",
+                "distance_km": 0,
+                "weekly_volume_crore": 35
+            },
+            {
+                "name": "Gangapur APMC",
+                "commodities": [
+                    "Soybean",
+                    "Cotton",
+                    "Maize"
+                ],
+                "address": "Gangapur, Aurangabad - 431109",
+                "contact": "02437-222150",
+                "distance_km": 48,
+                "weekly_volume_crore": 12
+            },
+            {
+                "name": "Paithan APMC",
+                "commodities": [
+                    "Jowar",
+                    "Cotton",
+                    "Mosambi"
+                ],
+                "address": "Paithan, Aurangabad - 431107",
+                "contact": "02431-222580",
+                "distance_km": 55,
+                "weekly_volume_crore": 9
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Aurangabad",
+            "dao_name": "Shri Santosh Bhosale (District Agriculture Officer)",
+            "phone": "0240-2363900",
+            "mobile": "9421098600",
+            "email": "dao-aurangabad@mahaagri.gov.in",
+            "address": "Agriculture Office, ZP Campus, Station Road, Aurangabad - 431001",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Aurangabad (VNMKV)",
+                "phone": "0240-2400285",
+                "address": "Parbhani Road, Aurangabad"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Soybean",
+                "change_percent": 15,
+                "direction": "up",
+                "detail": "Crushing demand at Latur oil mills driving prices"
+            },
+            {
+                "crop": "Cotton",
+                "change_percent": 5,
+                "direction": "up",
+                "detail": "Pink bollworm pressure reduced; quality improved"
+            }
+        ],
+        "agro_climate": "Drought-prone, 600-800mm rainfall, irrigation critical"
+    },
+    "Kolhapur": {
+        "division": "Pune",
+        "region": "Western Maharashtra",
+        "dominant_crops": [
+            {
+                "name": "Sugarcane",
+                "hindi_name": "ऊस",
+                "sowing_months": [
+                    "October",
+                    "November",
+                    "February"
+                ],
+                "harvest_months": [
+                    "December",
+                    "January",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 45,
+                "avg_price_per_quintal": 340,
+                "area_lakh_ha": 2.2
+            },
+            {
+                "name": "Rice",
+                "hindi_name": "तांदूळ",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November"
+                ],
+                "avg_yield_ton_per_acre": 2.2,
+                "avg_price_per_quintal": 2200,
+                "area_lakh_ha": 0.6
+            },
+            {
+                "name": "Soybean",
+                "hindi_name": "सोयाबीन",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October"
+                ],
+                "avg_yield_ton_per_acre": 1.0,
+                "avg_price_per_quintal": 4400,
+                "area_lakh_ha": 0.7
+            },
+            {
+                "name": "Groundnut",
+                "hindi_name": "भुईमूग",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "September",
+                    "October"
+                ],
+                "avg_yield_ton_per_acre": 1.5,
+                "avg_price_per_quintal": 5200,
+                "area_lakh_ha": 0.5
+            }
+        ],
+        "soil_types": [
+            "Laterite",
+            "Red-Yellow",
+            "Medium Black"
+        ],
+        "irrigation": {
+            "type": "Canal (Koyna Project)",
+            "coverage_percent": 72,
+            "main_source": "Koyna Dam, Warna Dam"
+        },
+        "mandis": [
+            {
+                "name": "Kolhapur APMC",
+                "commodities": [
+                    "Sugarcane",
+                    "Groundnut",
+                    "Rice",
+                    "Jaggery"
+                ],
+                "address": "Market Yard, Kolhapur - 416005",
+                "contact": "0231-2523600",
+                "distance_km": 0,
+                "weekly_volume_crore": 30
+            },
+            {
+                "name": "Ichalkaranji APMC",
+                "commodities": [
+                    "Soybean",
+                    "Groundnut",
+                    "Vegetables"
+                ],
+                "address": "Ichalkaranji, Kolhapur - 416115",
+                "contact": "0230-2422100",
+                "distance_km": 30,
+                "weekly_volume_crore": 14
+            },
+            {
+                "name": "Kagal APMC",
+                "commodities": [
+                    "Sugarcane",
+                    "Soybean"
+                ],
+                "address": "Kagal, Kolhapur - 416216",
+                "contact": "02325-222050",
+                "distance_km": 25,
+                "weekly_volume_crore": 10
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Kolhapur",
+            "dao_name": "Shri Pramod Jadhav (District Agriculture Officer)",
+            "phone": "0231-2640500",
+            "mobile": "9404798700",
+            "email": "dao-kolhapur@mahaagri.gov.in",
+            "address": "Agriculture Office, ZP, Tarabai Park, Kolhapur - 416003",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Kolhapur",
+                "phone": "0231-2693500",
+                "address": "Ujlaiwadi, Kolhapur"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Sugarcane",
+                "change_percent": 0,
+                "direction": "stable",
+                "detail": "FRP fixed at ₹340/quintal; no major change expected"
+            },
+            {
+                "crop": "Groundnut",
+                "change_percent": 10,
+                "direction": "up",
+                "detail": "Export demand from Gujarat traders improving prices"
+            }
+        ],
+        "agro_climate": "Sub-humid, 600-5000mm rainfall (varies), fertile Deccan Lava soils"
+    },
+    "Solapur": {
+        "division": "Pune",
+        "region": "Southern Maharashtra",
+        "dominant_crops": [
+            {
+                "name": "Soybean",
+                "hindi_name": "सोयाबीन",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November"
+                ],
+                "avg_yield_ton_per_acre": 1.0,
+                "avg_price_per_quintal": 4400,
+                "area_lakh_ha": 1.6
+            },
+            {
+                "name": "Sugarcane",
+                "hindi_name": "ऊस",
+                "sowing_months": [
+                    "October",
+                    "November"
+                ],
+                "harvest_months": [
+                    "January",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 38,
+                "avg_price_per_quintal": 340,
+                "area_lakh_ha": 1.1
+            },
+            {
+                "name": "Pomegranate",
+                "hindi_name": "डाळिंब",
+                "sowing_months": [
+                    "June"
+                ],
+                "harvest_months": [
+                    "January",
+                    "February",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 6,
+                "avg_price_per_quintal": 6000,
+                "area_lakh_ha": 0.4
+            },
+            {
+                "name": "Jowar",
+                "hindi_name": "ज्वारी",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October"
+                ],
+                "avg_yield_ton_per_acre": 1.0,
+                "avg_price_per_quintal": 2800,
+                "area_lakh_ha": 0.9
+            }
+        ],
+        "soil_types": [
+            "Medium Black",
+            "Shallow Black",
+            "Deep Black"
+        ],
+        "irrigation": {
+            "type": "Lift irrigation + Well",
+            "coverage_percent": 34,
+            "main_source": "Ujni Dam"
+        },
+        "mandis": [
+            {
+                "name": "Solapur APMC",
+                "commodities": [
+                    "Soybean",
+                    "Jowar",
+                    "Pomegranate",
+                    "Sugarcane"
+                ],
+                "address": "APMC Market Yard, Solapur - 413006",
+                "contact": "0217-2300000",
+                "distance_km": 0,
+                "weekly_volume_crore": 25
+            },
+            {
+                "name": "Pandharpur APMC",
+                "commodities": [
+                    "Jowar",
+                    "Soybean",
+                    "Onion"
+                ],
+                "address": "Pandharpur, Solapur - 413304",
+                "contact": "02186-222550",
+                "distance_km": 70,
+                "weekly_volume_crore": 11
+            },
+            {
+                "name": "Mohol APMC",
+                "commodities": [
+                    "Soybean",
+                    "Jowar",
+                    "Cotton"
+                ],
+                "address": "Mohol, Solapur - 413213",
+                "contact": "02185-222200",
+                "distance_km": 40,
+                "weekly_volume_crore": 8
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Solapur",
+            "dao_name": "Shri Kiran Mane (District Agriculture Officer)",
+            "phone": "0217-2728500",
+            "mobile": "9421598700",
+            "email": "dao-solapur@mahaagri.gov.in",
+            "address": "Agriculture Department, ZP Campus, Solapur - 413007",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Solapur",
+                "phone": "0217-2346000",
+                "address": "Arjunwad Farm, Solapur"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Pomegranate",
+                "change_percent": 20,
+                "direction": "up",
+                "detail": "Bhagwa variety in high demand; Sangli exports up"
+            },
+            {
+                "crop": "Soybean",
+                "change_percent": 7,
+                "direction": "down",
+                "detail": "Arrival pressure from Marathwada post-rabi harvest"
+            }
+        ],
+        "agro_climate": "Drought-prone, 450-600mm rainfall, water-scarce zone"
+    },
+    "Latur": {
+        "division": "Aurangabad",
+        "region": "Marathwada",
+        "dominant_crops": [
+            {
+                "name": "Soybean",
+                "hindi_name": "सोयाबीन",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November"
+                ],
+                "avg_yield_ton_per_acre": 0.9,
+                "avg_price_per_quintal": 4400,
+                "area_lakh_ha": 1.9
+            },
+            {
+                "name": "Tur (Pigeon Pea)",
+                "hindi_name": "तूर दाळ",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "December",
+                    "January"
+                ],
+                "avg_yield_ton_per_acre": 0.6,
+                "avg_price_per_quintal": 7000,
+                "area_lakh_ha": 1.2
+            },
+            {
+                "name": "Cotton",
+                "hindi_name": "कापूस",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "avg_yield_ton_per_acre": 0.5,
+                "avg_price_per_quintal": 6200,
+                "area_lakh_ha": 0.9
+            },
+            {
+                "name": "Chana (Chickpea)",
+                "hindi_name": "हरभरा",
+                "sowing_months": [
+                    "October",
+                    "November"
+                ],
+                "harvest_months": [
+                    "February",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 0.7,
+                "avg_price_per_quintal": 5200,
+                "area_lakh_ha": 0.8
+            }
+        ],
+        "soil_types": [
+            "Deep Black",
+            "Medium Black"
+        ],
+        "irrigation": {
+            "type": "Bore-well (critical)",
+            "coverage_percent": 22,
+            "main_source": "Manjara Dam"
+        },
+        "mandis": [
+            {
+                "name": "Latur APMC",
+                "commodities": [
+                    "Soybean",
+                    "Tur",
+                    "Cotton",
+                    "Chana"
+                ],
+                "address": "APMC Market, Latur - 413512",
+                "contact": "02382-253000",
+                "distance_km": 0,
+                "weekly_volume_crore": 28
+            },
+            {
+                "name": "Nilanga APMC",
+                "commodities": [
+                    "Soybean",
+                    "Tur",
+                    "Jowar"
+                ],
+                "address": "Nilanga, Latur - 413521",
+                "contact": "02384-222100",
+                "distance_km": 55,
+                "weekly_volume_crore": 10
+            },
+            {
+                "name": "Udgir APMC",
+                "commodities": [
+                    "Soybean",
+                    "Cotton",
+                    "Chana"
+                ],
+                "address": "Udgir, Latur - 413517",
+                "contact": "02385-270100",
+                "distance_km": 65,
+                "weekly_volume_crore": 13
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Latur",
+            "dao_name": "Shri Mohan Kulkarni (District Agriculture Officer)",
+            "phone": "02382-254500",
+            "mobile": "9420798600",
+            "email": "dao-latur@mahaagri.gov.in",
+            "address": "Agriculture Office, ZP Road, Latur - 413512",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Latur (VNMKV)",
+                "phone": "02382-245400",
+                "address": "Udgir Road, Latur"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Tur (Pigeon Pea)",
+                "change_percent": 18,
+                "direction": "up",
+                "detail": "NAFED procurement at Latur; dal mills active"
+            },
+            {
+                "crop": "Soybean",
+                "change_percent": 6,
+                "direction": "up",
+                "detail": "Oil crushing demand boosted by export enquiries"
+            }
+        ],
+        "agro_climate": "Water-scarce, 600-700mm rainfall, earthquake-prone zone"
+    },
+    "Amravati": {
+        "division": "Amravati",
+        "region": "Vidarbha",
+        "dominant_crops": [
+            {
+                "name": "Cotton",
+                "hindi_name": "कापूस",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "avg_yield_ton_per_acre": 0.55,
+                "avg_price_per_quintal": 6200,
+                "area_lakh_ha": 3.2
+            },
+            {
+                "name": "Soybean",
+                "hindi_name": "सोयाबीन",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October"
+                ],
+                "avg_yield_ton_per_acre": 0.9,
+                "avg_price_per_quintal": 4400,
+                "area_lakh_ha": 1.5
+            },
+            {
+                "name": "Orange",
+                "hindi_name": "संत्रा",
+                "sowing_months": [
+                    "June"
+                ],
+                "harvest_months": [
+                    "November",
+                    "December"
+                ],
+                "avg_yield_ton_per_acre": 4,
+                "avg_price_per_quintal": 3200,
+                "area_lakh_ha": 0.7
+            },
+            {
+                "name": "Tur (Pigeon Pea)",
+                "hindi_name": "तूर",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "December",
+                    "January"
+                ],
+                "avg_yield_ton_per_acre": 0.55,
+                "avg_price_per_quintal": 7000,
+                "area_lakh_ha": 0.6
+            }
+        ],
+        "soil_types": [
+            "Deep Black",
+            "Medium Black"
+        ],
+        "irrigation": {
+            "type": "Well + Canal",
+            "coverage_percent": 30,
+            "main_source": "Wan Dam, Upper Wardha Dam"
+        },
+        "mandis": [
+            {
+                "name": "Amravati APMC",
+                "commodities": [
+                    "Cotton",
+                    "Soybean",
+                    "Tur",
+                    "Orange"
+                ],
+                "address": "APMC Market Yard, Amravati - 444601",
+                "contact": "0721-2561000",
+                "distance_km": 0,
+                "weekly_volume_crore": 38
+            },
+            {
+                "name": "Achalpur APMC",
+                "commodities": [
+                    "Cotton",
+                    "Soybean",
+                    "Orange"
+                ],
+                "address": "Achalpur, Amravati - 444806",
+                "contact": "07220-222200",
+                "distance_km": 45,
+                "weekly_volume_crore": 15
+            },
+            {
+                "name": "Warud APMC",
+                "commodities": [
+                    "Orange",
+                    "Cotton",
+                    "Vegetables"
+                ],
+                "address": "Warud, Amravati - 444906",
+                "contact": "07223-232100",
+                "distance_km": 80,
+                "weekly_volume_crore": 12
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Amravati",
+            "dao_name": "Smt. Anita Narkhede (District Agriculture Officer)",
+            "phone": "0721-2663500",
+            "mobile": "9423598800",
+            "email": "dao-amravati@mahaagri.gov.in",
+            "address": "Agriculture Office, Irwin Square, Amravati - 444601",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Amravati (PDKV)",
+                "phone": "0721-2530045",
+                "address": "Morshi Road, Amravati"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Cotton",
+                "change_percent": 4,
+                "direction": "up",
+                "detail": "Spinning mills from Surat procuring aggressively"
+            },
+            {
+                "crop": "Orange",
+                "change_percent": 25,
+                "direction": "up",
+                "detail": "Warud orange flush season; demand from cold storage"
+            }
+        ],
+        "agro_climate": "Hot semi-arid, 900-1000mm rainfall, high farmer distress zone"
+    },
+    "Sangli": {
+        "division": "Pune",
+        "region": "Western Maharashtra",
+        "dominant_crops": [
+            {
+                "name": "Sugarcane",
+                "hindi_name": "ऊस",
+                "sowing_months": [
+                    "October",
+                    "November",
+                    "February"
+                ],
+                "harvest_months": [
+                    "December",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 42,
+                "avg_price_per_quintal": 340,
+                "area_lakh_ha": 1.5
+            },
+            {
+                "name": "Turmeric",
+                "hindi_name": "हळद",
+                "sowing_months": [
+                    "May",
+                    "June"
+                ],
+                "harvest_months": [
+                    "January",
+                    "February",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 4,
+                "avg_price_per_quintal": 8000,
+                "area_lakh_ha": 0.4
+            },
+            {
+                "name": "Grapes",
+                "hindi_name": "द्राक्षे",
+                "sowing_months": [
+                    "January"
+                ],
+                "harvest_months": [
+                    "February",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 8,
+                "avg_price_per_quintal": 4200,
+                "area_lakh_ha": 0.3
+            },
+            {
+                "name": "Pomegranate",
+                "hindi_name": "डाळिंब",
+                "sowing_months": [
+                    "June"
+                ],
+                "harvest_months": [
+                    "January",
+                    "February"
+                ],
+                "avg_yield_ton_per_acre": 5,
+                "avg_price_per_quintal": 6000,
+                "area_lakh_ha": 0.3
+            }
+        ],
+        "soil_types": [
+            "Medium Black",
+            "Deep Black",
+            "Laterite"
+        ],
+        "irrigation": {
+            "type": "Canal (Krishna Project)",
+            "coverage_percent": 68,
+            "main_source": "Koyna Project, Warna Dam"
+        },
+        "mandis": [
+            {
+                "name": "Sangli APMC (Turmeric Market)",
+                "commodities": [
+                    "Turmeric",
+                    "Grapes",
+                    "Sugarcane",
+                    "Pomegranate"
+                ],
+                "address": "APMC Market Yard, Sangli - 416416",
+                "contact": "0233-2373100",
+                "distance_km": 0,
+                "weekly_volume_crore": 40
+            },
+            {
+                "name": "Miraj APMC",
+                "commodities": [
+                    "Turmeric",
+                    "Sugarcane",
+                    "Vegetables"
+                ],
+                "address": "Miraj, Sangli - 416410",
+                "contact": "0233-2222500",
+                "distance_km": 10,
+                "weekly_volume_crore": 15
+            },
+            {
+                "name": "Tasgaon APMC",
+                "commodities": [
+                    "Grapes",
+                    "Pomegranate",
+                    "Onion"
+                ],
+                "address": "Tasgaon, Sangli - 416312",
+                "contact": "02346-220200",
+                "distance_km": 40,
+                "weekly_volume_crore": 12
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Sangli",
+            "dao_name": "Shri Balasaheb Patil (District Agriculture Officer)",
+            "phone": "0233-2372500",
+            "mobile": "9421598900",
+            "email": "dao-sangli@mahaagri.gov.in",
+            "address": "Agriculture Office, Miraj Road, Sangli - 416416",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Sangli",
+                "phone": "0233-2611200",
+                "address": "MPKV Campus, Miraj, Sangli"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Turmeric",
+                "change_percent": 40,
+                "direction": "up",
+                "detail": "Sangli market turnover at all-time high; export demand from USA/UK"
+            },
+            {
+                "crop": "Grapes",
+                "change_percent": 14,
+                "direction": "up",
+                "detail": "Overseas export quality fetching ₹80-100/kg at auction"
+            }
+        ],
+        "agro_climate": "Fertile Krishna basin, 400-700mm rainfall, irrigated belt"
+    },
+    "Satara": {
+        "division": "Pune",
+        "region": "Western Maharashtra",
+        "dominant_crops": [
+            {
+                "name": "Sugarcane",
+                "hindi_name": "ऊस",
+                "sowing_months": [
+                    "October",
+                    "November"
+                ],
+                "harvest_months": [
+                    "December",
+                    "March"
+                ],
+                "avg_yield_ton_per_acre": 40,
+                "avg_price_per_quintal": 340,
+                "area_lakh_ha": 1.3
+            },
+            {
+                "name": "Strawberry",
+                "hindi_name": "स्ट्रॉबेरी",
+                "sowing_months": [
+                    "August",
+                    "September"
+                ],
+                "harvest_months": [
+                    "December",
+                    "January",
+                    "February"
+                ],
+                "avg_yield_ton_per_acre": 3,
+                "avg_price_per_quintal": 15000,
+                "area_lakh_ha": 0.1
+            },
+            {
+                "name": "Soybean",
+                "hindi_name": "सोयाबीन",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October"
+                ],
+                "avg_yield_ton_per_acre": 1.0,
+                "avg_price_per_quintal": 4400,
+                "area_lakh_ha": 0.8
+            },
+            {
+                "name": "Rice",
+                "hindi_name": "तांदूळ",
+                "sowing_months": [
+                    "June",
+                    "July"
+                ],
+                "harvest_months": [
+                    "October",
+                    "November"
+                ],
+                "avg_yield_ton_per_acre": 2.0,
+                "avg_price_per_quintal": 2200,
+                "area_lakh_ha": 0.4
+            }
+        ],
+        "soil_types": [
+            "Laterite",
+            "Red-Yellow",
+            "Medium Black"
+        ],
+        "irrigation": {
+            "type": "Canal + Dam",
+            "coverage_percent": 58,
+            "main_source": "Koyna Dam, Dhom Dam"
+        },
+        "mandis": [
+            {
+                "name": "Satara APMC",
+                "commodities": [
+                    "Sugarcane",
+                    "Soybean",
+                    "Strawberry",
+                    "Vegetables"
+                ],
+                "address": "Market Yard, Satara - 415001",
+                "contact": "02162-283000",
+                "distance_km": 0,
+                "weekly_volume_crore": 20
+            },
+            {
+                "name": "Karad APMC",
+                "commodities": [
+                    "Sugarcane",
+                    "Soybean",
+                    "Drumstick"
+                ],
+                "address": "Karad, Satara - 415110",
+                "contact": "02164-222800",
+                "distance_km": 60,
+                "weekly_volume_crore": 14
+            },
+            {
+                "name": "Phaltan APMC",
+                "commodities": [
+                    "Soybean",
+                    "Vegetables",
+                    "Strawberry"
+                ],
+                "address": "Phaltan, Satara - 415523",
+                "contact": "02166-222500",
+                "distance_km": 50,
+                "weekly_volume_crore": 8
+            }
+        ],
+        "krishi_vibhag": {
+            "office": "Zilla Parishad Agriculture Department, Satara",
+            "dao_name": "Shri Sanjay Gore (District Agriculture Officer)",
+            "phone": "02162-284500",
+            "mobile": "9422198600",
+            "email": "dao-satara@mahaagri.gov.in",
+            "address": "Agriculture Office, ZP Satara - 415001",
+            "office_hours": "Mon-Sat, 10:00 AM - 5:30 PM",
+            "kvk": {
+                "name": "KVK Satara",
+                "phone": "02162-241400",
+                "address": "Umbraj, Karad, Satara"
+            }
+        },
+        "price_alerts": [
+            {
+                "crop": "Strawberry",
+                "change_percent": 30,
+                "direction": "up",
+                "detail": "Mahabaleshwar strawberry season peak; Mumbai retail demand up"
+            },
+            {
+                "crop": "Sugarcane",
+                "change_percent": 0,
+                "direction": "stable",
+                "detail": "FRP ₹340/qt fixed; factory crushing on schedule"
+            }
+        ],
+        "agro_climate": "Humid subtropical, 600-6000mm (varies east-west), Sahyadri foothills"
+    }
+}

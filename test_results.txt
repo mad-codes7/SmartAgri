@@ -1,0 +1,35 @@
+
+======================================================================
+STATUS METHOD ENDPOINT                                   CODE  DETAIL
+======================================================================
+XX FAIL  GET    /health                                    404  Not Found
+OK PASS  GET    /                                          200  
+XX FAIL  POST   /api/auth/register                         400  Email already registered
+OK PASS  POST   /api/auth/login                            200  token=yes
+OK PASS  GET    /api/auth/me                               200  
+OK PASS  GET    /api/market/prices                         200  
+OK PASS  GET    /api/market/prices                         200  
+OK PASS  GET    /api/market/prices                         200  
+OK PASS  GET    /api/market/trends/wheat                   200  
+OK PASS  GET    /api/market/volatility/wheat               200  
+OK PASS  GET    /api/market/top-gainers                    200  
+OK PASS  GET    /api/market/top-losers                     200  
+OK PASS  GET    /api/market/forecast/wheat                 200  
+OK PASS  GET    /api/weather/current                       200  
+OK PASS  GET    /api/crops/                                200  
+OK PASS  GET    /api/schemes/                              200  
+XX FAIL  POST   /api/recommend/                            422  [{'type': 'missing', 'loc': ['body', 'land_size_acres'], 'msg': 'Field required', 'input': {'state': 'Maharashtra', 'district': 'Pune', 'season': 'kharif', 'soil_type': 'black'}}, {'type': 'missing', 'loc': ['body', 'soil'], 'msg': 'Field required', 'input': {'state': 'Maharashtra', 'district': 'Pune', 'season': 'kharif', 'soil_type': 'black'}}, {'type': 'missing', 'loc': ['body', 'weather'], 'msg': 'Field required', 'input': {'state': 'Maharashtra', 'district': 'Pune', 'season': 'kharif', 'soil_type': 'black'}}]
+OK PASS  GET    /api/history/                              200  
+OK PASS  GET    /api/history/stats                         200  
+OK PASS  GET    /api/districts/list                        200  
+OK PASS  GET    /api/districts/profile                     200  
+OK PASS  GET    /api/districts/mandis                      200  
+OK PASS  GET    /api/districts/alerts                      200  
+OK PASS  GET    /api/districts/krishi-vibhag               200  
+OK PASS  GET    /api/community/posts                       200  
+OK PASS  POST   /api/community/posts                       201  
+OK PASS  GET    /api/community/my-posts                    200  
+XX FAIL  GET    /api/disease/history                       404  Not Found
+XX FAIL  POST   /api/chatbot/message                       404  Not Found
+
+Total: 29 | Pass: 24 | Fail: 5 | Error: 0

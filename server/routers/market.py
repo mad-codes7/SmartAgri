@@ -12,11 +12,12 @@ router = APIRouter(prefix="/api/market", tags=["Market Data"])
 @router.get("/prices")
 async def list_prices(
     state: str = Query(None),
+    district: str = Query(None),
     user_id: int = Depends(get_current_user_id),
 ):
-    """Get latest mandi prices for all commodities, optionally filtered by state."""
+    """Get latest mandi prices for all commodities, optionally filtered by state/district."""
     service = get_market_service()
-    prices = service.get_all_prices(state)
+    prices = service.get_all_prices(state, district)
     for p in prices:
         if "date" in p and hasattr(p["date"], "strftime"):
             p["date"] = p["date"].strftime("%Y-%m-%d")

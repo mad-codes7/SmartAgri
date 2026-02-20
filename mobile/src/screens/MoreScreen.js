@@ -12,11 +12,12 @@ export default function MoreScreen({ navigation }) {
     const { t, lang, changeLang, LANGUAGES } = useLang();
 
     const ITEMS = [
+        { name: 'District', icon: '🗺️', label: 'My District Profile', desc: `Crops, mandis, price alerts & Krishi Vibhag for ${user?.district || 'your district'}` },
         { name: 'Crops', icon: '🌾', label: t.nav_crops || 'Crop Library', desc: 'Explore crops with growing guides' },
         { name: 'Schemes', icon: '🏛️', label: t.nav_schemes || 'Schemes', desc: 'Government subsidies & schemes' },
         { name: 'History', icon: '📋', label: t.nav_history || 'History', desc: 'Past crop advisory sessions' },
         { name: 'DiseaseDetection', icon: '🔬', label: t.nav_disease || 'Disease Detection', desc: 'Scan crop leaves for disease' },
-        { name: 'FarmMap', icon: '🗺️', label: t.nav_map || 'Farm Map', desc: 'Crop zones & nearby mandis' },
+        { name: 'FarmMap', icon: '🌍', label: t.nav_map || 'Farm Map', desc: 'Crop zones & nearby mandis' },
         { name: 'Profile', icon: '👤', label: t.profile || 'Profile', desc: 'Manage your account details' },
     ];
 

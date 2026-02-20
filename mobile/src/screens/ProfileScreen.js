@@ -17,6 +17,18 @@ const STATES = [
     'Kerala', 'Bihar', 'Andhra Pradesh', 'Telangana', 'Odisha',
 ];
 
+// All 36 official Maharashtra districts
+const MH_DISTRICTS = [
+    'Ahmednagar', 'Akola', 'Amravati', 'Aurangabad', 'Beed',
+    'Bhandara', 'Buldhana', 'Chandrapur', 'Dhule', 'Gadchiroli',
+    'Gondia', 'Hingoli', 'Jalgaon', 'Jalna', 'Kolhapur',
+    'Latur', 'Mumbai City', 'Mumbai Suburban', 'Nagpur', 'Nanded',
+    'Nandurbar', 'Nashik', 'Osmanabad', 'Palghar', 'Parbhani',
+    'Pune', 'Raigad', 'Ratnagiri', 'Sangli', 'Satara',
+    'Sindhudurg', 'Solapur', 'Thane', 'Wardha', 'Washim', 'Yavatmal',
+];
+
+
 export default function ProfileScreen() {
     const { user, setUser } = useAuth();
     const { t } = useLang();
@@ -35,7 +47,14 @@ export default function ProfileScreen() {
         api.get('/history/stats').then((r) => setStats(r.data)).catch(() => { });
     }, []);
 
-    const update = (f, v) => setForm({ ...form, [f]: v });
+    const update = (field, value) => {
+        const updates = { [field]: value };
+        // Auto-clear district when switching away from Maharashtra
+        if (field === 'state' && value !== 'Maharashtra') {
+            updates.district = '';
+        }
+        setForm(prev => ({ ...prev, ...updates }));
+    };
 
     const handleSave = async () => {
         setSaving(true);
@@ -159,13 +178,35 @@ export default function ProfileScreen() {
                         )}
                     </View>
                     <View style={{ flex: 1 }}>
-                        <Text style={SHARED.formLabel}>{t.district}</Text>
-                        <TextInput
-                            style={[SHARED.formInput, !editing && styles.disabledInput]}
-                            value={form.district}
-                            onChangeText={(v) => update('district', v)}
-                            editable={editing}
-                        />
+                        <Text style={SHARED.formLabel}>
+                            {t.district}
+                            {form.state === 'Maharashtra' && (
+                                <Text style={{ fontSize: 10, color: COLORS.green600, fontWeight: '700' }}> ✦ MH</Text>
+                            )}
+                        </Text>
+                        {editing && form.state === 'Maharashtra' ? (
+                            <View style={styles.pickerWrap}>
+                                <Picker
+                                    selectedValue={form.district}
+                                    onValueChange={(v) => update('district', v)}
+                                    style={{ height: 50 }}
+                                >
+                                    <Picker.Item label="Select District" value="" />
+                                    {MH_DISTRICTS.map((d) => (
+                                        <Picker.Item key={d} label={d} value={d} />
+                                    ))}
+                                </Picker>
+                            </View>
+                        ) : (
+                            <TextInput
+                                style={[SHARED.formInput, !editing && styles.disabledInput]}
+                                value={form.district}
+                                onChangeText={(v) => update('district', v)}
+                                editable={editing && form.state !== 'Maharashtra'}
+                                placeholder={form.state === 'Maharashtra' ? 'Tap Edit to choose district' : 'Enter district'}
+                                placeholderTextColor={COLORS.gray400}
+                            />
+                        )}
                     </View>
                 </View>
 
@@ -187,7 +228,12 @@ export default function ProfileScreen() {
                 )}
                 {saved && !editing && (
                     <View style={styles.savedBanner}>
-                        <Text style={{ color: COLORS.green700, fontWeight: '600', fontSize: 13 }}>✓ {t.saved}</Text>
+                        <Text style={{ color: COLORS.green700, fontWeight: '700', fontSize: 13 }}>✅ Profile saved!</Text>
+                        {user?.state === 'Maharashtra' && user?.district ? (
+                            <Text style={{ color: COLORS.green600, fontSize: 12, marginTop: 4 }}>
+                                🗺️ Personalized for <Text style={{ fontWeight: '700' }}>{user.district}</Text> district — crops, mandis, alerts & Krishi Vibhag updated!
+                            </Text>
+                        ) : null}
                     </View>
                 )}
             </View>

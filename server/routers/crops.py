@@ -4,8 +4,10 @@ Crop encyclopedia, search, nutrient profiles, calendar.
 """
 import json
 import os
-from fastapi import APIRouter, Query, HTTPException
+from datetime import datetime
+from fastapi import APIRouter, Query, HTTPException, Depends
 from typing import Optional, List
+from utils.security import get_current_user_id
 
 router = APIRouter(prefix="/api/crops", tags=["Crop Library"])
 
@@ -17,6 +19,21 @@ with open(os.path.join(DATA_DIR, "crop_encyclopedia.json"), "r", encoding="utf-8
     CROPS = json.load(f)
 CROP_BY_ID = {c["id"]: c for c in CROPS}
 CROP_BY_NAME = {c["name"].lower(): c for c in CROPS}
+
+# Load regional crop mapping
+with open(os.path.join(DATA_DIR, "regional_crops.json"), "r", encoding="utf-8") as f:
+    REGIONAL_CROPS = json.load(f)
+
+
+def _current_season() -> str:
+    """Determine the Indian farming season from the current month."""
+    month = datetime.now().month
+    if month in (6, 7, 8, 9, 10):
+        return "Kharif"
+    elif month in (11, 12, 1, 2, 3):
+        return "Rabi"
+    else:
+        return "Summer"
 
 
 @router.get("/")
@@ -54,6 +71,71 @@ async def list_crops(
         "page": page,
         "per_page": per_page,
         "total_pages": (total + per_page - 1) // per_page,
+    }
+
+
+@router.get("/regional")
+async def get_regional_crops(
+    state: str = Query(..., description="User's state, e.g. Maharashtra"),
+    district: Optional[str] = Query(None, description="User's district, e.g. Pune"),
+    user_id: int = Depends(get_current_user_id),
+):
+    """Return crops grown in the user's state/district this season, enriched with encyclopedia data."""
+    season = _current_season()
+    state_data = REGIONAL_CROPS.get(state)
+    if not state_data:
+        # Fallback: return crops from encyclopedia matching the current season
+        fallback = [c for c in CROPS if season in c.get("seasons", [])][:6]
+        return {
+            "season": season,
+            "state": state,
+            "district": district,
+            "source": "encyclopedia_fallback",
+            "crops": [
+                {
+                    "name": c["name"],
+                    "hindi_name": c.get("hindi_name"),
+                    "growth_days": c.get("growth_days"),
+                    "seasons": c.get("seasons", []),
+                    "soil_types": c.get("soil_types", []),
+                    "avg_cost_per_hectare": c.get("avg_cost_per_hectare"),
+                    "cultivation_tips": c.get("cultivation_tips", [])[:2],
+                }
+                for c in fallback
+            ],
+            "soil_types": [],
+        }
+
+    # Try district-specific data first, fall back to state defaults
+    region = state_data.get(district, state_data.get("_default", {}))
+    crop_names = region.get(season, [])
+    soil_types = region.get("soil_types", [])
+
+    # Enrich with encyclopedia details
+    enriched = []
+    for name in crop_names:
+        enc = CROP_BY_NAME.get(name.lower())
+        if enc:
+            enriched.append({
+                "name": enc["name"],
+                "hindi_name": enc.get("hindi_name"),
+                "growth_days": enc.get("growth_days"),
+                "seasons": enc.get("seasons", []),
+                "soil_types": enc.get("soil_types", []),
+                "avg_cost_per_hectare": enc.get("avg_cost_per_hectare"),
+                "cultivation_tips": enc.get("cultivation_tips", [])[:2],
+                "pest_info": enc.get("pest_info", [])[:2],
+            })
+        else:
+            enriched.append({"name": name, "hindi_name": None, "growth_days": None, "seasons": [season], "soil_types": [], "avg_cost_per_hectare": None, "cultivation_tips": [], "pest_info": []})
+
+    return {
+        "season": season,
+        "state": state,
+        "district": district,
+        "source": "regional_data",
+        "crops": enriched,
+        "soil_types": soil_types,
     }
 
 

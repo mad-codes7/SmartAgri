@@ -22,7 +22,9 @@ export const COLORS = {
 
     amber50: '#fffbeb',
     amber100: '#fef3c7',
+    amber200: '#fde68a',
     amber500: '#f59e0b',
+    amber700: '#b45309',
 
     purple50: '#f5f3ff',
     purple100: '#ede9fe',
