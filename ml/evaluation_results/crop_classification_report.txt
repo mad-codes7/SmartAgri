@@ -1,0 +1,45 @@
+Crop Recommendation Model - Classification Report
+============================================================
+Accuracy: 99.2% | F1 (weighted): 0.9915
+Classes: 33 | Test samples: 594
+============================================================
+
+              precision    recall  f1-score   support
+
+       apple       1.00      1.00      1.00        18
+       bajra       1.00      1.00      1.00        18
+      banana       1.00      1.00      1.00        18
+   blackgram       1.00      1.00      1.00        18
+    chickpea       1.00      1.00      1.00        18
+      chilli       0.86      1.00      0.92        18
+     coconut       1.00      1.00      1.00        18
+      coffee       1.00      1.00      1.00        18
+      cotton       1.00      1.00      1.00        18
+      grapes       1.00      1.00      1.00        18
+   groundnut       1.00      1.00      1.00        18
+        jute       1.00      1.00      1.00        18
+ kidneybeans       1.00      1.00      1.00        18
+      lentil       1.00      1.00      1.00        18
+       maize       1.00      1.00      1.00        18
+       mango       1.00      1.00      1.00        18
+   mothbeans       1.00      1.00      1.00        18
+    mungbean       1.00      1.00      1.00        18
+   muskmelon       1.00      1.00      1.00        18
+     mustard       1.00      1.00      1.00        18
+       onion       1.00      0.89      0.94        18
+      orange       1.00      1.00      1.00        18
+      papaya       1.00      1.00      1.00        18
+  pigeonpeas       1.00      1.00      1.00        17
+ pomegranate       1.00      1.00      1.00        18
+      potato       0.90      1.00      0.95        18
+        rice       1.00      1.00      1.00        19
+     soybean       1.00      1.00      1.00        18
+   sugarcane       1.00      1.00      1.00        18
+      tomato       1.00      0.83      0.91        18
+    turmeric       1.00      1.00      1.00        18
+  watermelon       1.00      1.00      1.00        18
+       wheat       1.00      1.00      1.00        18
+
+    accuracy                           0.99       594
+   macro avg       0.99      0.99      0.99       594
+weighted avg       0.99      0.99      0.99       594

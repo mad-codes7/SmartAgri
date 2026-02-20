@@ -1,120 +1,1483 @@
 commodity,state,district,market,date,min_price,max_price,modal_price
-rice,Punjab,Ludhiana,Ludhiana Mandi,2026-01-01,1950,2200,2100
-rice,Punjab,Ludhiana,Ludhiana Mandi,2026-01-08,1980,2250,2140
-rice,Punjab,Ludhiana,Ludhiana Mandi,2026-01-15,2000,2280,2160
-rice,Punjab,Ludhiana,Ludhiana Mandi,2026-01-22,2020,2300,2180
-rice,Punjab,Ludhiana,Ludhiana Mandi,2026-02-01,2050,2320,2200
-rice,Punjab,Ludhiana,Ludhiana Mandi,2026-02-08,2040,2310,2190
-rice,Punjab,Ludhiana,Ludhiana Mandi,2026-02-15,2060,2340,2210
-wheat,Punjab,Amritsar,Amritsar Mandi,2026-01-01,2100,2450,2300
-wheat,Punjab,Amritsar,Amritsar Mandi,2026-01-08,2120,2470,2320
-wheat,Punjab,Amritsar,Amritsar Mandi,2026-01-15,2150,2500,2350
-wheat,Punjab,Amritsar,Amritsar Mandi,2026-01-22,2130,2480,2330
-wheat,Punjab,Amritsar,Amritsar Mandi,2026-02-01,2170,2520,2370
-wheat,Punjab,Amritsar,Amritsar Mandi,2026-02-08,2160,2510,2360
-wheat,Punjab,Amritsar,Amritsar Mandi,2026-02-15,2180,2540,2380
-wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-01-01,2050,2400,2250
-wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-01-08,2070,2420,2270
-wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-01-15,2100,2450,2300
-wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-01-22,2080,2430,2280
-wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-02-01,2120,2470,2320
-wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-02-08,2110,2460,2310
-wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-02-15,2130,2480,2330
-cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-01-01,5800,6500,6200
-cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-01-08,5700,6400,6100
-cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-01-15,5850,6550,6250
-cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-01-22,5900,6600,6300
-cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-02-01,5750,6450,6150
-cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-02-08,5950,6650,6350
-cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-02-15,5880,6580,6280
-cotton,Gujarat,Rajkot,Rajkot Mandi,2026-01-01,5700,6400,6100
-cotton,Gujarat,Rajkot,Rajkot Mandi,2026-01-08,5600,6300,6000
-cotton,Gujarat,Rajkot,Rajkot Mandi,2026-01-15,5750,6450,6150
-cotton,Gujarat,Rajkot,Rajkot Mandi,2026-01-22,5800,6500,6200
-cotton,Gujarat,Rajkot,Rajkot Mandi,2026-02-01,5650,6350,6050
-cotton,Gujarat,Rajkot,Rajkot Mandi,2026-02-08,5850,6550,6250
-cotton,Gujarat,Rajkot,Rajkot Mandi,2026-02-15,5780,6480,6180
-maize,Rajasthan,Udaipur,Udaipur Mandi,2026-01-01,1800,2100,1950
-maize,Rajasthan,Udaipur,Udaipur Mandi,2026-01-08,1820,2120,1970
-maize,Rajasthan,Udaipur,Udaipur Mandi,2026-01-15,1780,2080,1930
-maize,Rajasthan,Udaipur,Udaipur Mandi,2026-01-22,1840,2140,1990
-maize,Rajasthan,Udaipur,Udaipur Mandi,2026-02-01,1860,2160,2010
-maize,Rajasthan,Udaipur,Udaipur Mandi,2026-02-08,1850,2150,2000
-maize,Rajasthan,Udaipur,Udaipur Mandi,2026-02-15,1870,2170,2020
-soybean,Madhya Pradesh,Indore,Indore Mandi,2026-01-01,4200,4800,4500
-soybean,Madhya Pradesh,Indore,Indore Mandi,2026-01-08,4100,4700,4400
-soybean,Madhya Pradesh,Indore,Indore Mandi,2026-01-15,4300,4900,4600
-soybean,Madhya Pradesh,Indore,Indore Mandi,2026-01-22,4250,4850,4550
-soybean,Madhya Pradesh,Indore,Indore Mandi,2026-02-01,4350,4950,4650
-soybean,Madhya Pradesh,Indore,Indore Mandi,2026-02-08,4150,4750,4450
-soybean,Madhya Pradesh,Indore,Indore Mandi,2026-02-15,4400,5000,4700
-sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-01,315,350,335
-sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-08,320,355,340
-sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-15,310,345,330
-sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-22,325,360,345
-sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-02-01,318,353,338
-sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-02-08,322,357,342
-sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-02-15,328,363,348
-chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-01-01,4500,5200,4900
-chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-01-08,4550,5250,4950
-chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-01-15,4600,5300,5000
-chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-01-22,4480,5180,4880
-chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-02-01,4650,5350,5050
-chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-02-08,4580,5280,4980
-chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-02-15,4700,5400,5100
-mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-01-01,5000,5600,5300
-mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-01-08,5050,5650,5350
-mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-01-15,5100,5700,5400
-mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-01-22,4950,5550,5250
-mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-02-01,5150,5750,5450
-mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-02-08,5080,5680,5380
-mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-02-15,5200,5800,5500
-banana,Tamil Nadu,Madurai,Madurai Mandi,2026-01-01,1200,1800,1500
-banana,Tamil Nadu,Madurai,Madurai Mandi,2026-01-08,1250,1850,1550
-banana,Tamil Nadu,Madurai,Madurai Mandi,2026-01-15,1180,1780,1480
-banana,Tamil Nadu,Madurai,Madurai Mandi,2026-01-22,1300,1900,1600
-banana,Tamil Nadu,Madurai,Madurai Mandi,2026-02-01,1220,1820,1520
-banana,Tamil Nadu,Madurai,Madurai Mandi,2026-02-08,1280,1880,1580
-banana,Tamil Nadu,Madurai,Madurai Mandi,2026-02-15,1350,1950,1650
-mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-01-01,3000,4500,3800
-mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-01-08,2800,4200,3500
-mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-01-15,3200,4800,4000
-mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-01-22,2900,4300,3600
-mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-02-01,3100,4700,3900
-mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-02-08,3300,5000,4200
-mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-02-15,3500,5200,4400
-coffee,Karnataka,Shimoga,Shimoga Mandi,2026-01-01,8500,9800,9200
-coffee,Karnataka,Shimoga,Shimoga Mandi,2026-01-08,8600,9900,9300
-coffee,Karnataka,Shimoga,Shimoga Mandi,2026-01-15,8400,9700,9100
-coffee,Karnataka,Shimoga,Shimoga Mandi,2026-01-22,8700,10000,9400
-coffee,Karnataka,Shimoga,Shimoga Mandi,2026-02-01,8550,9850,9250
-coffee,Karnataka,Shimoga,Shimoga Mandi,2026-02-08,8650,9950,9350
-coffee,Karnataka,Shimoga,Shimoga Mandi,2026-02-15,8750,10100,9450
-groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-01-01,4800,5500,5200
-groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-01-08,4850,5550,5250
-groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-01-15,4700,5400,5100
-groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-01-22,4900,5600,5300
-groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-02-01,4750,5450,5150
-groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-02-08,4950,5650,5350
-groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-02-15,5000,5700,5400
-jute,West Bengal,Malda,Malda Mandi,2026-01-01,4000,4600,4300
-jute,West Bengal,Malda,Malda Mandi,2026-01-08,4050,4650,4350
-jute,West Bengal,Malda,Malda Mandi,2026-01-15,3950,4550,4250
-jute,West Bengal,Malda,Malda Mandi,2026-01-22,4100,4700,4400
-jute,West Bengal,Malda,Malda Mandi,2026-02-01,4020,4620,4320
-jute,West Bengal,Malda,Malda Mandi,2026-02-08,4080,4680,4380
-jute,West Bengal,Malda,Malda Mandi,2026-02-15,4150,4750,4450
-coconut,Kerala,Palakkad,Palakkad Mandi,2026-01-01,2500,3200,2900
-coconut,Kerala,Palakkad,Palakkad Mandi,2026-01-08,2550,3250,2950
-coconut,Kerala,Palakkad,Palakkad Mandi,2026-01-15,2450,3150,2850
-coconut,Kerala,Palakkad,Palakkad Mandi,2026-01-22,2600,3300,3000
-coconut,Kerala,Palakkad,Palakkad Mandi,2026-02-01,2480,3180,2880
-coconut,Kerala,Palakkad,Palakkad Mandi,2026-02-08,2620,3320,3020
-coconut,Kerala,Palakkad,Palakkad Mandi,2026-02-15,2700,3400,3100
-lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-01-01,5500,6200,5900
-lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-01-08,5550,6250,5950
-lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-01-15,5600,6300,6000
-lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-01-22,5480,6180,5880
-lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-02-01,5650,6350,6050
-lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-02-08,5580,6280,5980
-lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-02-15,5700,6400,6100
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-08-01,1346,1706,1526
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-08-01,1405,1741,1573
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-08-01,1208,1544,1376
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-08-01,4610,5198,4904
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-08-01,4621,5341,4981
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-01,7023,8943,7983
+chilli,Telangana,Khammam,Khammam Mandi,2025-08-01,6428,8534,7481
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-08-01,2634,3070,2852
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-08-01,2559,2979,2769
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-08-01,8948,9776,9362
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-08-01,8352,9432,8892
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-08-01,5636,6380,6008
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-08-01,5618,6534,6076
+cotton,Telangana,Warangal,Warangal Mandi,2025-08-01,5637,6357,5997
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-01,5891,6813,6352
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-08-01,4929,5553,5241
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-01,4710,5474,5092
+jute,West Bengal,Malda,Malda Mandi,2025-08-01,4066,4454,4260
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-08-01,4009,4513,4261
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-08-01,5585,6117,5851
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-08-01,5456,6152,5804
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-08-01,1818,2052,1935
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-08-01,1869,2169,2019
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-08-01,1797,2025,1911
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-08-01,3057,4425,3741
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-08-01,4167,5667,4917
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-08-01,4979,5615,5297
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-08-01,4852,5476,5164
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-08-01,4885,5357,5121
+onion,Maharashtra,Nashik,Nashik Mandi,2025-08-01,1476,2286,1881
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-08-01,1404,2016,1710
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-08-01,1357,2093,1725
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-08-01,1023,1383,1203
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-08-01,965,1379,1172
+potato,Bihar,Patna,Patna Mandi,2025-08-01,923,1287,1105
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-08-01,1947,2263,2105
+rice,Punjab,Patiala,Patiala Mandi,2025-08-01,1949,2195,2072
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-01,1769,2121,1945
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-08-01,1761,2045,1903
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-08-01,1855,2095,1975
+rice,Bihar,Patna,Patna Mandi,2025-08-01,1705,2037,1871
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-08-01,4059,4869,4464
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-08-01,4032,4692,4362
+soybean,Rajasthan,Kota,Kota Mandi,2025-08-01,3976,4628,4302
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-01,319,349,334
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-08-01,334,366,350
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-08-01,324,354,339
+tomato,Karnataka,Kolar,Kolar Mandi,2025-08-01,1568,2756,2162
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-01,1471,2431,1951
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-08-01,1407,2479,1943
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-08-01,6822,8172,7497
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-08-01,6823,8335,7579
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-08-01,2124,2400,2262
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-08-01,2098,2436,2267
+wheat,Haryana,Karnal,Karnal Mandi,2025-08-01,2226,2438,2332
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-08-01,2036,2366,2201
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-08-01,2130,2404,2267
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-08-08,1366,1726,1546
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-08-08,1419,1755,1587
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-08-08,1279,1615,1447
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-08-08,4556,5144,4850
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-08-08,4515,5235,4875
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-08,7062,8982,8022
+chilli,Telangana,Khammam,Khammam Mandi,2025-08-08,6704,8810,7757
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-08-08,2643,3079,2861
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-08-08,2510,2930,2720
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-08-08,8982,9810,9396
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-08-08,8435,9515,8975
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-08-08,5659,6403,6031
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-08-08,5596,6512,6054
+cotton,Telangana,Warangal,Warangal Mandi,2025-08-08,5492,6212,5852
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-08,5965,6887,6426
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-08-08,4884,5508,5196
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-08,4701,5465,5083
+jute,West Bengal,Malda,Malda Mandi,2025-08-08,4044,4432,4238
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-08-08,4063,4567,4315
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-08-08,5537,6069,5803
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-08-08,5393,6089,5741
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-08-08,1787,2021,1904
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-08-08,1867,2167,2017
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-08-08,1772,2000,1886
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-08-08,3478,4846,4162
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-08-08,4192,5692,4942
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-08-08,5017,5653,5335
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-08-08,4991,5615,5303
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-08-08,4934,5406,5170
+onion,Maharashtra,Nashik,Nashik Mandi,2025-08-08,1370,2180,1775
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-08-08,1406,2018,1712
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-08-08,1455,2191,1823
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-08-08,930,1290,1110
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-08-08,1026,1440,1233
+potato,Bihar,Patna,Patna Mandi,2025-08-08,855,1219,1037
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-08-08,1931,2247,2089
+rice,Punjab,Patiala,Patiala Mandi,2025-08-08,1979,2225,2102
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-08,1702,2054,1878
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-08-08,1761,2045,1903
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-08-08,1844,2084,1964
+rice,Bihar,Patna,Patna Mandi,2025-08-08,1672,2004,1838
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-08-08,4114,4924,4519
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-08-08,4081,4741,4411
+soybean,Rajasthan,Kota,Kota Mandi,2025-08-08,4033,4685,4359
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-08,316,346,331
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-08-08,336,368,352
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-08-08,319,349,334
+tomato,Karnataka,Kolar,Kolar Mandi,2025-08-08,1795,2983,2389
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-08,1434,2394,1914
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-08-08,1579,2651,2115
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-08-08,6751,8101,7426
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-08-08,6884,8396,7640
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-08-08,2123,2399,2261
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-08-08,2065,2403,2234
+wheat,Haryana,Karnal,Karnal Mandi,2025-08-08,2180,2392,2286
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-08-08,2027,2357,2192
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-08-08,2212,2486,2349
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-08-15,1417,1777,1597
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-08-15,1404,1740,1572
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-08-15,1278,1614,1446
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-08-15,4535,5123,4829
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-08-15,4472,5192,4832
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-15,7102,9022,8062
+chilli,Telangana,Khammam,Khammam Mandi,2025-08-15,6717,8823,7770
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-08-15,2589,3025,2807
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-08-15,2469,2889,2679
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-08-15,8892,9720,9306
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-08-15,8539,9619,9079
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-08-15,5491,6235,5863
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-08-15,5613,6529,6071
+cotton,Telangana,Warangal,Warangal Mandi,2025-08-15,5373,6093,5733
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-15,6058,6980,6519
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-08-15,4805,5429,5117
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-15,4760,5524,5142
+jute,West Bengal,Malda,Malda Mandi,2025-08-15,4026,4414,4220
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-08-15,4000,4504,4252
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-08-15,5551,6083,5817
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-08-15,5443,6139,5791
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-08-15,1778,2012,1895
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-08-15,1915,2215,2065
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-08-15,1736,1964,1850
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-08-15,3413,4781,4097
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-08-15,4074,5574,4824
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-08-15,4993,5629,5311
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-08-15,5073,5697,5385
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-08-15,4866,5338,5102
+onion,Maharashtra,Nashik,Nashik Mandi,2025-08-15,1445,2255,1850
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-08-15,1431,2043,1737
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-08-15,1444,2180,1812
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-08-15,1005,1365,1185
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-08-15,1042,1456,1249
+potato,Bihar,Patna,Patna Mandi,2025-08-15,825,1189,1007
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-08-15,1974,2290,2132
+rice,Punjab,Patiala,Patiala Mandi,2025-08-15,1966,2212,2089
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-15,1691,2043,1867
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-08-15,1767,2051,1909
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-08-15,1825,2065,1945
+rice,Bihar,Patna,Patna Mandi,2025-08-15,1662,1994,1828
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-08-15,4128,4938,4533
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-08-15,4056,4716,4386
+soybean,Rajasthan,Kota,Kota Mandi,2025-08-15,4053,4705,4379
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-15,312,342,327
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-08-15,335,367,351
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-08-15,321,351,336
+tomato,Karnataka,Kolar,Kolar Mandi,2025-08-15,1864,3052,2458
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-15,1464,2424,1944
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-08-15,1630,2702,2166
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-08-15,6743,8093,7418
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-08-15,6873,8385,7629
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-08-15,2117,2393,2255
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-08-15,2065,2403,2234
+wheat,Haryana,Karnal,Karnal Mandi,2025-08-15,2204,2416,2310
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-08-15,2003,2333,2168
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-08-15,2226,2500,2363
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-08-22,1386,1746,1566
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-08-22,1413,1749,1581
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-08-22,1277,1613,1445
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-08-22,4613,5201,4907
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-08-22,4366,5086,4726
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-22,7419,9339,8379
+chilli,Telangana,Khammam,Khammam Mandi,2025-08-22,6812,8918,7865
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-08-22,2550,2986,2768
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-08-22,2501,2921,2711
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-08-22,8535,9363,8949
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-08-22,8557,9637,9097
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-08-22,5486,6230,5858
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-08-22,5638,6554,6096
+cotton,Telangana,Warangal,Warangal Mandi,2025-08-22,5303,6023,5663
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-22,6124,7046,6585
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-08-22,4750,5374,5062
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-22,4736,5500,5118
+jute,West Bengal,Malda,Malda Mandi,2025-08-22,4004,4392,4198
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-08-22,3917,4421,4169
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-08-22,5438,5970,5704
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-08-22,5534,6230,5882
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-08-22,1802,2036,1919
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-08-22,1957,2257,2107
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-08-22,1728,1956,1842
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-08-22,3397,4765,4081
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-08-22,3954,5454,4704
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-08-22,4947,5583,5265
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-08-22,5127,5751,5439
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-08-22,4846,5318,5082
+onion,Maharashtra,Nashik,Nashik Mandi,2025-08-22,1484,2294,1889
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-08-22,1468,2080,1774
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-08-22,1476,2212,1844
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-08-22,1033,1393,1213
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-08-22,997,1411,1204
+potato,Bihar,Patna,Patna Mandi,2025-08-22,861,1225,1043
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-08-22,2003,2319,2161
+rice,Punjab,Patiala,Patiala Mandi,2025-08-22,1975,2221,2098
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-22,1651,2003,1827
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-08-22,1759,2043,1901
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-08-22,1803,2043,1923
+rice,Bihar,Patna,Patna Mandi,2025-08-22,1648,1980,1814
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-08-22,4228,5038,4633
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-08-22,4239,4899,4569
+soybean,Rajasthan,Kota,Kota Mandi,2025-08-22,4166,4818,4492
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-22,308,338,323
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-08-22,332,364,348
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-08-22,319,349,334
+tomato,Karnataka,Kolar,Kolar Mandi,2025-08-22,1854,3042,2448
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-22,1394,2354,1874
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-08-22,1569,2641,2105
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-08-22,6687,8037,7362
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-08-22,6639,8151,7395
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-08-22,2087,2363,2225
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-08-22,2016,2354,2185
+wheat,Haryana,Karnal,Karnal Mandi,2025-08-22,2241,2453,2347
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-08-22,2026,2356,2191
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-08-22,2209,2483,2346
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-08-29,1380,1740,1560
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-08-29,1453,1789,1621
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-08-29,1244,1580,1412
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-08-29,4584,5172,4878
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-08-29,4255,4975,4615
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-29,7385,9305,8345
+chilli,Telangana,Khammam,Khammam Mandi,2025-08-29,6525,8631,7578
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-08-29,2592,3028,2810
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-08-29,2546,2966,2756
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-08-29,8376,9204,8790
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-08-29,8693,9773,9233
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-08-29,5629,6373,6001
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-08-29,5858,6774,6316
+cotton,Telangana,Warangal,Warangal Mandi,2025-08-29,5210,5930,5570
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-08-29,6132,7054,6593
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-08-29,4647,5271,4959
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-29,4790,5554,5172
+jute,West Bengal,Malda,Malda Mandi,2025-08-29,3967,4355,4161
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-08-29,3916,4420,4168
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-08-29,5257,5789,5523
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-08-29,5535,6231,5883
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-08-29,1794,2028,1911
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-08-29,1974,2274,2124
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-08-29,1688,1916,1802
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-08-29,3290,4658,3974
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-08-29,3744,5244,4494
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-08-29,4758,5394,5076
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-08-29,5166,5790,5478
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-08-29,4963,5435,5199
+onion,Maharashtra,Nashik,Nashik Mandi,2025-08-29,1484,2294,1889
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-08-29,1448,2060,1754
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-08-29,1574,2310,1942
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-08-29,1014,1374,1194
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-08-29,1064,1478,1271
+potato,Bihar,Patna,Patna Mandi,2025-08-29,882,1246,1064
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-08-29,1998,2314,2156
+rice,Punjab,Patiala,Patiala Mandi,2025-08-29,2047,2293,2170
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-29,1615,1967,1791
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-08-29,1738,2022,1880
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-08-29,1812,2052,1932
+rice,Bihar,Patna,Patna Mandi,2025-08-29,1594,1926,1760
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-08-29,4228,5038,4633
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-08-29,4273,4933,4603
+soybean,Rajasthan,Kota,Kota Mandi,2025-08-29,4209,4861,4535
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-08-29,306,336,321
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-08-29,332,364,348
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-08-29,321,351,336
+tomato,Karnataka,Kolar,Kolar Mandi,2025-08-29,1922,3110,2516
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-08-29,1239,2199,1719
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-08-29,1675,2747,2211
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-08-29,6623,7973,7298
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-08-29,6728,8240,7484
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-08-29,2090,2366,2228
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-08-29,1939,2277,2108
+wheat,Haryana,Karnal,Karnal Mandi,2025-08-29,2248,2460,2354
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-08-29,2045,2375,2210
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-08-29,2239,2513,2376
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-09-05,1357,1717,1537
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-09-05,1393,1729,1561
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-09-05,1205,1541,1373
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-09-05,4761,5349,5055
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-09-05,4248,4968,4608
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-09-05,7584,9504,8544
+chilli,Telangana,Khammam,Khammam Mandi,2025-09-05,6776,8882,7829
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-09-05,2534,2970,2752
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-09-05,2614,3034,2824
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-09-05,8123,8951,8537
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-09-05,8677,9757,9217
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-09-05,5753,6497,6125
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-09-05,5912,6828,6370
+cotton,Telangana,Warangal,Warangal Mandi,2025-09-05,5142,5862,5502
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-09-05,6256,7178,6717
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-09-05,4519,5143,4831
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-09-05,4928,5692,5310
+jute,West Bengal,Malda,Malda Mandi,2025-09-05,3922,4310,4116
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-09-05,3836,4340,4088
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-09-05,5144,5676,5410
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-09-05,5585,6281,5933
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-09-05,1829,2063,1946
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-09-05,1998,2298,2148
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-09-05,1700,1928,1814
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-09-05,3459,4827,4143
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-09-05,3465,4965,4215
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-09-05,4619,5255,4937
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-09-05,5326,5950,5638
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-09-05,5033,5505,5269
+onion,Maharashtra,Nashik,Nashik Mandi,2025-09-05,1395,2205,1800
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-09-05,1457,2069,1763
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-09-05,1486,2222,1854
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-09-05,1060,1420,1240
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-09-05,1092,1506,1299
+potato,Bihar,Patna,Patna Mandi,2025-09-05,877,1241,1059
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-09-05,2071,2387,2229
+rice,Punjab,Patiala,Patiala Mandi,2025-09-05,2051,2297,2174
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-09-05,1634,1986,1810
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-09-05,1766,2050,1908
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-09-05,1843,2083,1963
+rice,Bihar,Patna,Patna Mandi,2025-09-05,1574,1906,1740
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-09-05,4266,5076,4671
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-09-05,4353,5013,4683
+soybean,Rajasthan,Kota,Kota Mandi,2025-09-05,4263,4915,4589
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-09-05,303,333,318
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-09-05,328,360,344
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-09-05,315,345,330
+tomato,Karnataka,Kolar,Kolar Mandi,2025-09-05,1910,3098,2504
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-09-05,1327,2287,1807
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-09-05,1733,2805,2269
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-09-05,6603,7953,7278
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-09-05,6722,8234,7478
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-09-05,2067,2343,2205
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-09-05,1865,2203,2034
+wheat,Haryana,Karnal,Karnal Mandi,2025-09-05,2281,2493,2387
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-09-05,1971,2301,2136
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-09-05,2280,2554,2417
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-09-12,1364,1724,1544
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-09-12,1371,1707,1539
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-09-12,1221,1557,1389
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-09-12,4882,5470,5176
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-09-12,4170,4890,4530
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-09-12,7728,9648,8688
+chilli,Telangana,Khammam,Khammam Mandi,2025-09-12,7217,9323,8270
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-09-12,2595,3031,2813
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-09-12,2643,3063,2853
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-09-12,8004,8832,8418
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-09-12,8741,9821,9281
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-09-12,5995,6739,6367
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-09-12,5957,6873,6415
+cotton,Telangana,Warangal,Warangal Mandi,2025-09-12,5136,5856,5496
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-09-12,6396,7318,6857
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-09-12,4294,4918,4606
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-09-12,4802,5566,5184
+jute,West Bengal,Malda,Malda Mandi,2025-09-12,3846,4234,4040
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-09-12,3781,4285,4033
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-09-12,5087,5619,5353
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-09-12,5543,6239,5891
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-09-12,1862,2096,1979
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-09-12,2011,2311,2161
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-09-12,1673,1901,1787
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-09-12,3371,4739,4055
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-09-12,3511,5011,4261
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-09-12,4576,5212,4894
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-09-12,5390,6014,5702
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-09-12,5125,5597,5361
+onion,Maharashtra,Nashik,Nashik Mandi,2025-09-12,1288,2098,1693
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-09-12,1448,2060,1754
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-09-12,1323,2059,1691
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-09-12,1033,1393,1213
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-09-12,992,1406,1199
+potato,Bihar,Patna,Patna Mandi,2025-09-12,849,1213,1031
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-09-12,2158,2474,2316
+rice,Punjab,Patiala,Patiala Mandi,2025-09-12,2101,2347,2224
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-09-12,1512,1864,1688
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-09-12,1733,2017,1875
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-09-12,1880,2120,2000
+rice,Bihar,Patna,Patna Mandi,2025-09-12,1541,1873,1707
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-09-12,4330,5140,4735
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-09-12,4424,5084,4754
+soybean,Rajasthan,Kota,Kota Mandi,2025-09-12,4217,4869,4543
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-09-12,297,327,312
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-09-12,320,352,336
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-09-12,316,346,331
+tomato,Karnataka,Kolar,Kolar Mandi,2025-09-12,1821,3009,2415
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-09-12,1453,2413,1933
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-09-12,1895,2967,2431
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-09-12,6512,7862,7187
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-09-12,6839,8351,7595
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-09-12,2031,2307,2169
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-09-12,1815,2153,1984
+wheat,Haryana,Karnal,Karnal Mandi,2025-09-12,2261,2473,2367
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-09-12,1926,2256,2091
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-09-12,2316,2590,2453
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-09-19,1423,1783,1603
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-09-19,1408,1744,1576
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-09-19,1195,1531,1363
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-09-19,4926,5514,5220
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-09-19,4132,4852,4492
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-09-19,7594,9514,8554
+chilli,Telangana,Khammam,Khammam Mandi,2025-09-19,7430,9536,8483
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-09-19,2630,3066,2848
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-09-19,2751,3171,2961
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-09-19,7923,8751,8337
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-09-19,8751,9831,9291
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-09-19,6114,6858,6486
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-09-19,5991,6907,6449
+cotton,Telangana,Warangal,Warangal Mandi,2025-09-19,4958,5678,5318
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-09-19,6428,7350,6889
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-09-19,4056,4680,4368
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-09-19,4893,5657,5275
+jute,West Bengal,Malda,Malda Mandi,2025-09-19,3780,4168,3974
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-09-19,3579,4083,3831
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-09-19,5022,5554,5288
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-09-19,5715,6411,6063
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-09-19,1908,2142,2025
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-09-19,2052,2352,2202
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-09-19,1646,1874,1760
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-09-19,3389,4757,4073
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-09-19,3462,4962,4212
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-09-19,4347,4983,4665
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-09-19,5548,6172,5860
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-09-19,5185,5657,5421
+onion,Maharashtra,Nashik,Nashik Mandi,2025-09-19,1242,2052,1647
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-09-19,1455,2067,1761
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-09-19,1357,2093,1725
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-09-19,984,1344,1164
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-09-19,979,1393,1186
+potato,Bihar,Patna,Patna Mandi,2025-09-19,887,1251,1069
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-09-19,2156,2472,2314
+rice,Punjab,Patiala,Patiala Mandi,2025-09-19,2138,2384,2261
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-09-19,1497,1849,1673
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-09-19,1691,1975,1833
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-09-19,1851,2091,1971
+rice,Bihar,Patna,Patna Mandi,2025-09-19,1504,1836,1670
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-09-19,4420,5230,4825
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-09-19,4632,5292,4962
+soybean,Rajasthan,Kota,Kota Mandi,2025-09-19,4141,4793,4467
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-09-19,290,320,305
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-09-19,314,346,330
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-09-19,312,342,327
+tomato,Karnataka,Kolar,Kolar Mandi,2025-09-19,1588,2776,2182
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-09-19,1435,2395,1915
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-09-19,1791,2863,2327
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-09-19,6552,7902,7227
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-09-19,7094,8606,7850
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-09-19,2001,2277,2139
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-09-19,1767,2105,1936
+wheat,Haryana,Karnal,Karnal Mandi,2025-09-19,2326,2538,2432
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-09-19,1852,2182,2017
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-09-19,2382,2656,2519
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-09-26,1518,1878,1698
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-09-26,1350,1686,1518
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-09-26,1144,1480,1312
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-09-26,5096,5684,5390
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-09-26,4232,4952,4592
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-09-26,7650,9570,8610
+chilli,Telangana,Khammam,Khammam Mandi,2025-09-26,7730,9836,8783
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-09-26,2638,3074,2856
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-09-26,2856,3276,3066
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-09-26,7723,8551,8137
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-09-26,8938,10018,9478
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-09-26,6177,6921,6549
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-09-26,6150,7066,6608
+cotton,Telangana,Warangal,Warangal Mandi,2025-09-26,4942,5662,5302
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-09-26,6636,7558,7097
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-09-26,3949,4573,4261
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-09-26,5101,5865,5483
+jute,West Bengal,Malda,Malda Mandi,2025-09-26,3706,4094,3900
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-09-26,3530,4034,3782
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-09-26,4850,5382,5116
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-09-26,5764,6460,6112
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-09-26,1937,2171,2054
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-09-26,2082,2382,2232
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-09-26,1597,1825,1711
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-09-26,3562,4930,4246
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-09-26,3647,5147,4397
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-09-26,4298,4934,4616
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-09-26,5788,6412,6100
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-09-26,5253,5725,5489
+onion,Maharashtra,Nashik,Nashik Mandi,2025-09-26,1364,2174,1769
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-09-26,1499,2111,1805
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-09-26,1220,1956,1588
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-09-26,920,1280,1100
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-09-26,1017,1431,1224
+potato,Bihar,Patna,Patna Mandi,2025-09-26,931,1295,1113
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-09-26,2205,2521,2363
+rice,Punjab,Patiala,Patiala Mandi,2025-09-26,2205,2451,2328
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-09-26,1427,1779,1603
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-09-26,1630,1914,1772
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-09-26,1916,2156,2036
+rice,Bihar,Patna,Patna Mandi,2025-09-26,1439,1771,1605
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-09-26,4489,5299,4894
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-09-26,4761,5421,5091
+soybean,Rajasthan,Kota,Kota Mandi,2025-09-26,4089,4741,4415
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-09-26,287,317,302
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-09-26,313,345,329
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-09-26,310,340,325
+tomato,Karnataka,Kolar,Kolar Mandi,2025-09-26,1658,2846,2252
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-09-26,1411,2371,1891
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-09-26,1885,2957,2421
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-09-26,6472,7822,7147
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-09-26,7219,8731,7975
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-09-26,1874,2150,2012
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-09-26,1712,2050,1881
+wheat,Haryana,Karnal,Karnal Mandi,2025-09-26,2391,2603,2497
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-09-26,1788,2118,1953
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-09-26,2440,2714,2577
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-10-03,1494,1854,1674
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-10-03,1303,1639,1471
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-10-03,1054,1390,1222
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-10-03,5308,5896,5602
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-10-03,4191,4911,4551
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-03,7798,9718,8758
+chilli,Telangana,Khammam,Khammam Mandi,2025-10-03,8348,10454,9401
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-10-03,2716,3152,2934
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-10-03,3047,3467,3257
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-10-03,7457,8285,7871
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-10-03,9204,10284,9744
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-10-03,6281,7025,6653
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-10-03,6256,7172,6714
+cotton,Telangana,Warangal,Warangal Mandi,2025-10-03,4876,5596,5236
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-03,6857,7779,7318
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-10-03,3794,4418,4106
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-03,5182,5946,5564
+jute,West Bengal,Malda,Malda Mandi,2025-10-03,3659,4047,3853
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-10-03,3453,3957,3705
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-10-03,4781,5313,5047
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-10-03,5852,6548,6200
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-10-03,1966,2200,2083
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-10-03,2117,2417,2267
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-10-03,1537,1765,1651
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-10-03,3525,4893,4209
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-10-03,3704,5204,4454
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-10-03,4171,4807,4489
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-10-03,5891,6515,6203
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-10-03,5400,5872,5636
+onion,Maharashtra,Nashik,Nashik Mandi,2025-10-03,1406,2216,1811
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-10-03,1474,2086,1780
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-10-03,1323,2059,1691
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-10-03,910,1270,1090
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-10-03,1045,1459,1252
+potato,Bihar,Patna,Patna Mandi,2025-10-03,1027,1391,1209
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-10-03,2272,2588,2430
+rice,Punjab,Patiala,Patiala Mandi,2025-10-03,2264,2510,2387
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-03,1377,1729,1553
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-10-03,1646,1930,1788
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-10-03,1987,2227,2107
+rice,Bihar,Patna,Patna Mandi,2025-10-03,1374,1706,1540
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-10-03,4659,5469,5064
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-10-03,5010,5670,5340
+soybean,Rajasthan,Kota,Kota Mandi,2025-10-03,4013,4665,4339
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-03,281,311,296
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-10-03,309,341,325
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-10-03,304,334,319
+tomato,Karnataka,Kolar,Kolar Mandi,2025-10-03,1911,3099,2505
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-03,1642,2602,2122
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-10-03,1858,2930,2394
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-10-03,6222,7572,6897
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-10-03,7492,9004,8248
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-10-03,1821,2097,1959
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-10-03,1609,1947,1778
+wheat,Haryana,Karnal,Karnal Mandi,2025-10-03,2427,2639,2533
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-10-03,1774,2104,1939
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-10-03,2497,2771,2634
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-10-10,1486,1846,1666
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-10-10,1270,1606,1438
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-10-10,1001,1337,1169
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-10-10,5430,6018,5724
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-10-10,4141,4861,4501
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-10,7863,9783,8823
+chilli,Telangana,Khammam,Khammam Mandi,2025-10-10,9109,11215,10162
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-10-10,2771,3207,2989
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-10-10,3115,3535,3325
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-10-10,7102,7930,7516
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-10-10,9256,10336,9796
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-10-10,6343,7087,6715
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-10-10,6476,7392,6934
+cotton,Telangana,Warangal,Warangal Mandi,2025-10-10,4756,5476,5116
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-10,6920,7842,7381
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-10-10,3651,4275,3963
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-10,5327,6091,5709
+jute,West Bengal,Malda,Malda Mandi,2025-10-10,3579,3967,3773
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-10-10,3336,3840,3588
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-10-10,4600,5132,4866
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-10-10,6062,6758,6410
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-10-10,2005,2239,2122
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-10-10,2172,2472,2322
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-10-10,1487,1715,1601
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-10-10,3431,4799,4115
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-10-10,3359,4859,4109
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-10-10,4036,4672,4354
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-10-10,5968,6592,6280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-10-10,5523,5995,5759
+onion,Maharashtra,Nashik,Nashik Mandi,2025-10-10,1453,2263,1858
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-10-10,1540,2152,1846
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-10-10,1392,2128,1760
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-10-10,903,1263,1083
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-10-10,1075,1489,1282
+potato,Bihar,Patna,Patna Mandi,2025-10-10,1035,1399,1217
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-10-10,2377,2693,2535
+rice,Punjab,Patiala,Patiala Mandi,2025-10-10,2302,2548,2425
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-10,1289,1641,1465
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-10-10,1616,1900,1758
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-10-10,1987,2227,2107
+rice,Bihar,Patna,Patna Mandi,2025-10-10,1360,1692,1526
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-10-10,4790,5600,5195
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-10-10,5088,5748,5418
+soybean,Rajasthan,Kota,Kota Mandi,2025-10-10,4044,4696,4370
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-10,276,306,291
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-10-10,304,336,320
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-10-10,300,330,315
+tomato,Karnataka,Kolar,Kolar Mandi,2025-10-10,2251,3439,2845
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-10,1663,2623,2143
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-10-10,2102,3174,2638
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-10-10,6531,7881,7206
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-10-10,7649,9161,8405
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-10-10,1788,2064,1926
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-10-10,1582,1920,1751
+wheat,Haryana,Karnal,Karnal Mandi,2025-10-10,2438,2650,2544
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-10-10,1820,2150,1985
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-10-10,2589,2863,2726
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-10-17,1562,1922,1742
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-10-17,1258,1594,1426
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-10-17,923,1259,1091
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-10-17,5619,6207,5913
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-10-17,4255,4975,4615
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-17,8228,10148,9188
+chilli,Telangana,Khammam,Khammam Mandi,2025-10-17,9611,11717,10664
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-10-17,2768,3204,2986
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-10-17,3237,3657,3447
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-10-17,6756,7584,7170
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-10-17,9278,10358,9818
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-10-17,6506,7250,6878
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-10-17,6506,7422,6964
+cotton,Telangana,Warangal,Warangal Mandi,2025-10-17,4705,5425,5065
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-17,6981,7903,7442
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-10-17,3519,4143,3831
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-17,5483,6247,5865
+jute,West Bengal,Malda,Malda Mandi,2025-10-17,3487,3875,3681
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-10-17,3246,3750,3498
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-10-17,4466,4998,4732
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-10-17,6295,6991,6643
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-10-17,2057,2291,2174
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-10-17,2301,2601,2451
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-10-17,1458,1686,1572
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-10-17,3677,5045,4361
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-10-17,3068,4568,3818
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-10-17,3867,4503,4185
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-10-17,6179,6803,6491
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-10-17,5744,6216,5980
+onion,Maharashtra,Nashik,Nashik Mandi,2025-10-17,1547,2357,1952
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-10-17,1560,2172,1866
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-10-17,1358,2094,1726
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-10-17,916,1276,1096
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-10-17,1098,1512,1305
+potato,Bihar,Patna,Patna Mandi,2025-10-17,1016,1380,1198
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-10-17,2429,2745,2587
+rice,Punjab,Patiala,Patiala Mandi,2025-10-17,2350,2596,2473
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-17,1248,1600,1424
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-10-17,1527,1811,1669
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-10-17,2077,2317,2197
+rice,Bihar,Patna,Patna Mandi,2025-10-17,1295,1627,1461
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-10-17,4875,5685,5280
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-10-17,5283,5943,5613
+soybean,Rajasthan,Kota,Kota Mandi,2025-10-17,4003,4655,4329
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-17,266,296,281
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-10-17,298,330,314
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-10-17,293,323,308
+tomato,Karnataka,Kolar,Kolar Mandi,2025-10-17,2401,3589,2995
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-17,1731,2691,2211
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-10-17,2137,3209,2673
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-10-17,6475,7825,7150
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-10-17,7936,9448,8692
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-10-17,1733,2009,1871
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-10-17,1465,1803,1634
+wheat,Haryana,Karnal,Karnal Mandi,2025-10-17,2464,2676,2570
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-10-17,1740,2070,1905
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-10-17,2654,2928,2791
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-10-24,1555,1915,1735
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-10-24,1238,1574,1406
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-10-24,925,1261,1093
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-10-24,5782,6370,6076
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-10-24,4178,4898,4538
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-24,8393,10313,9353
+chilli,Telangana,Khammam,Khammam Mandi,2025-10-24,9866,11972,10919
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-10-24,2809,3245,3027
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-10-24,3316,3736,3526
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-10-24,6402,7230,6816
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-10-24,9400,10480,9940
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-10-24,6656,7400,7028
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-10-24,6402,7318,6860
+cotton,Telangana,Warangal,Warangal Mandi,2025-10-24,4587,5307,4947
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-24,7002,7924,7463
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-10-24,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-24,5613,6377,5995
+jute,West Bengal,Malda,Malda Mandi,2025-10-24,3336,3724,3530
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-10-24,3112,3616,3364
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-10-24,4246,4778,4512
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-10-24,6528,7224,6876
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-10-24,2102,2336,2219
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-10-24,2370,2670,2520
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-10-24,1408,1636,1522
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-10-24,3732,5100,4416
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-10-24,2864,4364,3614
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-10-24,3573,4209,3891
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-10-24,6474,7098,6786
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-10-24,5813,6285,6049
+onion,Maharashtra,Nashik,Nashik Mandi,2025-10-24,1506,2316,1911
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-10-24,1592,2204,1898
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-10-24,1199,1935,1567
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-10-24,935,1295,1115
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-10-24,1140,1554,1347
+potato,Bihar,Patna,Patna Mandi,2025-10-24,1030,1394,1212
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-10-24,2539,2855,2697
+rice,Punjab,Patiala,Patiala Mandi,2025-10-24,2430,2676,2553
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-24,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-10-24,1531,1815,1673
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-10-24,2105,2345,2225
+rice,Bihar,Patna,Patna Mandi,2025-10-24,1221,1553,1387
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-10-24,4996,5806,5401
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-10-24,5568,6228,5898
+soybean,Rajasthan,Kota,Kota Mandi,2025-10-24,3957,4609,4283
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-24,258,288,273
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-10-24,290,322,306
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-10-24,289,319,304
+tomato,Karnataka,Kolar,Kolar Mandi,2025-10-24,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-24,1710,2670,2190
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-10-24,2190,3262,2726
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-10-24,6132,7482,6807
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-10-24,7898,9410,8654
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-10-24,1663,1939,1801
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-10-24,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-10-24,2517,2729,2623
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-10-24,1667,1997,1832
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-10-24,2703,2977,2840
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-10-31,1610,1970,1790
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-10-31,1183,1519,1351
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-10-31,856,1192,1024
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-10-31,5841,6429,6135
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-10-31,4116,4836,4476
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-31,8471,10391,9431
+chilli,Telangana,Khammam,Khammam Mandi,2025-10-31,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-10-31,2781,3217,2999
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-10-31,3416,3836,3626
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-10-31,6105,6933,6519
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-10-31,9480,10560,10020
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-10-31,6726,7470,7098
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-10-31,6572,7488,7030
+cotton,Telangana,Warangal,Warangal Mandi,2025-10-31,4399,5119,4759
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-10-31,7276,8198,7737
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-10-31,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-31,5819,6583,6201
+jute,West Bengal,Malda,Malda Mandi,2025-10-31,3176,3564,3370
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-10-31,3004,3508,3256
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-10-31,4082,4614,4348
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-10-31,6754,7450,7102
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-10-31,2130,2364,2247
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-10-31,2474,2774,2624
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-10-31,1338,1566,1452
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-10-31,3629,4997,4313
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-10-31,2818,4318,3568
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-10-31,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-10-31,6781,7405,7093
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-10-31,6030,6502,6266
+onion,Maharashtra,Nashik,Nashik Mandi,2025-10-31,1598,2408,2003
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-10-31,1499,2111,1805
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-10-31,1083,1819,1451
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-10-31,945,1305,1125
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-10-31,1167,1581,1374
+potato,Bihar,Patna,Patna Mandi,2025-10-31,1106,1470,1288
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-10-31,2629,2945,2787
+rice,Punjab,Patiala,Patiala Mandi,2025-10-31,2522,2768,2645
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-31,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-10-31,1501,1785,1643
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-10-31,2133,2373,2253
+rice,Bihar,Patna,Patna Mandi,2025-10-31,1196,1528,1362
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-10-31,5093,5903,5498
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-10-31,5762,6422,6092
+soybean,Rajasthan,Kota,Kota Mandi,2025-10-31,3953,4605,4279
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-10-31,251,281,266
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-10-31,280,312,296
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-10-31,281,311,296
+tomato,Karnataka,Kolar,Kolar Mandi,2025-10-31,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-10-31,1741,2701,2221
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-10-31,2300,3372,2836
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-10-31,6191,7541,6866
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-10-31,8131,9643,8887
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-10-31,1540,1816,1678
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-10-31,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-10-31,2552,2764,2658
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-10-31,1664,1994,1829
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-10-31,2807,3081,2944
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-11-07,1708,2068,1888
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-11-07,1073,1409,1241
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-11-07,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-11-07,5921,6509,6215
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-11-07,4042,4762,4402
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-11-07,8905,10825,9865
+chilli,Telangana,Khammam,Khammam Mandi,2025-11-07,9622,11728,10675
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-11-07,2867,3303,3085
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-11-07,3537,3957,3747
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-11-07,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-11-07,9797,10877,10337
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-11-07,6945,7689,7317
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-11-07,6663,7579,7121
+cotton,Telangana,Warangal,Warangal Mandi,2025-11-07,4358,5078,4718
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-11-07,7392,8314,7853
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-11-07,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-11-07,5946,6710,6328
+jute,West Bengal,Malda,Malda Mandi,2025-11-07,3127,3515,3321
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-11-07,2837,3341,3089
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-11-07,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-11-07,6837,7533,7185
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-11-07,2226,2460,2343
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-11-07,2572,2872,2722
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-11-07,1275,1503,1389
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-11-07,4065,5433,4749
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-11-07,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-11-07,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-11-07,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-11-07,6065,6537,6301
+onion,Maharashtra,Nashik,Nashik Mandi,2025-11-07,1626,2436,2031
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-11-07,1499,2111,1805
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-11-07,1063,1799,1431
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-11-07,878,1238,1058
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-11-07,1139,1553,1346
+potato,Bihar,Patna,Patna Mandi,2025-11-07,1135,1499,1317
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-11-07,2672,2988,2830
+rice,Punjab,Patiala,Patiala Mandi,2025-11-07,2591,2837,2714
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-11-07,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-11-07,1465,1749,1607
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-11-07,2178,2418,2298
+rice,Bihar,Patna,Patna Mandi,2025-11-07,1135,1467,1301
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-11-07,5431,6241,5836
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-11-07,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2025-11-07,3870,4522,4196
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-11-07,240,270,255
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-11-07,272,304,288
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-11-07,273,303,288
+tomato,Karnataka,Kolar,Kolar Mandi,2025-11-07,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-11-07,1798,2758,2278
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-11-07,2367,3439,2903
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-11-07,6130,7480,6805
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-11-07,8298,9810,9054
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-11-07,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-11-07,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-11-07,2587,2799,2693
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-11-07,1575,1905,1740
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-11-07,2930,3204,3067
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-11-14,1783,2143,1963
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-11-14,1024,1360,1192
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-11-14,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-11-14,6172,6760,6466
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-11-14,3823,4543,4183
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-11-14,9141,11061,10101
+chilli,Telangana,Khammam,Khammam Mandi,2025-11-14,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-11-14,2863,3299,3081
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-11-14,3634,4054,3844
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-11-14,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-11-14,9966,11046,10506
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-11-14,7233,7977,7605
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-11-14,6865,7781,7323
+cotton,Telangana,Warangal,Warangal Mandi,2025-11-14,4214,4934,4574
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-11-14,7522,8444,7983
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-11-14,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-11-14,6147,6911,6529
+jute,West Bengal,Malda,Malda Mandi,2025-11-14,3007,3395,3201
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-11-14,2697,3201,2949
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-11-14,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-11-14,6996,7692,7344
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-11-14,2326,2560,2443
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-11-14,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-11-14,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-11-14,4088,5456,4772
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-11-14,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-11-14,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-11-14,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-11-14,6200,6672,6436
+onion,Maharashtra,Nashik,Nashik Mandi,2025-11-14,1707,2517,2112
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-11-14,1478,2090,1784
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-11-14,1088,1824,1456
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-11-14,825,1185,1005
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-11-14,1161,1575,1368
+potato,Bihar,Patna,Patna Mandi,2025-11-14,1187,1551,1369
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-11-14,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2025-11-14,2664,2910,2787
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-11-14,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-11-14,1422,1706,1564
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-11-14,2235,2475,2355
+rice,Bihar,Patna,Patna Mandi,2025-11-14,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-11-14,5532,6342,5937
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-11-14,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2025-11-14,3805,4457,4131
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-11-14,230,260,245
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-11-14,266,298,282
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-11-14,266,296,281
+tomato,Karnataka,Kolar,Kolar Mandi,2025-11-14,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-11-14,1761,2721,2241
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-11-14,2379,3451,2915
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-11-14,6212,7562,6887
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-11-14,8373,9885,9129
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-11-14,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-11-14,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-11-14,2591,2803,2697
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-11-14,1467,1797,1632
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-11-14,2992,3266,3129
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-11-21,1799,2159,1979
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-11-21,993,1329,1161
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-11-21,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-11-21,6356,6944,6650
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-11-21,3763,4483,4123
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-11-21,9371,11291,10331
+chilli,Telangana,Khammam,Khammam Mandi,2025-11-21,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-11-21,2932,3368,3150
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-11-21,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-11-21,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-11-21,10299,11379,10839
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-11-21,7567,8311,7939
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-11-21,6872,7788,7330
+cotton,Telangana,Warangal,Warangal Mandi,2025-11-21,4134,4854,4494
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-11-21,7813,8735,8274
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-11-21,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-11-21,6443,7207,6825
+jute,West Bengal,Malda,Malda Mandi,2025-11-21,2863,3251,3057
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-11-21,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-11-21,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-11-21,7197,7893,7545
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-11-21,2356,2590,2473
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-11-21,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-11-21,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-11-21,4264,5632,4948
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-11-21,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-11-21,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-11-21,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-11-21,6432,6904,6668
+onion,Maharashtra,Nashik,Nashik Mandi,2025-11-21,1832,2642,2237
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-11-21,1586,2198,1892
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-11-21,1046,1782,1414
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-11-21,731,1091,911
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-11-21,1111,1525,1318
+potato,Bihar,Patna,Patna Mandi,2025-11-21,1226,1590,1408
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-11-21,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2025-11-21,2734,2980,2857
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-11-21,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-11-21,1418,1702,1560
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-11-21,2275,2515,2395
+rice,Bihar,Patna,Patna Mandi,2025-11-21,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-11-21,5648,6458,6053
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-11-21,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2025-11-21,3754,4406,4080
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-11-21,222,252,237
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-11-21,257,289,273
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-11-21,254,284,269
+tomato,Karnataka,Kolar,Kolar Mandi,2025-11-21,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-11-21,1941,2901,2421
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-11-21,2404,3476,2940
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-11-21,6109,7459,6784
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-11-21,8502,10014,9258
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-11-21,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-11-21,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-11-21,2638,2850,2744
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-11-21,1411,1741,1576
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-11-21,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-11-28,1856,2216,2036
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-11-28,953,1289,1121
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-11-28,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-11-28,6467,7055,6761
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-11-28,3683,4403,4043
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-11-28,9537,11457,10497
+chilli,Telangana,Khammam,Khammam Mandi,2025-11-28,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-11-28,2971,3407,3189
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-11-28,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-11-28,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-11-28,10372,11452,10912
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-11-28,7869,8613,8241
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-11-28,7048,7964,7506
+cotton,Telangana,Warangal,Warangal Mandi,2025-11-28,3999,4719,4359
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-11-28,8049,8971,8510
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-11-28,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-11-28,6694,7458,7076
+jute,West Bengal,Malda,Malda Mandi,2025-11-28,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-11-28,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-11-28,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-11-28,7377,8073,7725
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-11-28,2448,2682,2565
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-11-28,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-11-28,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-11-28,4327,5695,5011
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-11-28,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-11-28,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-11-28,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-11-28,6534,7006,6770
+onion,Maharashtra,Nashik,Nashik Mandi,2025-11-28,1949,2759,2354
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-11-28,1556,2168,1862
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-11-28,1041,1777,1409
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-11-28,717,1077,897
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-11-28,1059,1473,1266
+potato,Bihar,Patna,Patna Mandi,2025-11-28,1250,1614,1432
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-11-28,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2025-11-28,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-11-28,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-11-28,1392,1676,1534
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-11-28,2343,2583,2463
+rice,Bihar,Patna,Patna Mandi,2025-11-28,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-11-28,5798,6608,6203
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-11-28,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2025-11-28,3736,4388,4062
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-11-28,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-11-28,246,278,262
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-11-28,247,277,262
+tomato,Karnataka,Kolar,Kolar Mandi,2025-11-28,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-11-28,2050,3010,2530
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-11-28,2392,3464,2928
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-11-28,6008,7358,6683
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-11-28,8719,10231,9475
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-11-28,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-11-28,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-11-28,2661,2873,2767
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-11-28,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-11-28,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-12-05,1886,2246,2066
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-12-05,952,1288,1120
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-12-05,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-12-05,6566,7154,6860
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-12-05,3588,4308,3948
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-12-05,9842,11762,10802
+chilli,Telangana,Khammam,Khammam Mandi,2025-12-05,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-12-05,2996,3432,3214
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-12-05,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-12-05,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-12-05,10443,11523,10983
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-12-05,8226,8970,8598
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-12-05,7254,8170,7712
+cotton,Telangana,Warangal,Warangal Mandi,2025-12-05,3840,4560,4200
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-12-05,8149,9071,8610
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-12-05,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-12-05,6758,7522,7140
+jute,West Bengal,Malda,Malda Mandi,2025-12-05,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-12-05,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-12-05,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-12-05,7629,8325,7977
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-12-05,2485,2719,2602
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-12-05,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-12-05,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-12-05,4165,5533,4849
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-12-05,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-12-05,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-12-05,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-12-05,6687,7159,6923
+onion,Maharashtra,Nashik,Nashik Mandi,2025-12-05,1879,2689,2284
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-12-05,1588,2200,1894
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-12-05,867,1603,1235
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-12-05,692,1052,872
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-12-05,1159,1573,1366
+potato,Bihar,Patna,Patna Mandi,2025-12-05,1283,1647,1465
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-12-05,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2025-12-05,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-12-05,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-12-05,1370,1654,1512
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-12-05,2355,2595,2475
+rice,Bihar,Patna,Patna Mandi,2025-12-05,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-12-05,5888,6698,6293
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-12-05,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2025-12-05,3582,4234,3908
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-12-05,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-12-05,237,269,253
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-12-05,241,271,256
+tomato,Karnataka,Kolar,Kolar Mandi,2025-12-05,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-12-05,2108,3068,2588
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-12-05,2404,3476,2940
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-12-05,5866,7216,6541
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-12-05,8713,10225,9469
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-12-05,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-12-05,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-12-05,2712,2924,2818
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-12-05,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-12-05,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-12-12,1905,2265,2085
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-12-12,952,1288,1120
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-12-12,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-12-12,6566,7154,6860
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-12-12,3621,4341,3981
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-12-12,10157,12077,11117
+chilli,Telangana,Khammam,Khammam Mandi,2025-12-12,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-12-12,3106,3542,3324
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-12-12,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-12-12,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-12-12,10673,11753,11213
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-12-12,8308,9052,8680
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-12-12,7238,8154,7696
+cotton,Telangana,Warangal,Warangal Mandi,2025-12-12,3840,4560,4200
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-12-12,8149,9071,8610
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-12-12,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-12-12,6758,7522,7140
+jute,West Bengal,Malda,Malda Mandi,2025-12-12,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-12-12,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-12-12,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-12-12,7772,8468,8120
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-12-12,2545,2779,2662
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-12-12,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-12-12,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-12-12,3971,5339,4655
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-12-12,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-12-12,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-12-12,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-12-12,6886,7358,7122
+onion,Maharashtra,Nashik,Nashik Mandi,2025-12-12,1861,2671,2266
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-12-12,1701,2313,2007
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-12-12,857,1593,1225
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-12-12,680,1040,860
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-12-12,1187,1601,1394
+potato,Bihar,Patna,Patna Mandi,2025-12-12,1338,1702,1520
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-12-12,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2025-12-12,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-12-12,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-12-12,1331,1615,1473
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-12-12,2396,2636,2516
+rice,Bihar,Patna,Patna Mandi,2025-12-12,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-12-12,5895,6705,6300
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-12-12,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2025-12-12,3595,4247,3921
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-12-12,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-12-12,229,261,245
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-12-12,231,261,246
+tomato,Karnataka,Kolar,Kolar Mandi,2025-12-12,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-12-12,2009,2969,2489
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-12-12,2276,3348,2812
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-12-12,5720,7070,6395
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-12-12,8750,10262,9506
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-12-12,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-12-12,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-12-12,2740,2952,2846
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-12-12,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-12-12,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-12-19,1893,2253,2073
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-12-19,952,1288,1120
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-12-19,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-12-19,6566,7154,6860
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-12-19,3515,4235,3875
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-12-19,10240,12160,11200
+chilli,Telangana,Khammam,Khammam Mandi,2025-12-19,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-12-19,3127,3563,3345
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-12-19,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-12-19,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-12-19,10863,11943,11403
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-12-19,8308,9052,8680
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-12-19,7350,8266,7808
+cotton,Telangana,Warangal,Warangal Mandi,2025-12-19,3840,4560,4200
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-12-19,8149,9071,8610
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-12-19,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-12-19,6758,7522,7140
+jute,West Bengal,Malda,Malda Mandi,2025-12-19,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-12-19,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-12-19,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-12-19,7772,8468,8120
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-12-19,2586,2820,2703
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-12-19,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-12-19,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-12-19,3869,5237,4553
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-12-19,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-12-19,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-12-19,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-12-19,7081,7553,7317
+onion,Maharashtra,Nashik,Nashik Mandi,2025-12-19,1783,2593,2188
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-12-19,1693,2305,1999
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-12-19,857,1593,1225
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-12-19,660,1020,840
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-12-19,1250,1664,1457
+potato,Bihar,Patna,Patna Mandi,2025-12-19,1358,1722,1540
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-12-19,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2025-12-19,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-12-19,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-12-19,1293,1577,1435
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-12-19,2402,2642,2522
+rice,Bihar,Patna,Patna Mandi,2025-12-19,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-12-19,5895,6705,6300
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-12-19,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2025-12-19,3591,4243,3917
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-12-19,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-12-19,229,261,245
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-12-19,223,253,238
+tomato,Karnataka,Kolar,Kolar Mandi,2025-12-19,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-12-19,1949,2909,2429
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-12-19,2397,3469,2933
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-12-19,5638,6988,6313
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-12-19,9019,10531,9775
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-12-19,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-12-19,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-12-19,2778,2990,2884
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-12-19,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-12-19,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2025-12-26,1910,2270,2090
+banana,Kerala,Ernakulam,Ernakulam Mandi,2025-12-26,952,1288,1120
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2025-12-26,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2025-12-26,6566,7154,6860
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2025-12-26,3392,4112,3752
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2025-12-26,10240,12160,11200
+chilli,Telangana,Khammam,Khammam Mandi,2025-12-26,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2025-12-26,3114,3550,3332
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2025-12-26,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2025-12-26,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2025-12-26,11131,12211,11671
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2025-12-26,8308,9052,8680
+cotton,Gujarat,Rajkot,Rajkot Mandi,2025-12-26,7402,8318,7860
+cotton,Telangana,Warangal,Warangal Mandi,2025-12-26,3840,4560,4200
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2025-12-26,8149,9071,8610
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2025-12-26,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-12-26,6758,7522,7140
+jute,West Bengal,Malda,Malda Mandi,2025-12-26,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2025-12-26,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2025-12-26,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2025-12-26,7772,8468,8120
+maize,Rajasthan,Udaipur,Udaipur Mandi,2025-12-26,2613,2847,2730
+maize,Karnataka,Belgaum,Belgaum Mandi,2025-12-26,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2025-12-26,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2025-12-26,3869,5237,4553
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2025-12-26,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2025-12-26,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2025-12-26,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2025-12-26,7114,7586,7350
+onion,Maharashtra,Nashik,Nashik Mandi,2025-12-26,1670,2480,2075
+onion,Karnataka,Dharwad,Dharwad Mandi,2025-12-26,1621,2233,1927
+onion,Madhya Pradesh,Indore,Indore Mandi,2025-12-26,857,1593,1225
+potato,Uttar Pradesh,Agra,Agra Mandi,2025-12-26,660,1020,840
+potato,West Bengal,Hooghly,Hooghly Mandi,2025-12-26,1291,1705,1498
+potato,Bihar,Patna,Patna Mandi,2025-12-26,1302,1666,1484
+rice,Punjab,Ludhiana,Ludhiana Mandi,2025-12-26,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2025-12-26,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-12-26,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2025-12-26,1260,1544,1402
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2025-12-26,2417,2657,2537
+rice,Bihar,Patna,Patna Mandi,2025-12-26,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2025-12-26,5895,6705,6300
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2025-12-26,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2025-12-26,3506,4158,3832
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2025-12-26,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2025-12-26,229,261,245
+sugarcane,Karnataka,Mysore,Mysore Mandi,2025-12-26,223,253,238
+tomato,Karnataka,Kolar,Kolar Mandi,2025-12-26,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2025-12-26,1863,2823,2343
+tomato,Maharashtra,Nashik,Nashik Mandi,2025-12-26,2404,3476,2940
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2025-12-26,5441,6791,6116
+turmeric,Tamil Nadu,Salem,Salem Mandi,2025-12-26,8963,10475,9719
+wheat,Punjab,Amritsar,Amritsar Mandi,2025-12-26,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2025-12-26,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2025-12-26,2794,3006,2900
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2025-12-26,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2025-12-26,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2026-01-02,1920,2280,2100
+banana,Kerala,Ernakulam,Ernakulam Mandi,2026-01-02,952,1288,1120
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2026-01-02,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-01-02,6566,7154,6860
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2026-01-02,3175,3895,3535
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2026-01-02,10240,12160,11200
+chilli,Telangana,Khammam,Khammam Mandi,2026-01-02,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2026-01-02,3084,3520,3302
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2026-01-02,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2026-01-02,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2026-01-02,11264,12344,11804
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-01-02,8308,9052,8680
+cotton,Gujarat,Rajkot,Rajkot Mandi,2026-01-02,7671,8587,8129
+cotton,Telangana,Warangal,Warangal Mandi,2026-01-02,3840,4560,4200
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2026-01-02,8149,9071,8610
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-01-02,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2026-01-02,6758,7522,7140
+jute,West Bengal,Malda,Malda Mandi,2026-01-02,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2026-01-02,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-01-02,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2026-01-02,7772,8468,8120
+maize,Rajasthan,Udaipur,Udaipur Mandi,2026-01-02,2613,2847,2730
+maize,Karnataka,Belgaum,Belgaum Mandi,2026-01-02,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2026-01-02,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-01-02,4104,5472,4788
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2026-01-02,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-01-02,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2026-01-02,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2026-01-02,7114,7586,7350
+onion,Maharashtra,Nashik,Nashik Mandi,2026-01-02,1580,2390,1985
+onion,Karnataka,Dharwad,Dharwad Mandi,2026-01-02,1636,2248,1942
+onion,Madhya Pradesh,Indore,Indore Mandi,2026-01-02,857,1593,1225
+potato,Uttar Pradesh,Agra,Agra Mandi,2026-01-02,660,1020,840
+potato,West Bengal,Hooghly,Hooghly Mandi,2026-01-02,1369,1783,1576
+potato,Bihar,Patna,Patna Mandi,2026-01-02,1309,1673,1491
+rice,Punjab,Ludhiana,Ludhiana Mandi,2026-01-02,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2026-01-02,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-02,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2026-01-02,1188,1472,1330
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2026-01-02,2447,2687,2567
+rice,Bihar,Patna,Patna Mandi,2026-01-02,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2026-01-02,5895,6705,6300
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2026-01-02,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2026-01-02,3492,4144,3818
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-02,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2026-01-02,229,261,245
+sugarcane,Karnataka,Mysore,Mysore Mandi,2026-01-02,223,253,238
+tomato,Karnataka,Kolar,Kolar Mandi,2026-01-02,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2026-01-02,1884,2844,2364
+tomato,Maharashtra,Nashik,Nashik Mandi,2026-01-02,2404,3476,2940
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2026-01-02,5315,6665,5990
+turmeric,Tamil Nadu,Salem,Salem Mandi,2026-01-02,9041,10553,9797
+wheat,Punjab,Amritsar,Amritsar Mandi,2026-01-02,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-01-02,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2026-01-02,2832,3044,2938
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2026-01-02,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2026-01-02,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2026-01-09,1908,2268,2088
+banana,Kerala,Ernakulam,Ernakulam Mandi,2026-01-09,952,1288,1120
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2026-01-09,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-01-09,6566,7154,6860
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2026-01-09,3160,3880,3520
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2026-01-09,10240,12160,11200
+chilli,Telangana,Khammam,Khammam Mandi,2026-01-09,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2026-01-09,3180,3616,3398
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2026-01-09,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2026-01-09,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2026-01-09,11547,12627,12087
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-01-09,8308,9052,8680
+cotton,Gujarat,Rajkot,Rajkot Mandi,2026-01-09,7952,8868,8410
+cotton,Telangana,Warangal,Warangal Mandi,2026-01-09,3840,4560,4200
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2026-01-09,8149,9071,8610
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-01-09,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2026-01-09,6758,7522,7140
+jute,West Bengal,Malda,Malda Mandi,2026-01-09,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2026-01-09,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-01-09,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2026-01-09,7772,8468,8120
+maize,Rajasthan,Udaipur,Udaipur Mandi,2026-01-09,2613,2847,2730
+maize,Karnataka,Belgaum,Belgaum Mandi,2026-01-09,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2026-01-09,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-01-09,4076,5444,4760
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2026-01-09,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-01-09,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2026-01-09,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2026-01-09,7114,7586,7350
+onion,Maharashtra,Nashik,Nashik Mandi,2026-01-09,1640,2450,2045
+onion,Karnataka,Dharwad,Dharwad Mandi,2026-01-09,1772,2384,2078
+onion,Madhya Pradesh,Indore,Indore Mandi,2026-01-09,857,1593,1225
+potato,Uttar Pradesh,Agra,Agra Mandi,2026-01-09,660,1020,840
+potato,West Bengal,Hooghly,Hooghly Mandi,2026-01-09,1403,1817,1610
+potato,Bihar,Patna,Patna Mandi,2026-01-09,1299,1663,1481
+rice,Punjab,Ludhiana,Ludhiana Mandi,2026-01-09,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2026-01-09,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-09,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2026-01-09,1188,1472,1330
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2026-01-09,2478,2718,2598
+rice,Bihar,Patna,Patna Mandi,2026-01-09,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2026-01-09,5895,6705,6300
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2026-01-09,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2026-01-09,3340,3992,3666
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-09,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2026-01-09,229,261,245
+sugarcane,Karnataka,Mysore,Mysore Mandi,2026-01-09,223,253,238
+tomato,Karnataka,Kolar,Kolar Mandi,2026-01-09,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2026-01-09,1901,2861,2381
+tomato,Maharashtra,Nashik,Nashik Mandi,2026-01-09,2404,3476,2940
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2026-01-09,5100,6450,5775
+turmeric,Tamil Nadu,Salem,Salem Mandi,2026-01-09,9269,10781,10025
+wheat,Punjab,Amritsar,Amritsar Mandi,2026-01-09,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-01-09,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2026-01-09,2865,3077,2971
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2026-01-09,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2026-01-09,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2026-01-16,1916,2276,2096
+banana,Kerala,Ernakulam,Ernakulam Mandi,2026-01-16,952,1288,1120
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2026-01-16,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-01-16,6566,7154,6860
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2026-01-16,3053,3773,3413
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2026-01-16,10240,12160,11200
+chilli,Telangana,Khammam,Khammam Mandi,2026-01-16,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2026-01-16,3200,3636,3418
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2026-01-16,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2026-01-16,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2026-01-16,11708,12788,12248
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-01-16,8308,9052,8680
+cotton,Gujarat,Rajkot,Rajkot Mandi,2026-01-16,8082,8998,8540
+cotton,Telangana,Warangal,Warangal Mandi,2026-01-16,3840,4560,4200
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2026-01-16,8149,9071,8610
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-01-16,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2026-01-16,6758,7522,7140
+jute,West Bengal,Malda,Malda Mandi,2026-01-16,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2026-01-16,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-01-16,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2026-01-16,7772,8468,8120
+maize,Rajasthan,Udaipur,Udaipur Mandi,2026-01-16,2613,2847,2730
+maize,Karnataka,Belgaum,Belgaum Mandi,2026-01-16,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2026-01-16,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-01-16,4052,5420,4736
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2026-01-16,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-01-16,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2026-01-16,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2026-01-16,7114,7586,7350
+onion,Maharashtra,Nashik,Nashik Mandi,2026-01-16,1786,2596,2191
+onion,Karnataka,Dharwad,Dharwad Mandi,2026-01-16,1882,2494,2188
+onion,Madhya Pradesh,Indore,Indore Mandi,2026-01-16,857,1593,1225
+potato,Uttar Pradesh,Agra,Agra Mandi,2026-01-16,660,1020,840
+potato,West Bengal,Hooghly,Hooghly Mandi,2026-01-16,1394,1808,1601
+potato,Bihar,Patna,Patna Mandi,2026-01-16,1302,1666,1484
+rice,Punjab,Ludhiana,Ludhiana Mandi,2026-01-16,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2026-01-16,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-16,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2026-01-16,1188,1472,1330
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2026-01-16,2543,2783,2663
+rice,Bihar,Patna,Patna Mandi,2026-01-16,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2026-01-16,5895,6705,6300
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2026-01-16,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2026-01-16,3259,3911,3585
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-16,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2026-01-16,229,261,245
+sugarcane,Karnataka,Mysore,Mysore Mandi,2026-01-16,223,253,238
+tomato,Karnataka,Kolar,Kolar Mandi,2026-01-16,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2026-01-16,1995,2955,2475
+tomato,Maharashtra,Nashik,Nashik Mandi,2026-01-16,2404,3476,2940
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2026-01-16,4869,6219,5544
+turmeric,Tamil Nadu,Salem,Salem Mandi,2026-01-16,9324,10836,10080
+wheat,Punjab,Amritsar,Amritsar Mandi,2026-01-16,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-01-16,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2026-01-16,2888,3100,2994
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2026-01-16,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2026-01-16,3055,3329,3192
+banana,Tamil Nadu,Madurai,Madurai Mandi,2026-01-23,1920,2280,2100
+banana,Kerala,Ernakulam,Ernakulam Mandi,2026-01-23,952,1288,1120
+banana,Bihar,Muzaffarpur,Muzaffarpur Mandi,2026-01-23,812,1148,980
+chickpea,Madhya Pradesh,Ujjain,Ujjain Mandi,2026-01-23,6566,7154,6860
+chickpea,Rajasthan,Jodhpur,Jodhpur Mandi,2026-01-23,3000,3720,3360
+chilli,Andhra Pradesh,Guntur,Guntur Mandi,2026-01-23,10240,12160,11200
+chilli,Telangana,Khammam,Khammam Mandi,2026-01-23,9867,11973,10920
+coconut,Kerala,Palakkad,Palakkad Mandi,2026-01-23,3310,3746,3528
+coconut,Tamil Nadu,Coimbatore,Coimbatore Mandi,2026-01-23,3710,4130,3920
+coffee,Karnataka,Shimoga,Shimoga Mandi,2026-01-23,6026,6854,6440
+coffee,Kerala,Wayanad,Wayanad Mandi,2026-01-23,12002,13082,12542
+cotton,Maharashtra,Nagpur,Nagpur Mandi,2026-01-23,8308,9052,8680
+cotton,Gujarat,Rajkot,Rajkot Mandi,2026-01-23,8082,8998,8540
+cotton,Telangana,Warangal,Warangal Mandi,2026-01-23,3840,4560,4200
+cotton,Andhra Pradesh,Guntur,Guntur Mandi,2026-01-23,8149,9071,8610
+groundnut,Gujarat,Rajkot,Rajkot Mandi,2026-01-23,3328,3952,3640
+groundnut,Andhra Pradesh,Kurnool,Kurnool Mandi,2026-01-23,6758,7522,7140
+jute,West Bengal,Malda,Malda Mandi,2026-01-23,2816,3204,3010
+jute,Bihar,Darbhanga,Darbhanga Mandi,2026-01-23,2688,3192,2940
+lentil,Uttar Pradesh,Varanasi,Varanasi Mandi,2026-01-23,3864,4396,4130
+lentil,Madhya Pradesh,Jabalpur,Jabalpur Mandi,2026-01-23,7772,8468,8120
+maize,Rajasthan,Udaipur,Udaipur Mandi,2026-01-23,2613,2847,2730
+maize,Karnataka,Belgaum,Belgaum Mandi,2026-01-23,2650,2950,2800
+maize,Bihar,Bhagalpur,Bhagalpur Mandi,2026-01-23,1216,1444,1330
+mango,Andhra Pradesh,Chittoor,Chittoor Mandi,2026-01-23,4028,5396,4712
+mango,Maharashtra,Ratnagiri,Ratnagiri Mandi,2026-01-23,2750,4250,3500
+mustard,Rajasthan,Jaipur,Jaipur Mandi,2026-01-23,3392,4028,3710
+mustard,Uttar Pradesh,Agra,Agra Mandi,2026-01-23,6968,7592,7280
+mustard,Haryana,Rohtak,Rohtak Mandi,2026-01-23,7114,7586,7350
+onion,Maharashtra,Nashik,Nashik Mandi,2026-01-23,1777,2587,2182
+onion,Karnataka,Dharwad,Dharwad Mandi,2026-01-23,1992,2604,2298
+onion,Madhya Pradesh,Indore,Indore Mandi,2026-01-23,857,1593,1225
+potato,Uttar Pradesh,Agra,Agra Mandi,2026-01-23,660,1020,840
+potato,West Bengal,Hooghly,Hooghly Mandi,2026-01-23,1385,1799,1592
+potato,Bihar,Patna,Patna Mandi,2026-01-23,1274,1638,1456
+rice,Punjab,Ludhiana,Ludhiana Mandi,2026-01-23,2782,3098,2940
+rice,Punjab,Patiala,Patiala Mandi,2026-01-23,2747,2993,2870
+rice,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-23,1189,1541,1365
+rice,West Bengal,Burdwan,Burdwan Mandi,2026-01-23,1196,1480,1338
+rice,Tamil Nadu,Thanjavur,Thanjavur Mandi,2026-01-23,2573,2813,2693
+rice,Bihar,Patna,Patna Mandi,2026-01-23,1129,1461,1295
+soybean,Madhya Pradesh,Indore,Indore Mandi,2026-01-23,5895,6705,6300
+soybean,Maharashtra,Nagpur,Nagpur Mandi,2026-01-23,5830,6490,6160
+soybean,Rajasthan,Kota,Kota Mandi,2026-01-23,3249,3901,3575
+sugarcane,Uttar Pradesh,Lucknow,Lucknow Mandi,2026-01-23,219,249,234
+sugarcane,Maharashtra,Kolhapur,Kolhapur Mandi,2026-01-23,229,261,245
+sugarcane,Karnataka,Mysore,Mysore Mandi,2026-01-23,223,253,238
+tomato,Karnataka,Kolar,Kolar Mandi,2026-01-23,2486,3674,3080
+tomato,Andhra Pradesh,Kurnool,Kurnool Mandi,2026-01-23,1944,2904,2424
+tomato,Maharashtra,Nashik,Nashik Mandi,2026-01-23,2404,3476,2940
+turmeric,Telangana,Nizamabad,Nizamabad Mandi,2026-01-23,4620,5970,5295
+turmeric,Tamil Nadu,Salem,Salem Mandi,2026-01-23,9324,10836,10080
+wheat,Punjab,Amritsar,Amritsar Mandi,2026-01-23,1472,1748,1610
+wheat,Uttar Pradesh,Kanpur,Kanpur Mandi,2026-01-23,1406,1744,1575
+wheat,Haryana,Karnal,Karnal Mandi,2026-01-23,2895,3107,3001
+wheat,Madhya Pradesh,Bhopal,Bhopal Mandi,2026-01-23,1375,1705,1540
+wheat,Rajasthan,Alwar,Alwar Mandi,2026-01-23,3055,3329,3192

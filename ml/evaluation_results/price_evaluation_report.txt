@@ -1,0 +1,7 @@
+Price Forecasting Model - Evaluation Report
+============================================================
+MAE:  Rs 16.57/quintal
+RMSE: Rs 36.56/quintal
+R²:   0.9998
+Test samples: 297
+============================================================
