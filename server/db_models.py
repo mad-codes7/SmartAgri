@@ -26,6 +26,8 @@ class User(Base):
     recommendations = relationship("Recommendation", back_populates="user", cascade="all, delete-orphan")
     disease_logs = relationship("DiseaseLog", back_populates="user", cascade="all, delete-orphan")
     alert_subscriptions = relationship("AlertSubscription", back_populates="user", cascade="all, delete-orphan")
+    expenses = relationship("Expense", back_populates="user", cascade="all, delete-orphan")
+    incomes = relationship("Income", back_populates="user", cascade="all, delete-orphan")
 
 
 class Farm(Base):
@@ -213,4 +215,39 @@ class CommunityUpvote(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     post = relationship("CommunityPost", back_populates="upvotes")
+
+
+# ─── Expenses Tracker Models ──────────────────────────────
+class Expense(Base):
+    __tablename__ = "expenses"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    amount = Column(Float, nullable=False)
+    category = Column(String(50), nullable=False)  # Labour, Crop Plantation, Fertilizers, Pesticides, Transportation, Equipment, Other
+    crop = Column(String(50), nullable=True)
+    season = Column(String(20), nullable=True)  # Kharif, Rabi, Summer
+    date = Column(Date, nullable=False)
+    notes = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    user = relationship("User", back_populates="expenses")
+
+
+class Income(Base):
+    __tablename__ = "incomes"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    amount = Column(Float, nullable=False)
+    crop = Column(String(50), nullable=False)
+    season = Column(String(20), nullable=True)
+    quantity_kg = Column(Float, nullable=True)
+    price_per_kg = Column(Float, nullable=True)
+    buyer = Column(String(100), nullable=True)
+    date = Column(Date, nullable=False)
+    notes = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    user = relationship("User", back_populates="incomes")
 

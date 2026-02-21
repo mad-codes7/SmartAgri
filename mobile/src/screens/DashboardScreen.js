@@ -23,6 +23,7 @@ export default function DashboardScreen({ navigation }) {
     const [stats, setStats] = useState(null);
     const [weather, setWeather] = useState(null);
     const [regionalCrops, setRegionalCrops] = useState(null);
+    const [communityPosts, setCommunityPosts] = useState([]);
     const [loadingStates, setLoadingStates] = useState({ stats: true, weather: true, regional: true });
 
     useEffect(() => {
@@ -33,10 +34,12 @@ export default function DashboardScreen({ navigation }) {
             api.get('/history/stats').catch(e => { console.log('Stats Error:', e); throw e; }),
             api.get('/weather/current', { params: { state } }).catch(e => { console.log('Weather Error:', e); throw e; }),
             api.get('/crops/regional', { params: { state, ...(district && { district }) } }).catch(e => { console.log('Regional Error:', e); throw e; }),
-        ]).then(([s, w, r]) => {
+            api.get('/community/posts', { params: { district, limit: 3 } }).catch(e => { console.log('Community Error:', e); throw e; }),
+        ]).then(([s, w, r, c]) => {
             if (s.status === 'fulfilled') setStats(s.value.data);
             if (w.status === 'fulfilled') setWeather(w.value.data);
             if (r.status === 'fulfilled') setRegionalCrops(r.value.data);
+            if (c.status === 'fulfilled') setCommunityPosts(c.value.data?.posts || []);
 
             setLoadingStates({
                 stats: false,
@@ -49,12 +52,7 @@ export default function DashboardScreen({ navigation }) {
     const hour = new Date().getHours();
     const greeting = hour < 12 ? t.good_morning : hour < 17 ? t.good_afternoon : t.good_evening;
 
-    const QUICK_ACTIONS = [
-        { icon: '🌱', label: t.get_crop_advice, screen: 'Recommend', color: COLORS.green500, bg: COLORS.green50 },
-        { icon: '📈', label: t.market_prices, screen: 'Market', color: COLORS.blue500, bg: COLORS.blue50 },
-        { icon: '🌤️', label: t.weather_update, screen: 'Weather', color: COLORS.amber500, bg: COLORS.amber50 },
-        { icon: '🏛️', label: t.govt_schemes, screen: 'Schemes', color: COLORS.purple500, bg: COLORS.purple50 },
-    ];
+
 
     const AI_TOOLS = [
         { icon: '🔬', label: t.nav_disease || 'Disease Detection', screen: 'DiseaseDetection', desc: t.disease_detection_desc || 'Scan crop leaves for disease' },
@@ -80,22 +78,7 @@ export default function DashboardScreen({ navigation }) {
                 </TouchableOpacity>
             </View>
 
-            {/* Quick Actions 2×2 */}
-            <View style={styles.quickGrid}>
-                {QUICK_ACTIONS.map((a) => (
-                    <TouchableOpacity
-                        key={a.screen}
-                        style={SHARED.card}
-                        onPress={() => navigation.navigate(a.screen)}
-                        activeOpacity={0.7}
-                    >
-                        <View style={[styles.quickIcon, { backgroundColor: a.bg }]}>
-                            <Text style={{ fontSize: 22 }}>{a.icon}</Text>
-                        </View>
-                        <Text style={styles.quickLabel}>{a.label}</Text>
-                    </TouchableOpacity>
-                ))}
-            </View>
+
 
             {/* 🌾 Crops in Your Region */}
             {regionalCrops && (
@@ -225,6 +208,42 @@ export default function DashboardScreen({ navigation }) {
                 </TouchableOpacity>
             ))}
 
+            {/* 🏛️ Government Schemes Banner */}
+            <TouchableOpacity
+                style={styles.schemesBanner}
+                onPress={() => navigation.navigate('Schemes')}
+                activeOpacity={0.85}
+            >
+                <View style={styles.schemesBannerLeft}>
+                    <Text style={{ fontSize: 28 }}>🏛️</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.schemesBannerTitle}>Government Schemes</Text>
+                    <Text style={styles.schemesBannerSub}>Explore subsidies, loans & farmer welfare programmes</Text>
+                </View>
+                <Text style={{ fontSize: 16, color: '#fff' }}>→</Text>
+            </TouchableOpacity>
+
+            {/* 🤝 Community Banner */}
+            <TouchableOpacity
+                style={styles.communityBanner}
+                onPress={() => navigation.navigate('Community')}
+                activeOpacity={0.85}
+            >
+                <View style={styles.communityBannerLeft}>
+                    <Text style={{ fontSize: 28 }}>🤝</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.communityBannerTitle}>Farmer Community</Text>
+                    <Text style={styles.communityBannerSub}>
+                        {communityPosts.length > 0
+                            ? `${communityPosts.length} new post${communityPosts.length > 1 ? 's' : ''} from farmers near you`
+                            : 'Connect, share tips & get help from nearby farmers'}
+                    </Text>
+                </View>
+                <Text style={{ fontSize: 16, color: '#fff' }}>→</Text>
+            </TouchableOpacity>
+
             {/* Tip Banner */}
             <View style={styles.tipBanner}>
                 <Text style={styles.tipText}>💡 <Text style={{ fontWeight: '700' }}>Tip:</Text> {t.tip_text}</Text>
@@ -254,27 +273,26 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     heroBtnText: { color: '#fff', fontWeight: '700', fontSize: 14 },
-    quickGrid: {
+    /* ─── Schemes Banner ─── */
+    schemesBanner: {
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        gap: 10,
-        marginBottom: 16,
+        alignItems: 'center',
+        gap: 14,
+        backgroundColor: '#92400e',
+        borderRadius: 16,
+        padding: 18,
+        marginBottom: 12,
     },
-    quickIcon: {
-        width: 48,
-        height: 48,
+    schemesBannerLeft: {
+        width: 50,
+        height: 50,
         borderRadius: 14,
+        backgroundColor: 'rgba(255,255,255,0.15)',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 8,
-        alignSelf: 'center',
     },
-    quickLabel: {
-        fontWeight: '600',
-        fontSize: 12,
-        color: COLORS.gray800,
-        textAlign: 'center',
-    },
+    schemesBannerTitle: { fontSize: 15, fontWeight: '800', color: '#fff', marginBottom: 2 },
+    schemesBannerSub: { fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 17 },
 
     /* ─── Regional Crops ─── */
     regionalSection: {
@@ -403,4 +421,26 @@ const styles = StyleSheet.create({
         marginTop: 4,
     },
     tipText: { fontSize: 13, color: COLORS.green700, lineHeight: 19 },
+
+    /* ─── Community Banner ─── */
+    communityBanner: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 14,
+        backgroundColor: COLORS.green800,
+        borderRadius: 16,
+        padding: 18,
+        marginBottom: 16,
+        ...SHADOWS.green,
+    },
+    communityBannerLeft: {
+        width: 50,
+        height: 50,
+        borderRadius: 14,
+        backgroundColor: 'rgba(255,255,255,0.15)',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    communityBannerTitle: { fontSize: 15, fontWeight: '800', color: '#fff', marginBottom: 2 },
+    communityBannerSub: { fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 17 },
 });

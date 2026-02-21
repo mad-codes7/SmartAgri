@@ -3,7 +3,7 @@
  */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import api from '../api';
+import api, { setOnAuthFailure } from '../api';
 
 const AuthContext = createContext(null);
 
@@ -12,6 +12,11 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        // Register auth failure handler → auto-logout on 401
+        setOnAuthFailure(() => {
+            setUser(null);
+        });
+
         (async () => {
             try {
                 const stored = await AsyncStorage.getItem('smartagri_user');

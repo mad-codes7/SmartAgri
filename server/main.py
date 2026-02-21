@@ -56,7 +56,7 @@ app.add_middleware(
 )
 
 # Register routers
-from routers import auth, recommend, market, weather, crops, schemes, history, health, chatbot, disease, districts, community, map
+from routers import auth, recommend, market, weather, crops, schemes, history, health, chatbot, disease, districts, community, map, expenses, fertilizer, crop_calendar
 
 app.include_router(auth.router)
 app.include_router(recommend.router)
@@ -71,6 +71,9 @@ app.include_router(disease.router)
 app.include_router(districts.router)
 app.include_router(community.router)
 app.include_router(map.router)
+app.include_router(expenses.router)
+app.include_router(fertilizer.router)
+app.include_router(crop_calendar.router)
 
 
 @app.get("/")

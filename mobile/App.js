@@ -3,7 +3,7 @@
  * RootStack ➜ Auth screens OR MainStack
  * MainStack ➜ HomeTabs + all secondary screens at the same level.
  */
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,7 +11,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LanguageProvider } from './src/context/LanguageContext';
 import { AuthProvider, useAuth } from './src/context/AuthContext';
 import ChatbotFAB from './src/components/ChatbotFAB';
-import { View, ActivityIndicator, Text } from 'react-native';
+import { View, ActivityIndicator, Text, TouchableOpacity } from 'react-native';
 import { COLORS } from './src/theme';
 
 // Screens
@@ -28,24 +28,35 @@ import DiseaseDetectionScreen from './src/screens/DiseaseDetectionScreen';
 import FarmMapScreen from './src/screens/FarmMapScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import MoreScreen from './src/screens/MoreScreen';
+import ExpensesScreen from './src/screens/ExpensesScreen';
+import FertilizerScreen from './src/screens/FertilizerScreen';
 import DistrictScreen from './src/screens/DistrictScreen';
 import CommunityScreen from './src/screens/CommunityScreen';
 import CreatePostScreen from './src/screens/CreatePostScreen';
 import PostDetailScreen from './src/screens/PostDetailScreen';
+import CropCalendarScreen from './src/screens/CropCalendarScreen';
 
 // IMPORTANT: separate navigator instances to avoid conflicts
 const RootStack = createNativeStackNavigator();
 const AppStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+// ── App name shown on header right ────────────────────────
+const AppNameHeader = () => (
+  <Text style={{ fontSize: 13, fontWeight: '800', color: COLORS.green700, marginRight: 14, letterSpacing: 0.3 }}>
+    SmartAgri AI
+  </Text>
+);
+
 const headerStyle = {
   headerStyle: { backgroundColor: COLORS.white, elevation: 0, shadowOpacity: 0 },
   headerTintColor: COLORS.green800,
   headerTitleStyle: { fontWeight: '700', fontSize: 17 },
+  headerRight: () => <AppNameHeader />,
 };
 
-// Bottom tabs (5 tabs)
-function HomeTabs() {
+// ── Bottom tabs (5 tabs) ─────────────────────────────────
+function HomeTabs({ chatbotOpen, setChatbotOpen }) {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -56,53 +67,71 @@ function HomeTabs() {
           backgroundColor: COLORS.white,
           borderTopWidth: 1,
           borderTopColor: COLORS.borderSubtle,
-          paddingBottom: 6,
-          paddingTop: 6,
-          height: 60,
+          paddingBottom: 16,
+          paddingTop: 8,
+          height: 72,
         },
-        tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
+        tabBarLabelStyle: { fontSize: 11, fontWeight: '600', marginTop: 2 },
+        tabBarIconStyle: { marginBottom: -2 },
       }}
     >
       <Tab.Screen
         name="Dashboard"
         component={DashboardScreen}
-        options={{ title: 'Home', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>📊</Text> }}
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <Text style={{ fontSize: 24 }}>🏠</Text>,
+          headerRight: () => (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <TouchableOpacity
+                onPress={() => setChatbotOpen(true)}
+                style={{
+                  width: 34, height: 34, borderRadius: 17,
+                  backgroundColor: COLORS.green50, alignItems: 'center', justifyContent: 'center',
+                  marginRight: 8, borderWidth: 1, borderColor: COLORS.green200,
+                }}
+              >
+                <Text style={{ fontSize: 18 }}>🤖</Text>
+              </TouchableOpacity>
+              <AppNameHeader />
+            </View>
+          ),
+        }}
       />
       <Tab.Screen
         name="Recommend"
         component={RecommendScreen}
-        options={{ title: 'Advisory', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🌱</Text> }}
+        options={{ title: 'Advisory', tabBarIcon: ({ color }) => <Text style={{ fontSize: 24 }}>🌱</Text> }}
       />
       <Tab.Screen
         name="Market"
         component={MarketScreen}
-        options={{ title: 'Market', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>📈</Text> }}
+        options={{ title: 'Market', tabBarIcon: ({ color }) => <Text style={{ fontSize: 24 }}>📈</Text> }}
       />
       <Tab.Screen
-        name="Weather"
-        component={WeatherScreen}
-        options={{ title: 'Weather', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🌤️</Text> }}
-      />
-      <Tab.Screen
-        name="Community"
-        component={CommunityScreen}
-        options={{ title: 'Community', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🤝</Text> }}
+        name="Expenses"
+        component={ExpensesScreen}
+        options={{ title: 'Expenses', tabBarIcon: ({ color }) => <Text style={{ fontSize: 24 }}>💰</Text> }}
       />
       <Tab.Screen
         name="MoreTab"
         component={MoreScreen}
-        options={{ title: 'More', tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>☰</Text> }}
+        options={{ title: 'More', tabBarIcon: ({ color }) => <Text style={{ fontSize: 24 }}>☰</Text> }}
       />
     </Tab.Navigator>
   );
 }
 
 function MainNavigator() {
+  const [chatbotOpen, setChatbotOpen] = useState(false);
+
   return (
     <View style={{ flex: 1 }}>
       <AppStack.Navigator screenOptions={headerStyle}>
         {/* Tabs as home */}
-        <AppStack.Screen name="HomeTabs" component={HomeTabs} options={{ headerShown: false }} />
+        <AppStack.Screen name="HomeTabs" options={{ headerShown: false }}>
+          {() => <HomeTabs chatbotOpen={chatbotOpen} setChatbotOpen={setChatbotOpen} />}
+        </AppStack.Screen>
 
         {/* All secondary screens — accessible from any screen */}
         <AppStack.Screen name="Crops" component={CropsScreen} options={{ title: '🌾 Crop Library' }} />
@@ -112,10 +141,14 @@ function MainNavigator() {
         <AppStack.Screen name="FarmMap" component={FarmMapScreen} options={{ title: '🗺️ Farm Map' }} />
         <AppStack.Screen name="Profile" component={ProfileScreen} options={{ title: '👤 Profile' }} />
         <AppStack.Screen name="District" component={DistrictScreen} options={{ title: '🗺️ District Profile' }} />
+        <AppStack.Screen name="Weather" component={WeatherScreen} options={{ title: '🌤️ Weather' }} />
+        <AppStack.Screen name="Community" component={CommunityScreen} options={{ title: '🤝 Community' }} />
         <AppStack.Screen name="CreatePost" component={CreatePostScreen} options={{ title: '✏️ New Post' }} />
         <AppStack.Screen name="PostDetail" component={PostDetailScreen} options={{ title: '💬 Post' }} />
+        <AppStack.Screen name="Fertilizer" component={FertilizerScreen} options={{ title: '🧪 Fertilizer & Pesticide' }} />
+        <AppStack.Screen name="CropCalendar" component={CropCalendarScreen} options={{ title: '📅 Crop Calendar' }} />
       </AppStack.Navigator>
-      <ChatbotFAB />
+      <ChatbotFAB visible={chatbotOpen} onClose={() => setChatbotOpen(false)} />
     </View>
   );
 }

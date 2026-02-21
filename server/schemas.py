@@ -4,7 +4,7 @@ Request and response models for all API endpoints.
 """
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional, List
-from datetime import datetime
+from datetime import datetime, date
 
 
 # ─── Auth Schemas ──────────────────────────────────────────
@@ -378,3 +378,127 @@ class HealthResponse(BaseModel):
     version: str
     db_connected: bool
     models_loaded: bool
+
+
+# ─── Fertilizer & Pesticide Schemas ────────────────────────
+class FertilizerRequest(BaseModel):
+    state: str
+    district: str
+    crop: str
+    growth_stage: str = Field(..., description="Sowing/Seedling/Vegetative/Flowering/Fruiting/Maturity")
+    soil_type: Optional[str] = None
+    temperature: float = 25
+    humidity: float = 70
+    rainfall: float = 100
+
+
+class FertilizerItem(BaseModel):
+    name: str
+    type: str
+    dosage_kg_per_ha: float
+    dosage_kg_per_acre: float
+    method: str
+    nutrient: str
+
+
+class FertilizerSchedule(BaseModel):
+    current_stage: List[FertilizerItem]
+    basal_reference: List[FertilizerItem]
+    total_npk: str
+    soil_amendment: Optional[str]
+
+
+class PestRiskItem(BaseModel):
+    pest_name: str
+    pest_type: str
+    risk_level: str
+    weather_match: bool
+    trigger_description: str
+    affected_stages: List[str]
+
+
+class PesticideItem(BaseModel):
+    product_name: str
+    type: str
+    dosage: str
+    target_pest: str
+    safety_interval_days: int
+    precautions: str
+    for_pest: str
+    risk_level: str
+
+
+class FertilizerResponse(BaseModel):
+    crop: str
+    growth_stage: str
+    state: str
+    district: str
+    soil_type: str
+    fertilizers: FertilizerSchedule
+    pest_risks: List[PestRiskItem]
+    overall_risk: str
+    risk_summary: str
+    pesticides: List[PesticideItem]
+    safety_precautions: List[str]
+
+
+# ─── Expenses Tracker Schemas ──────────────────────────────
+class ExpenseCreate(BaseModel):
+    amount: float = Field(..., gt=0, description="Expense amount in ₹")
+    category: str = Field(..., description="Labour, Crop Plantation, Fertilizers, Pesticides, Transportation, Equipment, Other")
+    crop: Optional[str] = None
+    season: Optional[str] = None
+    date: date
+    notes: Optional[str] = None
+
+
+class ExpenseResponse(BaseModel):
+    id: int
+    amount: float
+    category: str
+    crop: Optional[str]
+    season: Optional[str]
+    date: date
+    notes: Optional[str]
+    created_at: Optional[datetime]
+
+    class Config:
+        from_attributes = True
+
+
+class IncomeCreate(BaseModel):
+    amount: float = Field(..., gt=0, description="Income amount in ₹")
+    crop: str
+    season: Optional[str] = None
+    quantity_kg: Optional[float] = Field(None, ge=0)
+    price_per_kg: Optional[float] = Field(None, ge=0)
+    buyer: Optional[str] = None
+    date: date
+    notes: Optional[str] = None
+
+
+class IncomeResponse(BaseModel):
+    id: int
+    amount: float
+    crop: str
+    season: Optional[str]
+    quantity_kg: Optional[float]
+    price_per_kg: Optional[float]
+    buyer: Optional[str]
+    date: date
+    notes: Optional[str]
+    created_at: Optional[datetime]
+
+    class Config:
+        from_attributes = True
+
+
+class ExpenseSummary(BaseModel):
+    total_expenses: float
+    total_income: float
+    net_profit: float
+    roi_percent: float
+    expense_by_category: dict
+    monthly_expenses: List[dict]
+    monthly_income: List[dict]
+

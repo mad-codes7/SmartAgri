@@ -4,13 +4,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
     View, Text, TouchableOpacity, TextInput, FlatList, Modal,
-    StyleSheet, KeyboardAvoidingView, Platform, Animated,
+    StyleSheet, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { useLang } from '../context/LanguageContext';
 import api from '../api';
 import { COLORS, SHADOWS } from '../theme';
 
-export default function ChatbotFAB() {
+export default function ChatbotFAB({ visible = false, onClose }) {
     const { t } = useLang();
     const [open, setOpen] = useState(false);
     const [messages, setMessages] = useState([{
@@ -21,14 +21,16 @@ export default function ChatbotFAB() {
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
     const flatListRef = useRef(null);
-    const scaleAnim = useRef(new Animated.Value(1)).current;
 
+    // Sync with external visible prop
     useEffect(() => {
-        Animated.spring(scaleAnim, {
-            toValue: open ? 0.9 : 1,
-            useNativeDriver: true,
-        }).start();
-    }, [open]);
+        setOpen(visible);
+    }, [visible]);
+
+    const handleClose = () => {
+        setOpen(false);
+        if (onClose) onClose();
+    };
 
     const send = async (text) => {
         const msg = text || input.trim();
@@ -69,19 +71,9 @@ export default function ChatbotFAB() {
 
     return (
         <>
-            {/* FAB */}
-            <Animated.View style={[styles.fabContainer, { transform: [{ scale: scaleAnim }] }]}>
-                <TouchableOpacity
-                    style={[styles.fab, open && styles.fabOpen]}
-                    onPress={() => setOpen(!open)}
-                    activeOpacity={0.8}
-                >
-                    <Text style={styles.fabIcon}>{open ? '✕' : '🤖'}</Text>
-                </TouchableOpacity>
-            </Animated.View>
 
             {/* Chat Modal */}
-            <Modal visible={open} transparent animationType="slide" onRequestClose={() => setOpen(false)}>
+            <Modal visible={open} transparent animationType="slide" onRequestClose={handleClose}>
                 <View style={styles.modalOverlay}>
                     <KeyboardAvoidingView
                         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -98,7 +90,7 @@ export default function ChatbotFAB() {
                                     <Text style={styles.headerSub}>🟢 Online • Ask me anything</Text>
                                 </View>
                             </View>
-                            <TouchableOpacity onPress={() => setOpen(false)}>
+                            <TouchableOpacity onPress={handleClose}>
                                 <Text style={{ fontSize: 18, color: '#fff' }}>✕</Text>
                             </TouchableOpacity>
                         </View>
@@ -147,24 +139,6 @@ export default function ChatbotFAB() {
 }
 
 const styles = StyleSheet.create({
-    fabContainer: {
-        position: 'absolute',
-        bottom: 24,
-        right: 24,
-        zIndex: 1000,
-    },
-    fab: {
-        width: 56,
-        height: 56,
-        borderRadius: 28,
-        backgroundColor: COLORS.green600,
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...SHADOWS.green,
-    },
-    fabOpen: {
-        backgroundColor: COLORS.gray700,
-    },
     fabIcon: {
         fontSize: 22,
         color: '#fff',

@@ -1,17 +1,37 @@
 /**
  * SmartAgri AI Mobile - Axios API Client
+ * Auto-detects the server IP from Expo's dev server connection.
  */
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Constants from 'expo-constants';
 
-const API_URL = 'http://192.168.1.8:8000/api'; // Your PC's local IP
-// For Android emulator use: 'http://10.0.2.2:8000/api'
+// ── Auto-detect server IP from Expo QR code connection ────
+// When your phone connects via Expo QR, it already knows the PC's IP.
+// We extract that same IP and use it for our API server (same PC, port 8000).
+const debuggerHost =
+    Constants.expoGoConfig?.debuggerHost ||
+    Constants.manifest?.debuggerHost ||
+    '';
+const hostIP = debuggerHost.split(':')[0];
+
+export const API_URL = hostIP
+    ? `http://${hostIP}:8000/api`
+    : 'http://localhost:8000/api'; // fallback for web/emulator
+
+console.log(`[API] Connecting to: ${API_URL}`);
 
 const api = axios.create({
     baseURL: API_URL,
     headers: { 'Content-Type': 'application/json' },
-    timeout: 15000,
+    timeout: 10000,
 });
+
+// ── Logout callback (set by AuthContext) ──────────────────
+let _onAuthFailure = null;
+export function setOnAuthFailure(callback) {
+    _onAuthFailure = callback;
+}
 
 // Request interceptor – attach token
 api.interceptors.request.use(async (config) => {
@@ -20,12 +40,13 @@ api.interceptors.request.use(async (config) => {
     return config;
 });
 
-// Response interceptor – handle 401
+// Response interceptor – handle 401 → auto-logout
 api.interceptors.response.use(
     (res) => res,
     async (err) => {
         if (err.response?.status === 401) {
             await AsyncStorage.multiRemove(['smartagri_token', 'smartagri_user', 'smartagri_refresh']);
+            if (_onAuthFailure) _onAuthFailure();
         }
         return Promise.reject(err);
     }
