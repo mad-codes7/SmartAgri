@@ -5,7 +5,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
     View, Text, TouchableOpacity, StyleSheet, ActivityIndicator,
-    ScrollView, Linking, RefreshControl,
+    ScrollView, Linking, RefreshControl, Alert,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { useLang } from '../context/LanguageContext';
@@ -29,6 +29,7 @@ const TABS = [
     { key: 'crops', icon: '🌾', label: 'Crops' },
     { key: 'nearby', icon: '🗺️', label: 'Nearby' },
     { key: 'alerts', icon: '⚡', label: 'Alerts' },
+    { key: 'contact', icon: '📞', label: 'Krishi' },
 ];
 
 
@@ -360,6 +361,81 @@ function NoDistrictView({ all, onExplore, navigation }) {
 }
 
 
+// ── Krishi Contact Section ───────────────────────────────────
+function KrishiContactSection({ profile, district }) {
+    const callPhone = (phone) => {
+        Linking.openURL(`tel:${phone}`).catch(() =>
+            Alert.alert('Error', 'Unable to open phone app.')
+        );
+    };
+    const sendEmail = (email) => {
+        Linking.openURL(`mailto:${email}`).catch(() =>
+            Alert.alert('Error', 'Unable to open email app.')
+        );
+    };
+
+    if (!profile?.krishi_vibhag) {
+        return (
+            <View style={styles.emptyBox}>
+                <Text style={{ fontSize: 40, marginBottom: 10 }}>📞</Text>
+                <Text style={{ fontSize: 16, fontWeight: '700', color: COLORS.gray700 }}>No Krishi contact data</Text>
+                <Text style={{ fontSize: 12, color: COLORS.gray500, marginTop: 4 }}>Contact data isn't available for this district yet</Text>
+            </View>
+        );
+    }
+
+    const kv = profile.krishi_vibhag;
+    return (
+        <View>
+            <Text style={styles.sectionHead}>📞 Krishi Vibhag — {district}</Text>
+            <View style={[SHARED.card, { marginBottom: 14 }]}>
+                <Text style={styles.kvOffice}>{kv.office}</Text>
+                <Text style={styles.kvDao}>👤 {kv.dao_name}</Text>
+                <Text style={styles.kvAddr}>📍 {kv.address}</Text>
+                <Text style={styles.kvHours}>🕐 {kv.office_hours}</Text>
+                <View style={styles.contactBtns}>
+                    <TouchableOpacity
+                        style={[styles.contactBtn, { backgroundColor: COLORS.green600 }]}
+                        onPress={() => callPhone(kv.mobile || kv.phone)}
+                    >
+                        <Text style={styles.contactBtnText}>📞 Call Mobile</Text>
+                        <Text style={styles.contactBtnSub}>{kv.mobile}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={[styles.contactBtn, { backgroundColor: COLORS.blue500 }]}
+                        onPress={() => callPhone(kv.phone)}
+                    >
+                        <Text style={styles.contactBtnText}>☎️ Office</Text>
+                        <Text style={styles.contactBtnSub}>{kv.phone}</Text>
+                    </TouchableOpacity>
+                </View>
+                <TouchableOpacity
+                    style={styles.emailBtn}
+                    onPress={() => sendEmail(kv.email)}
+                >
+                    <Text style={styles.emailBtnText}>✉️ {kv.email}</Text>
+                </TouchableOpacity>
+            </View>
+
+            {/* KVK Card */}
+            {kv.kvk && (
+                <View style={[SHARED.card, { marginBottom: 14, borderColor: COLORS.green200, borderWidth: 1.5 }]}>
+                    <Text style={{ fontSize: 13, fontWeight: '700', color: COLORS.green700, marginBottom: 6 }}>🏫 Krishi Vigyan Kendra (KVK)</Text>
+                    <Text style={{ fontSize: 15, fontWeight: '800', color: COLORS.gray900, marginBottom: 3 }}>{kv.kvk.name}</Text>
+                    <Text style={{ fontSize: 12, color: COLORS.gray500, marginBottom: 10 }}>📍 {kv.kvk.address}</Text>
+                    <TouchableOpacity
+                        style={styles.kvkCallBtn}
+                        onPress={() => callPhone(kv.kvk.phone)}
+                    >
+                        <Text style={styles.kvkCallText}>📞 {kv.kvk.phone}</Text>
+                    </TouchableOpacity>
+                </View>
+            )}
+        </View>
+    );
+}
+
+
 // ══════════════════════════════════════════════════════════════
 // MAIN SCREEN
 // ══════════════════════════════════════════════════════════════
@@ -367,6 +443,7 @@ export default function FarmMapScreen({ navigation }) {
     const { user } = useAuth();
     const { t } = useLang();
     const [data, setData] = useState(null);
+    const [districtProfile, setDistrictProfile] = useState(null);
     const [loading, setLoading] = useState(true);
     const [refreshing, setRefreshing] = useState(false);
     const [tab, setTab] = useState('overview');
@@ -377,15 +454,20 @@ export default function FarmMapScreen({ navigation }) {
         else setLoading(true);
         try {
             const params = district ? { district } : {};
-            const res = await api.get('/map/data', { params });
-            setData(res.data);
+            const [mapRes, profileRes] = await Promise.allSettled([
+                api.get('/map/data', { params }),
+                api.get('/districts/profile', { params: { district: district || user?.district || 'Pune', state: user?.state || 'Maharashtra' } }),
+            ]);
+            if (mapRes.status === 'fulfilled') setData(mapRes.value.data);
+            else setData(null);
+            if (profileRes.status === 'fulfilled') setDistrictProfile(profileRes.value.data);
         } catch {
             setData(null);
         } finally {
             setLoading(false);
             setRefreshing(false);
         }
-    }, []);
+    }, [user?.district, user?.state]);
 
     useEffect(() => { fetchData(); }, [fetchData]);
 
@@ -458,6 +540,7 @@ export default function FarmMapScreen({ navigation }) {
                 {tab === 'crops' && <CropsSection crops={data.crops || []} />}
                 {tab === 'nearby' && <NearbySection nearby={data.nearby_districts || []} onExplore={handleExplore} currentDistrict={data.district} />}
                 {tab === 'alerts' && <AlertsSection alerts={data.alerts || []} district={data.district} />}
+                {tab === 'contact' && <KrishiContactSection profile={districtProfile} district={data.district} />}
             </ScrollView>
         </View>
     );
@@ -624,4 +707,24 @@ const styles = StyleSheet.create({
     },
     noTitle: { fontSize: 18, fontWeight: '800', color: COLORS.gray900, marginBottom: 6, textAlign: 'center' },
     noSub: { fontSize: 13, color: COLORS.gray500, textAlign: 'center', lineHeight: 19 },
+
+    // Krishi Contact
+    kvOffice: { fontSize: 15, fontWeight: '800', color: COLORS.gray900, marginBottom: 4 },
+    kvDao: { fontSize: 14, fontWeight: '600', color: COLORS.green700, marginBottom: 6 },
+    kvAddr: { fontSize: 12, color: COLORS.gray600, marginBottom: 4 },
+    kvHours: { fontSize: 12, color: COLORS.gray500, marginBottom: 14 },
+    contactBtns: { flexDirection: 'row', gap: 10, marginBottom: 10 },
+    contactBtn: { flex: 1, borderRadius: 10, padding: 12, alignItems: 'center' },
+    contactBtnText: { color: '#fff', fontWeight: '700', fontSize: 13 },
+    contactBtnSub: { color: 'rgba(255,255,255,0.75)', fontSize: 11, marginTop: 2 },
+    emailBtn: {
+        backgroundColor: COLORS.gray50, borderRadius: 10, padding: 12,
+        borderWidth: 1, borderColor: COLORS.borderLight, alignItems: 'center',
+    },
+    emailBtnText: { color: COLORS.blue500, fontWeight: '600', fontSize: 13 },
+    kvkCallBtn: {
+        backgroundColor: COLORS.green50, borderRadius: 8, paddingHorizontal: 14,
+        paddingVertical: 8, alignSelf: 'flex-start', borderWidth: 1, borderColor: COLORS.green200,
+    },
+    kvkCallText: { fontSize: 13, fontWeight: '700', color: COLORS.green700 },
 });

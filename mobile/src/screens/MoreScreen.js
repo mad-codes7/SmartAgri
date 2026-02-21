@@ -19,7 +19,6 @@ export default function MoreScreen({ navigation }) {
         { name: 'History', icon: '📋', label: t.nav_history || 'History', desc: 'Past crop advisory sessions' },
         { name: 'DiseaseDetection', icon: '🔬', label: t.nav_disease || 'Disease Detection', desc: 'Scan crop leaves for disease' },
         { name: 'FarmMap', icon: '🗺️', label: t.nav_map || 'Farm Map', desc: 'Crop zones & nearby mandis' },
-        { name: 'District', icon: '📍', label: t.nav_district || 'District Profile', desc: 'Explore your district\'s agriculture data' },
         { name: 'CropCalendar', icon: '📅', label: 'Crop Calendar', desc: 'Smart crop scheduling & task planner' },
         { name: 'Fertilizer', icon: '🧪', label: 'Fertilizer & Pesticide', desc: 'Get fertilizer & pest management advice' },
         { name: 'Profile', icon: '👤', label: t.profile || 'Profile', desc: 'Manage your account details' },

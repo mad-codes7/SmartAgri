@@ -107,3 +107,23 @@ async def get_weather_alerts(
         })
 
     return {"state": state, "alerts": alerts}
+
+
+@router.get("/recommend-params")
+async def get_recommend_params(
+    state: str = Query(...),
+    district: str = Query(""),
+    user_id: int = Depends(get_current_user_id),
+):
+    """Get weather parameters for crop recommendation wizard (auto-fill)."""
+    service = get_weather_service()
+    current = service.get_current(state, district)
+    return {
+        "temperature": round(current.get("temperature", 28)),
+        "humidity": round(current.get("humidity", 70)),
+        "avg_rainfall": round(current.get("rainfall", 150)),
+        "state": state,
+        "district": district,
+        "source": "openweathermap" if service.api_key else "regional_average",
+    }
+

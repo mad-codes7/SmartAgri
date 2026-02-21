@@ -28,6 +28,7 @@ class Settings(BaseSettings):
 
     # External APIs
     OPENWEATHER_API_KEY: str = ""
+    GEMINI_API_KEY: str = ""
     MANDI_API_BASE: str = "https://api.data.gov.in/resource"
 
     # CORS

@@ -144,6 +144,98 @@ STATE_DISTRICTS = {
         "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada",
         "Puri", "Rayagada", "Sambalpur", "Subarnapur", "Sundergarh",
     ],
+    "Jharkhand": [
+        "Bokaro", "Chatra", "Deoghar", "Dhanbad", "Dumka",
+        "East Singhbhum", "Garhwa", "Giridih", "Godda", "Gumla",
+        "Hazaribagh", "Jamtara", "Khunti", "Koderma", "Latehar",
+        "Lohardaga", "Pakur", "Palamu", "Ramgarh", "Ranchi",
+        "Sahebganj", "Saraikela Kharsawan", "Simdega", "West Singhbhum",
+    ],
+    "Chhattisgarh": [
+        "Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara",
+        "Bijapur", "Bilaspur", "Dantewada", "Dhamtari", "Durg",
+        "Gariaband", "Gaurela Pendra Marwahi", "Janjgir-Champa", "Jashpur",
+        "Kabirdham", "Kanker", "Kondagaon", "Korba", "Koriya",
+        "Mahasamund", "Mungeli", "Narayanpur", "Raigarh", "Raipur",
+        "Rajnandgaon", "Sukma", "Surajpur", "Surguja",
+    ],
+    "Uttarakhand": [
+        "Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun",
+        "Haridwar", "Nainital", "Pauri Garhwal", "Pithoragarh",
+        "Rudraprayag", "Tehri Garhwal", "Udham Singh Nagar", "Uttarkashi",
+    ],
+    "Himachal Pradesh": [
+        "Bilaspur", "Chamba", "Hamirpur", "Kangra", "Kinnaur",
+        "Kullu", "Lahaul and Spiti", "Mandi", "Shimla", "Sirmaur",
+        "Solan", "Una",
+    ],
+    "Assam": [
+        "Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar",
+        "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri",
+        "Dibrugarh", "Dima Hasao", "Goalpara", "Golaghat", "Hailakandi",
+        "Hojai", "Jorhat", "Kamrup", "Kamrup Metropolitan", "Karbi Anglong",
+        "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon",
+        "Nagaon", "Nalbari", "Sivasagar", "Sonitpur", "South Salmara-Mankachar",
+        "Tinsukia", "Udalguri", "West Karbi Anglong",
+    ],
+    "Goa": [
+        "North Goa", "South Goa",
+    ],
+    "Jammu and Kashmir": [
+        "Anantnag", "Bandipora", "Baramulla", "Budgam", "Doda",
+        "Ganderbal", "Jammu", "Kathua", "Kishtwar", "Kulgam",
+        "Kupwara", "Poonch", "Pulwama", "Rajouri", "Ramban",
+        "Reasi", "Samba", "Shopian", "Srinagar", "Udhampur",
+    ],
+    "Meghalaya": [
+        "East Garo Hills", "East Jaintia Hills", "East Khasi Hills",
+        "North Garo Hills", "Ri Bhoi", "South Garo Hills",
+        "South West Garo Hills", "South West Khasi Hills",
+        "West Garo Hills", "West Jaintia Hills", "West Khasi Hills",
+    ],
+    "Manipur": [
+        "Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West",
+        "Jiribam", "Kakching", "Kamjong", "Kangpokpi", "Noney",
+        "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul",
+    ],
+    "Tripura": [
+        "Dhalai", "Gomati", "Khowai", "North Tripura",
+        "Sepahijala", "South Tripura", "Unakoti", "West Tripura",
+    ],
+    "Nagaland": [
+        "Chumoukedima", "Dimapur", "Kiphire", "Kohima", "Longleng",
+        "Mokokchung", "Mon", "Niuland", "Noklak", "Peren",
+        "Phek", "Shamator", "Tseminyu", "Tuensang", "Wokha", "Zunheboto",
+    ],
+    "Mizoram": [
+        "Aizawl", "Champhai", "Hnahthial", "Khawzawl", "Kolasib",
+        "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Saitual", "Serchhip",
+    ],
+    "Arunachal Pradesh": [
+        "Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang",
+        "Kamle", "Kra Daadi", "Kurung Kumey", "Lepa Rada", "Lohit",
+        "Longding", "Lower Dibang Valley", "Lower Siang", "Lower Subansiri",
+        "Namsai", "Pakke Kessang", "Papum Pare", "Shi Yomi", "Siang",
+        "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng",
+        "West Siang",
+    ],
+    "Sikkim": [
+        "East Sikkim", "North Sikkim", "South Sikkim", "West Sikkim",
+    ],
+    "Delhi": [
+        "Central Delhi", "East Delhi", "New Delhi", "North Delhi",
+        "North East Delhi", "North West Delhi", "Shahdara",
+        "South Delhi", "South East Delhi", "South West Delhi", "West Delhi",
+    ],
+    "Puducherry": [
+        "Karaikal", "Mahe", "Puducherry", "Yanam",
+    ],
+    "Chandigarh": [
+        "Chandigarh",
+    ],
+    "Ladakh": [
+        "Kargil", "Leh",
+    ],
 }
 
 # ─────────────────────────────────────────────────────────────────────

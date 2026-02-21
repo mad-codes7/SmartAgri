@@ -30,7 +30,7 @@ import ProfileScreen from './src/screens/ProfileScreen';
 import MoreScreen from './src/screens/MoreScreen';
 import ExpensesScreen from './src/screens/ExpensesScreen';
 import FertilizerScreen from './src/screens/FertilizerScreen';
-import DistrictScreen from './src/screens/DistrictScreen';
+
 import CommunityScreen from './src/screens/CommunityScreen';
 import CreatePostScreen from './src/screens/CreatePostScreen';
 import PostDetailScreen from './src/screens/PostDetailScreen';
@@ -140,7 +140,7 @@ function MainNavigator() {
         <AppStack.Screen name="DiseaseDetection" component={DiseaseDetectionScreen} options={{ title: '🔬 Disease Detection' }} />
         <AppStack.Screen name="FarmMap" component={FarmMapScreen} options={{ title: '🗺️ Farm Map' }} />
         <AppStack.Screen name="Profile" component={ProfileScreen} options={{ title: '👤 Profile' }} />
-        <AppStack.Screen name="District" component={DistrictScreen} options={{ title: '🗺️ District Profile' }} />
+
         <AppStack.Screen name="Weather" component={WeatherScreen} options={{ title: '🌤️ Weather' }} />
         <AppStack.Screen name="Community" component={CommunityScreen} options={{ title: '🤝 Community' }} />
         <AppStack.Screen name="CreatePost" component={CreatePostScreen} options={{ title: '✏️ New Post' }} />

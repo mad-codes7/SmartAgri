@@ -8,6 +8,12 @@ import { useLang } from '../context/LanguageContext';
 import api from '../api';
 import { COLORS, SHADOWS, SHARED } from '../theme';
 
+const stripMinus = (val) => {
+    if (typeof val === 'string') return val.replace(/-/g, '');
+    if (typeof val === 'number') return Math.abs(val);
+    return val;
+};
+
 const SEASON_EMOJI = { Kharif: '🌧️', Rabi: '❄️', Summer: '☀️' };
 const CROP_EMOJI = {
     rice: '🌾', wheat: '🌾', maize: '🌽', cotton: '🧵', chickpea: '🫘',
@@ -24,6 +30,8 @@ export default function DashboardScreen({ navigation }) {
     const [weather, setWeather] = useState(null);
     const [regionalCrops, setRegionalCrops] = useState(null);
     const [communityPosts, setCommunityPosts] = useState([]);
+    const [expenseSummary, setExpenseSummary] = useState(null);
+    const [topForecasts, setTopForecasts] = useState([]);
     const [loadingStates, setLoadingStates] = useState({ stats: true, weather: true, regional: true });
 
     useEffect(() => {
@@ -35,18 +43,23 @@ export default function DashboardScreen({ navigation }) {
             api.get('/weather/current', { params: { state } }).catch(e => { console.log('Weather Error:', e); throw e; }),
             api.get('/crops/regional', { params: { state, ...(district && { district }) } }).catch(e => { console.log('Regional Error:', e); throw e; }),
             api.get('/community/posts', { params: { district, limit: 3 } }).catch(e => { console.log('Community Error:', e); throw e; }),
-        ]).then(([s, w, r, c]) => {
+            api.get('/expenses/summary').catch(e => { console.log('Expense Error:', e); throw e; }),
+        ]).then(([s, w, r, c, exp]) => {
             if (s.status === 'fulfilled') setStats(s.value.data);
             if (w.status === 'fulfilled') setWeather(w.value.data);
             if (r.status === 'fulfilled') setRegionalCrops(r.value.data);
             if (c.status === 'fulfilled') setCommunityPosts(c.value.data?.posts || []);
+            if (exp.status === 'fulfilled') setExpenseSummary(exp.value.data);
 
-            setLoadingStates({
-                stats: false,
-                weather: false,
-                regional: false
-            });
+            setLoadingStates({ stats: false, weather: false, regional: false });
         });
+
+        // Fetch top harvest forecasts
+        api.get('/market/harvest-forecast/bulk', {
+            params: { state: user?.state || 'Maharashtra', land_size: user?.land_size || 2 },
+        }).then(res => {
+            setTopForecasts((res.data?.forecasts || []).slice(0, 3));
+        }).catch(() => { });
     }, [user?.id]); // Re-run if user changes
 
     const hour = new Date().getHours();
@@ -55,7 +68,6 @@ export default function DashboardScreen({ navigation }) {
 
 
     const AI_TOOLS = [
-        { icon: '🔬', label: t.nav_disease || 'Disease Detection', screen: 'DiseaseDetection', desc: t.disease_detection_desc || 'Scan crop leaves for disease' },
         { icon: '🗺️', label: t.nav_map || 'Farm Map', screen: 'FarmMap', desc: t.farm_map_desc || 'Explore crop zones & mandis' },
     ];
 
@@ -78,6 +90,35 @@ export default function DashboardScreen({ navigation }) {
                 </TouchableOpacity>
             </View>
 
+            {/* 🔮 Harvest Forecast Teaser */}
+            {topForecasts.length > 0 && (
+                <View style={[SHARED.card, { marginBottom: 14 }]}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                        <Text style={styles.widgetHeader}>🔮 Harvest Price Forecast</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Market')}>
+                            <Text style={styles.viewAllText}>View All →</Text>
+                        </TouchableOpacity>
+                    </View>
+                    {topForecasts.map((fc, i) => {
+                        const isUp = fc.price_change_pct >= 0;
+                        return (
+                            <View key={i} style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 8, borderTopWidth: i > 0 ? 1 : 0, borderTopColor: COLORS.borderSubtle }}>
+                                <Text style={{ fontSize: 20, marginRight: 10 }}>{CROP_EMOJI[fc.crop?.toLowerCase()] || '🌿'}</Text>
+                                <View style={{ flex: 1 }}>
+                                    <Text style={{ fontSize: 13, fontWeight: '700', color: COLORS.gray900 }}>{fc.crop}</Text>
+                                    <Text style={{ fontSize: 10, color: COLORS.gray400 }}>{fc.days_to_harvest}d to harvest · {fc.confidence} conf.</Text>
+                                </View>
+                                <View style={{ alignItems: 'flex-end' }}>
+                                    <Text style={{ fontSize: 14, fontWeight: '800', color: COLORS.green700 }}>₹{fc.predicted_harvest_price?.toLocaleString('en-IN')}</Text>
+                                    <Text style={{ fontSize: 10, fontWeight: '700', color: isUp ? COLORS.green600 : '#dc2626' }}>
+                                        {isUp ? '▲' : '▼'} {Math.abs(fc.price_change_pct)}%
+                                    </Text>
+                                </View>
+                            </View>
+                        );
+                    })}
+                </View>
+            )}
 
 
             {/* 🌾 Crops in Your Region */}
@@ -144,21 +185,43 @@ export default function DashboardScreen({ navigation }) {
             {/* Stats + Weather */}
             <View style={styles.row2}>
                 <View style={[SHARED.card, { flex: 1 }]}>
-                    <Text style={styles.widgetHeader}>📊 {t.your_farm_stats}</Text>
-                    <View style={styles.statGrid}>
-                        <View style={styles.statItem}>
-                            <Text style={SHARED.widgetValue}>{stats?.total_recommendations || 0}</Text>
-                            <Text style={SHARED.widgetLabel}>{t.recommendations}</Text>
+                    <Text style={styles.widgetHeader}>💰 {t.expense_tracker || 'Expense Tracker'}</Text>
+                    {expenseSummary ? (
+                        <>
+                            <View style={styles.statGrid}>
+                                <View style={styles.statItem}>
+                                    <Text style={[SHARED.widgetValue, { color: COLORS.green600, fontSize: 16 }]}>₹{stripMinus(expenseSummary.total_income).toLocaleString()}</Text>
+                                    <Text style={SHARED.widgetLabel}>{t.total_income || 'Income'}</Text>
+                                </View>
+                                <View style={styles.statItem}>
+                                    <Text style={[SHARED.widgetValue, { color: '#ef4444', fontSize: 16 }]}>₹{stripMinus(expenseSummary.total_expenses).toLocaleString()}</Text>
+                                    <Text style={SHARED.widgetLabel}>{t.total_expenses || 'Expenses'}</Text>
+                                </View>
+                            </View>
+                            <View style={[styles.statItem, { marginTop: 8 }]}>
+                                <Text style={[SHARED.widgetValue, { color: expenseSummary.net_profit >= 0 ? COLORS.green600 : '#ef4444' }]}>₹{stripMinus(expenseSummary.net_profit).toLocaleString()}</Text>
+                                <Text style={SHARED.widgetLabel}>{expenseSummary.net_profit >= 0 ? (t.net_profit || 'Net Profit') : (t.net_loss || 'Net Loss')}</Text>
+                            </View>
+                            {expenseSummary.roi_percent !== 0 && (
+                                <View style={[styles.roiBadge, { backgroundColor: expenseSummary.roi_percent >= 0 ? '#ecfdf5' : '#fef2f2' }]}>
+                                    <Text style={{ fontSize: 12, fontWeight: '700', color: expenseSummary.roi_percent >= 0 ? COLORS.green700 : '#991b1b' }}>
+                                        {expenseSummary.roi_percent >= 0 ? '📈' : '📉'} ROI: {stripMinus(expenseSummary.roi_percent)}%
+                                    </Text>
+                                </View>
+                            )}
+                        </>
+                    ) : (
+                        <View style={styles.statGrid}>
+                            <View style={styles.statItem}>
+                                <Text style={SHARED.widgetValue}>{stats?.total_recommendations || 0}</Text>
+                                <Text style={SHARED.widgetLabel}>{t.recommendations}</Text>
+                            </View>
+                            <View style={styles.statItem}>
+                                <Text style={[SHARED.widgetValue, { fontSize: 18 }]}>{stats?.most_recommended_crop || '—'}</Text>
+                                <Text style={SHARED.widgetLabel}>{t.top_crop}</Text>
+                            </View>
                         </View>
-                        <View style={styles.statItem}>
-                            <Text style={[SHARED.widgetValue, { fontSize: 18 }]}>{stats?.most_recommended_crop || '—'}</Text>
-                            <Text style={SHARED.widgetLabel}>{t.top_crop}</Text>
-                        </View>
-                    </View>
-                    <View style={[styles.statItem, { marginTop: 8 }]}>
-                        <Text style={[SHARED.widgetValue, { color: COLORS.green600 }]}>₹{stats?.avg_profit_estimate?.toLocaleString() || '0'}</Text>
-                        <Text style={SHARED.widgetLabel}>{t.avg_profit}</Text>
-                    </View>
+                    )}
                 </View>
 
                 <View style={[SHARED.card, { flex: 1 }]}>
@@ -443,4 +506,5 @@ const styles = StyleSheet.create({
     },
     communityBannerTitle: { fontSize: 15, fontWeight: '800', color: '#fff', marginBottom: 2 },
     communityBannerSub: { fontSize: 12, color: 'rgba(255,255,255,0.7)', lineHeight: 17 },
+    roiBadge: { marginTop: 8, borderRadius: 8, padding: 8, alignItems: 'center' },
 });

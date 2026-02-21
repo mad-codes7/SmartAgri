@@ -1,22 +1,19 @@
 /**
  * SmartAgri AI Mobile - Crop Recommendation Screen (4-step wizard)
+ * Enhanced: dynamic state/district, soil report OCR, auto-weather.
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView,
-    ActivityIndicator,
+    ActivityIndicator, Image, Alert,
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { Picker } from '@react-native-picker/picker';
+import * as ImagePicker from 'expo-image-picker';
 import { useLang } from '../context/LanguageContext';
-import api from '../api';
+import api, { API_URL } from '../api';
 import { COLORS, SHADOWS, SHARED } from '../theme';
-
-const STATES = [
-    'Punjab', 'Uttar Pradesh', 'Madhya Pradesh', 'Maharashtra', 'Rajasthan',
-    'Karnataka', 'Tamil Nadu', 'Gujarat', 'West Bengal', 'Haryana',
-    'Kerala', 'Bihar', 'Andhra Pradesh', 'Telangana', 'Odisha',
-];
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function RecommendScreen() {
     const { t } = useLang();
@@ -30,7 +27,151 @@ export default function RecommendScreen() {
         temperature: 28, humidity: 70, rainfall: 150, season: 'Kharif',
     });
 
+    // Dynamic state/district data
+    const [states, setStates] = useState([]);
+    const [districts, setDistricts] = useState([]);
+    const [loadingStates, setLoadingStates] = useState(false);
+    const [loadingDistricts, setLoadingDistricts] = useState(false);
+
+    // Soil report OCR state
+    const [soilImage, setSoilImage] = useState(null);
+    const [parsingSoil, setParsingSoil] = useState(false);
+    const [soilParsed, setSoilParsed] = useState(false);
+
+    // Weather auto-fetch state
+    const [weatherLoading, setWeatherLoading] = useState(false);
+    const [weatherFetched, setWeatherFetched] = useState(false);
+    const [weatherSource, setWeatherSource] = useState('');
+
     const update = (field, value) => setForm({ ...form, [field]: value });
+
+    // ── Load states on mount ──
+    useEffect(() => {
+        (async () => {
+            setLoadingStates(true);
+            try {
+                const res = await api.get('/calendar/states');
+                setStates(res.data.states?.map((s) => s.name) || []);
+            } catch (e) {
+                console.warn('Failed to load states:', e);
+            } finally { setLoadingStates(false); }
+        })();
+    }, []);
+
+    // ── Load districts when state changes ──
+    useEffect(() => {
+        if (!form.state) { setDistricts([]); return; }
+        (async () => {
+            setLoadingDistricts(true);
+            update('district', '');
+            try {
+                const res = await api.get(`/calendar/districts?state=${encodeURIComponent(form.state)}`);
+                setDistricts(res.data.districts || []);
+            } catch (e) {
+                console.warn('Failed to load districts:', e);
+                setDistricts([]);
+            } finally { setLoadingDistricts(false); }
+        })();
+    }, [form.state]);
+
+    // ── Auto-fetch weather when reaching step 2 ──
+    useEffect(() => {
+        if (step === 2 && form.state && !weatherFetched) {
+            fetchWeather();
+        }
+    }, [step]);
+
+    const fetchWeather = async () => {
+        setWeatherLoading(true);
+        try {
+            const q = `state=${encodeURIComponent(form.state)}&district=${encodeURIComponent(form.district || '')}`;
+            const res = await api.get(`/weather/recommend-params?${q}`);
+            setForm((prev) => ({
+                ...prev,
+                temperature: res.data.temperature || 28,
+                humidity: res.data.humidity || 70,
+                rainfall: res.data.avg_rainfall || 150,
+            }));
+            setWeatherSource(res.data.source || 'regional_average');
+            setWeatherFetched(true);
+        } catch (e) {
+            console.warn('Failed to fetch weather:', e);
+        } finally { setWeatherLoading(false); }
+    };
+
+    // ── Soil report upload & OCR ──
+    const pickSoilReport = async () => {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+            Alert.alert('Permission needed', 'Please grant camera roll access.');
+            return;
+        }
+        const result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ['images'],
+            quality: 0.8,
+        });
+        if (!result.canceled && result.assets?.[0]) {
+            const asset = result.assets[0];
+            setSoilImage(asset.uri);
+            parseSoilReport(asset);
+        }
+    };
+
+    const takeSoilPhoto = async () => {
+        const { status } = await ImagePicker.requestCameraPermissionsAsync();
+        if (status !== 'granted') {
+            Alert.alert('Permission needed', 'Please grant camera access.');
+            return;
+        }
+        const result = await ImagePicker.launchCameraAsync({
+            quality: 0.8,
+        });
+        if (!result.canceled && result.assets?.[0]) {
+            const asset = result.assets[0];
+            setSoilImage(asset.uri);
+            parseSoilReport(asset);
+        }
+    };
+
+    const parseSoilReport = async (asset) => {
+        setParsingSoil(true);
+        setSoilParsed(false);
+        try {
+            const formData = new FormData();
+            formData.append('file', {
+                uri: asset.uri,
+                name: asset.fileName || 'soil_report.jpg',
+                type: asset.mimeType || 'image/jpeg',
+            });
+            const token = await AsyncStorage.getItem('auth_token');
+            const response = await fetch(`${API_URL}/soil/parse-report`, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+                },
+                body: formData,
+            });
+            const data = await response.json();
+            if (response.ok && data.success && data.soil_data) {
+                const sd = data.soil_data;
+                setForm((prev) => ({
+                    ...prev,
+                    N: sd.N ?? prev.N,
+                    P: sd.P ?? prev.P,
+                    K: sd.K ?? prev.K,
+                    ph: sd.ph ?? prev.ph,
+                    soil_type: sd.soil_type ?? prev.soil_type,
+                }));
+                setSoilParsed(true);
+            } else {
+                Alert.alert('Could not parse', data.detail || 'Try a clearer photo of the soil report.');
+            }
+        } catch (e) {
+            Alert.alert('Error', 'Failed to analyze soil report. Please try again.');
+            console.error('Soil OCR error:', e);
+        } finally { setParsingSoil(false); }
+    };
 
     const handleSubmit = async () => {
         setLoading(true);
@@ -51,6 +192,7 @@ export default function RecommendScreen() {
     };
 
     const nextStep = () => {
+        if (step === 0 && !form.state) { alert('Please select a state'); return; }
         if (step === 2) handleSubmit();
         else setStep(step + 1);
     };
@@ -76,7 +218,7 @@ export default function RecommendScreen() {
     );
 
     if (step === 3 && results) {
-        return <ResultsView data={results} onReset={() => { setStep(0); setResults(null); }} />;
+        return <ResultsView data={results} onReset={() => { setStep(0); setResults(null); setWeatherFetched(false); setSoilParsed(false); setSoilImage(null); }} onBack={() => setStep(2)} />;
     }
 
     return (
@@ -99,19 +241,32 @@ export default function RecommendScreen() {
             </View>
 
             <View style={SHARED.cardElevated}>
+                {/* ── STEP 0: Location ── */}
                 {step === 0 && (
                     <>
                         <Text style={styles.sectionTitle}>📍 {t.location_farm_details}</Text>
                         <Text style={SHARED.formLabel}>{t.state}</Text>
                         <View style={styles.pickerWrap}>
-                            <Picker selectedValue={form.state} onValueChange={(v) => update('state', v)} style={styles.picker}>
-                                <Picker.Item label={t.select_state} value="" color={COLORS.gray400} />
-                                {STATES.map((s) => <Picker.Item key={s} label={s} value={s} />)}
-                            </Picker>
+                            {loadingStates ? (
+                                <ActivityIndicator style={{ padding: 16 }} color={COLORS.green600} />
+                            ) : (
+                                <Picker selectedValue={form.state} onValueChange={(v) => { setForm({ ...form, state: v, district: '' }); setWeatherFetched(false); }} style={styles.picker}>
+                                    <Picker.Item label={t.select_state} value="" color={COLORS.gray400} />
+                                    {states.map((s) => <Picker.Item key={s} label={s} value={s} />)}
+                                </Picker>
+                            )}
                         </View>
                         <Text style={SHARED.formLabel}>{t.district}</Text>
-                        <TextInput style={SHARED.formInput} placeholder={t.district} placeholderTextColor={COLORS.gray400}
-                            value={form.district} onChangeText={(v) => update('district', v)} />
+                        <View style={styles.pickerWrap}>
+                            {loadingDistricts ? (
+                                <ActivityIndicator style={{ padding: 16 }} color={COLORS.green600} />
+                            ) : (
+                                <Picker selectedValue={form.district} onValueChange={(v) => { update('district', v); setWeatherFetched(false); }} style={styles.picker} enabled={districts.length > 0}>
+                                    <Picker.Item label={form.state ? `Select district` : 'Select state first'} value="" color={COLORS.gray400} />
+                                    {districts.map((d) => <Picker.Item key={d} label={d} value={d} />)}
+                                </Picker>
+                            )}
+                        </View>
                         {renderSlider('land_size_acres', t.land_size, 0.5, 50, 'acres', 0.5)}
                         <Text style={[SHARED.formLabel, { marginTop: 8 }]}>{t.irrigation_type}</Text>
                         <View style={styles.pickerWrap}>
@@ -125,6 +280,7 @@ export default function RecommendScreen() {
                     </>
                 )}
 
+                {/* ── STEP 1: Soil Data ── */}
                 {step === 1 && (
                     <>
                         <Text style={styles.sectionTitle}>🧪 {t.soil_data}</Text>
@@ -141,9 +297,59 @@ export default function RecommendScreen() {
                                 )}
                             </Picker>
                         </View>
+
+                        {/* ── OR: Upload Soil Report ── */}
+                        <View style={styles.orDivider}>
+                            <View style={styles.orLine} />
+                            <Text style={styles.orText}>OR</Text>
+                            <View style={styles.orLine} />
+                        </View>
+
+                        <View style={styles.soilUploadSection}>
+                            <Text style={{ fontSize: 14, fontWeight: '700', color: COLORS.gray800, marginBottom: 6 }}>
+                                📄 Upload Soil Health Card
+                            </Text>
+                            <Text style={{ fontSize: 12, color: COLORS.gray500, marginBottom: 12 }}>
+                                AI will automatically extract N, P, K, pH, and soil type from your report
+                            </Text>
+
+                            <View style={{ flexDirection: 'row', gap: 10, marginBottom: 12 }}>
+                                <TouchableOpacity style={[styles.uploadBtn, { flex: 1 }]} onPress={pickSoilReport} disabled={parsingSoil}>
+                                    <Text style={styles.uploadBtnText}>🖼️ Gallery</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[styles.uploadBtn, { flex: 1 }]} onPress={takeSoilPhoto} disabled={parsingSoil}>
+                                    <Text style={styles.uploadBtnText}>📸 Camera</Text>
+                                </TouchableOpacity>
+                            </View>
+
+                            {parsingSoil && (
+                                <View style={styles.parsingBox}>
+                                    <ActivityIndicator color={COLORS.green600} size="small" />
+                                    <Text style={{ color: COLORS.green700, fontSize: 13, marginLeft: 10 }}>
+                                        🔬 AI is analyzing your soil report...
+                                    </Text>
+                                </View>
+                            )}
+
+                            {soilParsed && (
+                                <View style={styles.parsedBox}>
+                                    <Text style={{ color: COLORS.green700, fontWeight: '700', fontSize: 13 }}>
+                                        ✅ Values extracted from soil report
+                                    </Text>
+                                    <Text style={{ color: COLORS.green600, fontSize: 12, marginTop: 4 }}>
+                                        N={form.N}  P={form.P}  K={form.K}  pH={form.ph}  Type={form.soil_type}
+                                    </Text>
+                                </View>
+                            )}
+
+                            {soilImage && !parsingSoil && (
+                                <Image source={{ uri: soilImage }} style={styles.soilPreview} resizeMode="cover" />
+                            )}
+                        </View>
                     </>
                 )}
 
+                {/* ── STEP 2: Weather (Auto-fetched) ── */}
                 {step === 2 && (
                     <>
                         <Text style={styles.sectionTitle}>🌤️ {t.weather_season}</Text>
@@ -157,9 +363,40 @@ export default function RecommendScreen() {
                                 </TouchableOpacity>
                             ))}
                         </View>
-                        {renderSlider('temperature', t.temperature, 5, 45, '°C')}
-                        {renderSlider('humidity', t.humidity, 5, 100, '%')}
-                        {renderSlider('rainfall', t.avg_rainfall, 0, 400, 'mm')}
+
+                        {weatherLoading ? (
+                            <View style={styles.weatherLoadingBox}>
+                                <ActivityIndicator color={COLORS.green600} size="small" />
+                                <Text style={{ color: COLORS.gray600, fontSize: 13, marginLeft: 10 }}>
+                                    Fetching weather for {form.state}...
+                                </Text>
+                            </View>
+                        ) : (
+                            <>
+                                <View style={styles.weatherCards}>
+                                    <View style={styles.weatherCard}>
+                                        <Text style={styles.weatherIcon}>🌡️</Text>
+                                        <Text style={styles.weatherValue}>{form.temperature}°C</Text>
+                                        <Text style={styles.weatherLabel}>{t.temperature}</Text>
+                                    </View>
+                                    <View style={styles.weatherCard}>
+                                        <Text style={styles.weatherIcon}>💧</Text>
+                                        <Text style={styles.weatherValue}>{form.humidity}%</Text>
+                                        <Text style={styles.weatherLabel}>{t.humidity}</Text>
+                                    </View>
+                                    <View style={styles.weatherCard}>
+                                        <Text style={styles.weatherIcon}>🌧️</Text>
+                                        <Text style={styles.weatherValue}>{form.rainfall} mm</Text>
+                                        <Text style={styles.weatherLabel}>{t.avg_rainfall}</Text>
+                                    </View>
+                                </View>
+                                {weatherSource && (
+                                    <Text style={styles.weatherSourceText}>
+                                        📡 Source: {weatherSource === 'openweathermap' ? 'OpenWeatherMap (Live)' : 'Regional Average Data'}
+                                    </Text>
+                                )}
+                            </>
+                        )}
                     </>
                 )}
 
@@ -189,7 +426,10 @@ export default function RecommendScreen() {
     );
 }
 
-function ResultsView({ data, onReset }) {
+// Strip negative sign from money strings like "₹-12,500" → "₹12,500"
+const stripMinus = (val) => typeof val === 'string' ? val.replace(/-/g, '') : val;
+
+function ResultsView({ data, onReset, onBack }) {
     const { t } = useLang();
     const [openTip, setOpenTip] = useState(-1);
 
@@ -201,14 +441,21 @@ function ResultsView({ data, onReset }) {
 
     return (
         <ScrollView style={SHARED.pageContainer} contentContainerStyle={SHARED.scrollContent}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-                <View>
-                    <Text style={SHARED.pageTitle}>🎯 {t.top_crop_recommendations}</Text>
-                    <Text style={{ color: COLORS.gray500, fontSize: 13 }}>{data.state} • {data.season}</Text>
+            <View style={{ marginBottom: 16 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <View>
+                        <Text style={SHARED.pageTitle}>🎯 {t.top_crop_recommendations}</Text>
+                        <Text style={{ color: COLORS.gray500, fontSize: 13 }}>{data.state} • {data.season}</Text>
+                    </View>
+                    <TouchableOpacity style={[SHARED.btnSecondary, { paddingVertical: 8, paddingHorizontal: 14 }]} onPress={onReset}>
+                        <Text style={[SHARED.btnSecondaryText, { fontSize: 12 }]}>🔄 {t.new_analysis}</Text>
+                    </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={[SHARED.btnSecondary, { paddingVertical: 8, paddingHorizontal: 14 }]} onPress={onReset}>
-                    <Text style={[SHARED.btnSecondaryText, { fontSize: 12 }]}>← {t.new_analysis}</Text>
-                </TouchableOpacity>
+                {onBack && (
+                    <TouchableOpacity style={{ marginTop: 8 }} onPress={onBack}>
+                        <Text style={{ color: COLORS.green700, fontWeight: '600', fontSize: 14 }}>← Back to Weather</Text>
+                    </TouchableOpacity>
+                )}
             </View>
 
             {/* Crop Cards */}
@@ -227,13 +474,13 @@ function ResultsView({ data, onReset }) {
                             </Text>
                         </View>
                     </View>
-                    <Text style={styles.profitValue}>{crop.estimated_profit}</Text>
+                    <Text style={styles.profitValue}>{stripMinus(crop.estimated_profit)}</Text>
                     <Text style={{ fontSize: 12, color: COLORS.gray500, marginBottom: 10 }}>{t.estimated_profit}</Text>
                     <View style={styles.cropStats}>
                         {[
                             { label: t.yield_label, value: crop.expected_yield },
-                            { label: t.price, value: crop.predicted_price },
-                            { label: t.cost, value: crop.estimated_cost },
+                            { label: t.price, value: stripMinus(crop.predicted_price) },
+                            { label: t.cost, value: stripMinus(crop.estimated_cost) },
                             { label: t.score, value: `${crop.suitability_score}%` },
                         ].map((s, j) => (
                             <View key={j} style={styles.cropStatItem}>
@@ -339,6 +586,52 @@ const styles = StyleSheet.create({
     seasonActive: { backgroundColor: COLORS.green600, borderColor: COLORS.green600 },
     seasonText: { fontSize: 13, fontWeight: '600', color: COLORS.gray700 },
     navRow: { flexDirection: 'row', marginTop: 20 },
+
+    // OR divider
+    orDivider: { flexDirection: 'row', alignItems: 'center', marginVertical: 16 },
+    orLine: { flex: 1, height: 1, backgroundColor: COLORS.gray200 },
+    orText: { marginHorizontal: 12, fontSize: 13, fontWeight: '700', color: COLORS.gray400 },
+
+    // Soil upload
+    soilUploadSection: {
+        backgroundColor: COLORS.gray50, borderRadius: 12, padding: 16,
+        borderWidth: 1, borderColor: COLORS.borderLight,
+    },
+    uploadBtn: {
+        backgroundColor: COLORS.white, borderWidth: 1.5, borderColor: COLORS.green500,
+        borderRadius: 10, paddingVertical: 12, alignItems: 'center',
+    },
+    uploadBtnText: { fontSize: 14, fontWeight: '700', color: COLORS.green700 },
+    parsingBox: {
+        flexDirection: 'row', alignItems: 'center', backgroundColor: '#ecfdf5',
+        borderRadius: 10, padding: 12, marginBottom: 8,
+    },
+    parsedBox: {
+        backgroundColor: '#ecfdf5', borderRadius: 10, padding: 12,
+        borderWidth: 1, borderColor: COLORS.green200, marginBottom: 8,
+    },
+    soilPreview: {
+        width: '100%', height: 180, borderRadius: 10, marginTop: 8,
+    },
+
+    // Weather cards
+    weatherCards: { flexDirection: 'row', gap: 10, marginBottom: 12 },
+    weatherCard: {
+        flex: 1, backgroundColor: COLORS.gray50, borderRadius: 12, padding: 14,
+        alignItems: 'center', borderWidth: 1, borderColor: COLORS.borderLight,
+    },
+    weatherIcon: { fontSize: 28, marginBottom: 6 },
+    weatherValue: { fontSize: 20, fontWeight: '800', color: COLORS.gray900 },
+    weatherLabel: { fontSize: 11, color: COLORS.gray500, fontWeight: '600', marginTop: 2 },
+    weatherLoadingBox: {
+        flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+        padding: 24, backgroundColor: COLORS.gray50, borderRadius: 12,
+    },
+    weatherSourceText: {
+        fontSize: 11, color: COLORS.gray400, textAlign: 'center', marginTop: 4,
+    },
+
+    // Results
     rankBadge: {
         width: 28, height: 28, borderRadius: 8, backgroundColor: COLORS.green50,
         alignItems: 'center', justifyContent: 'center',
