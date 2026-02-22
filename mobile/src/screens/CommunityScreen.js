@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useAuth } from '../context/AuthContext';
-import { useLang } from '../i18n';
+import { useLang } from '../context/LanguageContext';
 import api from '../api';
 import { COLORS, SHARED, SHADOWS } from '../theme';
 

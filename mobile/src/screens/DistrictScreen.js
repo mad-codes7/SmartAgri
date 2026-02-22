@@ -8,7 +8,7 @@ import {
     ActivityIndicator, Linking, Alert
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { useLang } from '../i18n';
+import { useLang } from '../context/LanguageContext';
 import api from '../api';
 import { COLORS, SHADOWS, SHARED } from '../theme';
 

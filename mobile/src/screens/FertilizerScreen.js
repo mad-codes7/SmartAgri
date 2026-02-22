@@ -4,7 +4,7 @@ import {
     ActivityIndicator, Alert, TextInput, Modal, FlatList
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import { useLang } from '../i18n';
+import { useLang } from '../context/LanguageContext';
 import { COLORS, SHARED, SHADOWS } from '../theme';
 import api from '../api';
 

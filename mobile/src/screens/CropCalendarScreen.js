@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import api from '../api';
-import { useLang } from '../i18n';
+import { useLang } from '../context/LanguageContext';
 import { COLORS, SHADOWS, SHARED } from '../theme';
 
 // ─────────────────────────────────────────────────

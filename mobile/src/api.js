@@ -30,7 +30,7 @@ console.log(`[API] Connecting to: ${API_URL}`);
 const api = axios.create({
     baseURL: API_URL,
     headers: { 'Content-Type': 'application/json' },
-    timeout: 10000,
+    timeout: 45000, // 45s — Render free tier cold starts can take ~30s
 });
 
 // ── Logout callback (set by AuthContext) ──────────────────
