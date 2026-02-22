@@ -6,18 +6,24 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
-// ── Auto-detect server IP from Expo QR code connection ────
-// When your phone connects via Expo QR, it already knows the PC's IP.
-// We extract that same IP and use it for our API server (same PC, port 8000).
+// ── Production vs Local server toggle ─────────────────────
+// Set USE_LOCAL = true to test against your local PC server.
+// Set USE_LOCAL = false to use the deployed Render server.
+const USE_LOCAL = false;
+
+const PRODUCTION_URL = 'https://smartagri-api.onrender.com/api';
+
+// Auto-detect local PC IP from Expo QR code connection
 const debuggerHost =
     Constants.expoGoConfig?.debuggerHost ||
     Constants.manifest?.debuggerHost ||
     '';
 const hostIP = debuggerHost.split(':')[0];
-
-export const API_URL = hostIP
+const LOCAL_URL = hostIP
     ? `http://${hostIP}:8000/api`
-    : 'http://localhost:8000/api'; // fallback for web/emulator
+    : 'http://localhost:8000/api';
+
+export const API_URL = USE_LOCAL ? LOCAL_URL : PRODUCTION_URL;
 
 console.log(`[API] Connecting to: ${API_URL}`);
 
