@@ -15,9 +15,8 @@ dist/
 build/
 *.egg-info/
 
-# ML artifacts
-*.joblib
-data/processed/
+# ML artifacts (keep server models for deployment)
+# *.joblib
 data/raw/disease_images/
 
 # Database

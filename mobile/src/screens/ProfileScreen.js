@@ -30,7 +30,7 @@ const MH_DISTRICTS = [
 
 
 export default function ProfileScreen() {
-    const { user, setUser } = useAuth();
+    const { user, updateUser } = useAuth();
     const { t } = useLang();
     const [editing, setEditing] = useState(false);
     const [saving, setSaving] = useState(false);
@@ -60,7 +60,7 @@ export default function ProfileScreen() {
         setSaving(true);
         try {
             const res = await api.put('/auth/me', form);
-            setUser(res.data);
+            await updateUser(res.data);
             setSaved(true);
             setEditing(false);
             setTimeout(() => setSaved(false), 2000);
@@ -110,7 +110,7 @@ export default function ProfileScreen() {
                         </View>
                         <View style={styles.statItem}>
                             <Text style={[SHARED.widgetValue, { color: COLORS.green600, fontSize: 16 }]}>
-                                ₹{stats.avg_profit_estimate?.toLocaleString() || '0'}
+                                ₹{Math.abs(stats.avg_profit_estimate || 0).toLocaleString()}
                             </Text>
                             <Text style={SHARED.widgetLabel}>{t.avg_profit}</Text>
                         </View>

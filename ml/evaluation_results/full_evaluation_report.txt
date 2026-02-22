@@ -1,0 +1,21 @@
+SmartAgri AI — ML Model Evaluation Report
+============================================================
+
+1. CROP RECOMMENDATION (Random Forest Classifier)
+   Accuracy:   99.16%
+   F1 Score:   99.15%
+   Precision:  99.26%
+   Recall:     99.16%
+
+2. PRICE FORECASTING (Gradient Boosting Regressor)
+   Accuracy:   99.57%   (100% - MAPE)
+   R² Score:   99.9819%
+   MAE:        ₹16.57/quintal
+   RMSE:       ₹36.56/quintal
+   MAPE:       0.43%
+
+3. YIELD PREDICTION (Gradient Boosting Regressor)
+   Accuracy:   29.15%   (100% - MAPE)
+   R² Score:   94.2216%
+   MAE:        1.8640 tonnes/ha
+   RMSE:       3.6233 tonnes/ha

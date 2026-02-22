@@ -52,8 +52,13 @@ export function AuthProvider({ children }) {
         setUser(null);
     };
 
+    const updateUser = async (userData) => {
+        setUser(userData);
+        await AsyncStorage.setItem('smartagri_user', JSON.stringify(userData));
+    };
+
     return (
-        <AuthContext.Provider value={{ user, setUser, loading, login, register, logout }}>
+        <AuthContext.Provider value={{ user, setUser, updateUser, loading, login, register, logout }}>
             {children}
         </AuthContext.Provider>
     );

@@ -4,7 +4,7 @@ Past recommendations and reports.
 """
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, func, desc
+from sqlalchemy import select, func, desc, case
 from database import get_db
 from db_models import Recommendation, CropResult
 from utils.security import get_current_user_id
@@ -35,7 +35,7 @@ async def get_history(
             "id": rec.id,
             "season": rec.season,
             "top_crop": top_crop.crop_name if top_crop else "N/A",
-            "profit_estimate": f"₹{top_crop.estimated_profit:,.0f}" if top_crop else "N/A",
+            "profit_estimate": f"₹{abs(top_crop.estimated_profit):,.0f}" if top_crop else "N/A",
             "risk_level": top_crop.risk_level if top_crop else "N/A",
             "created_at": rec.created_at,
         })
@@ -64,7 +64,7 @@ async def get_stats(
     top = crop_result.first()
 
     avg_result = await db.execute(
-        select(func.avg(CropResult.estimated_profit))
+        select(func.avg(func.abs(CropResult.estimated_profit)))
         .join(Recommendation)
         .where(Recommendation.user_id == user_id, CropResult.rank == 1)
     )
@@ -73,7 +73,7 @@ async def get_stats(
     return {
         "total_recommendations": total,
         "most_recommended_crop": top[0] if top else "N/A",
-        "avg_profit_estimate": round(float(avg_profit), 2),
+        "avg_profit_estimate": round(abs(float(avg_profit)), 0),
     }
 
 

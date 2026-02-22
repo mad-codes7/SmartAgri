@@ -442,12 +442,12 @@ export default function MarketScreen() {
                                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 6 }}>
                                             <View>
                                                 <Text style={{ fontSize: 10, color: COLORS.gray400 }}>Now</Text>
-                                                <Text style={{ fontSize: 14, fontWeight: '700', color: COLORS.gray700 }}>₹{fc.current_price?.toLocaleString('en-IN')}</Text>
+                                                <Text style={{ fontSize: 14, fontWeight: '700', color: COLORS.gray700 }}>₹{fc.current_price?.toLocaleString('en-IN')}/q</Text>
                                             </View>
                                             <Text style={{ fontSize: 16, color: COLORS.gray300 }}>→</Text>
                                             <View style={{ alignItems: 'flex-end' }}>
                                                 <Text style={{ fontSize: 10, color: COLORS.gray400 }}>At Harvest</Text>
-                                                <Text style={{ fontSize: 14, fontWeight: '800', color: isUp ? COLORS.green600 : '#dc2626' }}>₹{fc.predicted_harvest_price?.toLocaleString('en-IN')}</Text>
+                                                <Text style={{ fontSize: 14, fontWeight: '800', color: isUp ? COLORS.green600 : '#dc2626' }}>₹{fc.predicted_harvest_price?.toLocaleString('en-IN')}/q</Text>
                                             </View>
                                         </View>
 
@@ -465,7 +465,7 @@ export default function MarketScreen() {
 
                                         {/* Revenue */}
                                         <View style={{ backgroundColor: COLORS.gray50, borderRadius: 8, padding: 8, marginBottom: 6 }}>
-                                            <Text style={{ fontSize: 10, color: COLORS.gray500 }}>Est. Revenue ({fc.land_size} acres)</Text>
+                                            <Text style={{ fontSize: 10, color: COLORS.gray500 }}>Est. Revenue ({fc.total_yield} q × {fc.land_size} acres)</Text>
                                             <Text style={{ fontSize: 15, fontWeight: '800', color: COLORS.green700 }}>₹{fc.harvest_revenue?.toLocaleString('en-IN')}</Text>
                                             {fc.extra_if_held > 0 && (
                                                 <Text style={{ fontSize: 10, color: COLORS.amber700, marginTop: 2 }}>

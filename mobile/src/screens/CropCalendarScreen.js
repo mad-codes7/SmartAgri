@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import api from '../api';
+import { useLang } from '../i18n';
 import { COLORS, SHADOWS, SHARED } from '../theme';
 
 // ─────────────────────────────────────────────────
@@ -30,11 +31,11 @@ function fmtDate(dateStr, opts = { day: 'numeric', month: 'short' }) {
 // ─────────────────────────────────────────────────
 const WATER_SOURCES = ['Rainfed', 'Canal', 'Borewell'];
 
-const STATUS_CONFIG = {
-    urgent: { color: '#ef4444', bg: '#fef2f2', border: '#fecaca', label: 'Urgent', dot: '#ef4444' },
-    upcoming: { color: '#f59e0b', bg: '#fffbeb', border: '#fde68a', label: 'Upcoming', dot: '#f59e0b' },
-    scheduled: { color: '#3b82f6', bg: '#eff6ff', border: '#dbeafe', label: 'Planned', dot: '#3b82f6' },
-    done: { color: '#94a3b8', bg: '#f8fafc', border: '#e2e8f0', label: 'Done', dot: '#94a3b8' },
+const STATUS_BASE = {
+    urgent: { color: '#ef4444', bg: '#fef2f2', border: '#fecaca', dot: '#ef4444' },
+    upcoming: { color: '#f59e0b', bg: '#fffbeb', border: '#fde68a', dot: '#f59e0b' },
+    scheduled: { color: '#3b82f6', bg: '#eff6ff', border: '#dbeafe', dot: '#3b82f6' },
+    done: { color: '#94a3b8', bg: '#f8fafc', border: '#e2e8f0', dot: '#94a3b8' },
 };
 
 const CATEGORY_COLORS = {
@@ -46,10 +47,10 @@ const CATEGORY_COLORS = {
     harvest: { bg: '#fff7ed', icon: '#ea580c' },
 };
 
-const SEASON_FIT = {
-    optimal: { label: 'Optimal Season', color: '#16a34a', bg: '#dcfce7', dot: '🟢' },
-    marginal: { label: 'Marginal', color: '#b45309', bg: '#fef9c3', dot: '🟡' },
-    offseason: { label: 'Off-Season', color: '#dc2626', bg: '#fee2e2', dot: '🔴' },
+const SEASON_FIT_BASE = {
+    optimal: { color: '#16a34a', bg: '#dcfce7', dot: '🟢' },
+    marginal: { color: '#b45309', bg: '#fef9c3', dot: '🟡' },
+    offseason: { color: '#dc2626', bg: '#fee2e2', dot: '🔴' },
 };
 
 const ALL_STATES = [
@@ -61,8 +62,10 @@ const ALL_STATES = [
 // ─────────────────────────────────────────────────
 // CROP CARD — visual, tappable tile
 // ─────────────────────────────────────────────────
-function CropCard({ entry, selected, onSelect }) {
-    const fit = SEASON_FIT[entry.season_fit] || SEASON_FIT.marginal;
+function CropCard({ entry, selected, onSelect, t }) {
+    const fitBase = SEASON_FIT_BASE[entry.season_fit] || SEASON_FIT_BASE.marginal;
+    const fitLabels = { optimal: t.cc_optimal, marginal: t.cc_marginal, offseason: t.cc_offseason };
+    const fit = { ...fitBase, label: fitLabels[entry.season_fit] || t.cc_marginal };
     const isSel = selected === entry.name;
 
     return (
@@ -73,7 +76,7 @@ function CropCard({ entry, selected, onSelect }) {
         >
             {entry.is_local && (
                 <View style={styles.localBadge}>
-                    <Text style={styles.localBadgeText}>📍 Local</Text>
+                    <Text style={styles.localBadgeText}>📍 {t.cc_local_badge}</Text>
                 </View>
             )}
             {isSel && (
@@ -95,7 +98,7 @@ function CropCard({ entry, selected, onSelect }) {
 // ─────────────────────────────────────────────────
 // SETUP WIZARD — geo-aware, local-first crop picker
 // ─────────────────────────────────────────────────
-function SetupWizard({ onGenerate, loading }) {
+function SetupWizard({ onGenerate, loading, t }) {
     const [crop, setCrop] = useState('');
     const [date, setDate] = useState('');
     const [state, setState] = useState('');
@@ -160,21 +163,18 @@ function SetupWizard({ onGenerate, loading }) {
             {/* Hero */}
             <View style={styles.setupHero}>
                 <Text style={{ fontSize: 48, marginBottom: 8 }}>📅</Text>
-                <Text style={styles.setupHeroTitle}>Smart Crop Calendar</Text>
-                <Text style={styles.setupHeroSub}>
-                    Select your location — local crops shown first,{'\n'}
-                    with weather-adjusted action plans per exact date
-                </Text>
+                <Text style={styles.setupHeroTitle}>{t.cc_smart_crop_calendar}</Text>
+                <Text style={styles.setupHeroSub}>{t.cc_hero_desc}</Text>
             </View>
 
             {/* How it works */}
             <View style={[SHARED.card, { marginBottom: 16 }]}>
-                <Text style={styles.sectionHeader}>⚙️ How It Works</Text>
+                <Text style={styles.sectionHeader}>⚙️ {t.cc_how_it_works}</Text>
                 {[
-                    { icon: '🌱', title: 'Crop Science', desc: 'Real ICAR-based growth timelines' },
-                    { icon: '📍', title: 'Local First', desc: 'Crops popular in your district shown first' },
-                    { icon: '🌤️', title: 'Weather Smart', desc: 'Adjusts tasks based on live forecasts' },
-                    { icon: '🔔', title: 'Action Ready', desc: 'Prioritized urgent & upcoming reminders' },
+                    { icon: '🌱', title: t.cc_crop_science, desc: t.cc_crop_science_desc },
+                    { icon: '📍', title: t.cc_local_first, desc: t.cc_local_first_desc },
+                    { icon: '🌤️', title: t.cc_weather_smart, desc: t.cc_weather_smart_desc },
+                    { icon: '🔔', title: t.cc_action_ready, desc: t.cc_action_ready_desc },
                 ].map((s) => (
                     <View key={s.title} style={styles.howRow}>
                         <Text style={{ fontSize: 20 }}>{s.icon}</Text>
@@ -188,36 +188,36 @@ function SetupWizard({ onGenerate, loading }) {
 
             {/* Form card */}
             <View style={[SHARED.cardElevated, { marginBottom: 16 }]}>
-                <Text style={styles.sectionHeader}>📍 Your Location & Crop</Text>
+                <Text style={styles.sectionHeader}>📍 {t.cc_your_location}</Text>
 
                 {error ? <View style={styles.errorBox}><Text style={styles.errorText}>⚠️ {error}</Text></View> : null}
 
                 {/* State */}
-                <Text style={SHARED.formLabel}>State</Text>
+                <Text style={SHARED.formLabel}>{t.cc_state}</Text>
                 <View style={[SHARED.formInput, { paddingHorizontal: 0, paddingVertical: 0, marginBottom: 14 }]}>
                     <Picker selectedValue={state} onValueChange={setState} style={{ height: 48, color: COLORS.gray800 }}>
-                        <Picker.Item label="Select your state..." value="" color={COLORS.gray400} />
+                        <Picker.Item label={t.cc_select_state} value="" color={COLORS.gray400} />
                         {ALL_STATES.map((s) => <Picker.Item key={s} label={s} value={s} />)}
                     </Picker>
                 </View>
 
                 {/* District */}
                 <Text style={SHARED.formLabel}>
-                    District{loadingDist ? ' (loading...)' : state ? ` — ${districts.length} districts` : ''}
+                    {t.cc_district}{loadingDist ? ` (${t.cc_loading})` : state ? ` — ${districts.length} ${t.cc_districts}` : ''}
                 </Text>
                 <View style={[SHARED.formInput, { paddingHorizontal: 0, paddingVertical: 0, marginBottom: 18 }, !state && { opacity: 0.45 }]}>
                     <Picker selectedValue={district} onValueChange={setDistrict} style={{ height: 48, color: COLORS.gray800 }} enabled={!!state && !loadingDist}>
-                        <Picker.Item label={!state ? 'Select state first' : 'Select district...'} value="" color={COLORS.gray400} />
+                        <Picker.Item label={!state ? t.cc_select_state_first : t.cc_select_district} value="" color={COLORS.gray400} />
                         {districts.map((d) => <Picker.Item key={d} label={d} value={d} />)}
                     </Picker>
                 </View>
 
                 {/* Crops */}
                 <Text style={[SHARED.formLabel, { marginBottom: 6 }]}>
-                    🌾 Select Crop
+                    🌾 {t.cc_select_crop}
                     {counts.total > 0 && (
                         <Text style={{ color: COLORS.gray400, fontWeight: '400', fontSize: 12 }}>
-                            {'  '}{counts.local} local · {counts.other} more
+                            {'  '}{counts.local} {t.cc_local} · {counts.other} {t.cc_more}
                         </Text>
                     )}
                 </Text>
@@ -225,12 +225,12 @@ function SetupWizard({ onGenerate, loading }) {
                 {!state ? (
                     <View style={styles.cropPlaceholder}>
                         <Text style={{ fontSize: 28, marginBottom: 6 }}>📍</Text>
-                        <Text style={{ color: COLORS.gray400, fontSize: 13, textAlign: 'center' }}>Select state to see crops popular in your region</Text>
+                        <Text style={{ color: COLORS.gray400, fontSize: 13, textAlign: 'center' }}>{t.cc_select_state_to_see}</Text>
                     </View>
                 ) : loadingCrops ? (
                     <View style={styles.cropPlaceholder}>
                         <ActivityIndicator color={COLORS.green600} />
-                        <Text style={{ color: COLORS.gray500, fontSize: 12, marginTop: 8 }}>Loading crops for your region...</Text>
+                        <Text style={{ color: COLORS.gray500, fontSize: 12, marginTop: 8 }}>{t.cc_loading_crops}</Text>
                     </View>
                 ) : (
                     <>
@@ -240,13 +240,13 @@ function SetupWizard({ onGenerate, loading }) {
                                 <View style={styles.cropSecRow}>
                                     <View style={[styles.cropSecDot, { backgroundColor: COLORS.green600 }]} />
                                     <Text style={styles.cropSecTitle}>
-                                        📍 Grown in {district || state}
+                                        📍 {t.cc_grown_in} {district || state}
                                     </Text>
-                                    <View style={styles.cropSecPill}><Text style={styles.cropSecPillTxt}>{localCrops.length} crops</Text></View>
+                                    <View style={styles.cropSecPill}><Text style={styles.cropSecPillTxt}>{localCrops.length} {t.cc_crops}</Text></View>
                                 </View>
                                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: 14 }}>
                                     <View style={styles.cropRow}>
-                                        {localCrops.map((e) => <CropCard key={e.name} entry={e} selected={crop} onSelect={setCrop} />)}
+                                        {localCrops.map((e) => <CropCard key={e.name} entry={e} selected={crop} onSelect={setCrop} t={t} />)}
                                     </View>
                                 </ScrollView>
                             </>
@@ -257,16 +257,16 @@ function SetupWizard({ onGenerate, loading }) {
                             <>
                                 <TouchableOpacity style={styles.cropSecRow} onPress={() => setShowOther(!showOther)}>
                                     <View style={[styles.cropSecDot, { backgroundColor: COLORS.gray300 }]} />
-                                    <Text style={[styles.cropSecTitle, { color: COLORS.gray500 }]}>🌍 Other Crops</Text>
+                                    <Text style={[styles.cropSecTitle, { color: COLORS.gray500 }]}>🌍 {t.cc_other_crops}</Text>
                                     <View style={[styles.cropSecPill, { backgroundColor: COLORS.gray100 }]}>
-                                        <Text style={[styles.cropSecPillTxt, { color: COLORS.gray500 }]}>{otherCrops.length} crops</Text>
+                                        <Text style={[styles.cropSecPillTxt, { color: COLORS.gray500 }]}>{otherCrops.length} {t.cc_crops}</Text>
                                     </View>
                                     <Text style={{ color: COLORS.gray400, marginLeft: 6, fontSize: 12 }}>{showOther ? '▲' : '▼'}</Text>
                                 </TouchableOpacity>
                                 {showOther && (
                                     <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginBottom: 14 }}>
                                         <View style={styles.cropRow}>
-                                            {otherCrops.map((e) => <CropCard key={e.name} entry={e} selected={crop} onSelect={setCrop} />)}
+                                            {otherCrops.map((e) => <CropCard key={e.name} entry={e} selected={crop} onSelect={setCrop} t={t} />)}
                                         </View>
                                     </ScrollView>
                                 )}
@@ -275,14 +275,14 @@ function SetupWizard({ onGenerate, loading }) {
 
                         {crop ? (
                             <View style={styles.selectedBar}>
-                                <Text style={styles.selectedBarTxt}>✅ Selected: <Text style={{ fontWeight: '800' }}>{crop}</Text></Text>
+                                <Text style={styles.selectedBarTxt}>✅ {t.cc_selected}: <Text style={{ fontWeight: '800' }}>{crop}</Text></Text>
                             </View>
                         ) : null}
                     </>
                 )}
 
                 {/* Date */}
-                <Text style={[SHARED.formLabel, { marginTop: 16 }]}>Sowing Date (YYYY-MM-DD)</Text>
+                <Text style={[SHARED.formLabel, { marginTop: 16 }]}>{t.cc_sowing_date}</Text>
                 <TextInput
                     style={[SHARED.formInput, { marginBottom: 14 }]}
                     placeholder="e.g. 2025-11-01"
@@ -293,19 +293,22 @@ function SetupWizard({ onGenerate, loading }) {
                 />
 
                 {/* Water Source */}
-                <Text style={SHARED.formLabel}>Water Source</Text>
+                <Text style={SHARED.formLabel}>{t.cc_water_source}</Text>
                 <View style={styles.chipRow}>
-                    {WATER_SOURCES.map((w) => (
-                        <TouchableOpacity key={w} style={[styles.chip, water === w && styles.chipActive]} onPress={() => setWater(w)}>
-                            <Text style={[styles.chipText, water === w && styles.chipTextActive]}>
-                                {w === 'Rainfed' ? '🌧️' : w === 'Canal' ? '🏞️' : '🔩'} {w}
-                            </Text>
-                        </TouchableOpacity>
-                    ))}
+                    {WATER_SOURCES.map((w) => {
+                        const wLabel = w === 'Rainfed' ? t.cc_rainfed : w === 'Canal' ? t.cc_canal : t.cc_borewell;
+                        return (
+                            <TouchableOpacity key={w} style={[styles.chip, water === w && styles.chipActive]} onPress={() => setWater(w)}>
+                                <Text style={[styles.chipText, water === w && styles.chipTextActive]}>
+                                    {w === 'Rainfed' ? '🌧️' : w === 'Canal' ? '🏞️' : '🔩'} {wLabel}
+                                </Text>
+                            </TouchableOpacity>
+                        );
+                    })}
                 </View>
 
                 <TouchableOpacity style={[SHARED.btnPrimary, { marginTop: 20 }, loading && { opacity: 0.6 }]} onPress={validate} disabled={loading}>
-                    {loading ? <ActivityIndicator color="#fff" /> : <Text style={SHARED.btnPrimaryText}>📅 Generate My Farm Calendar</Text>}
+                    {loading ? <ActivityIndicator color="#fff" /> : <Text style={SHARED.btnPrimaryText}>📅 {t.cc_generate}</Text>}
                 </TouchableOpacity>
             </View>
         </Animated.View>
@@ -335,7 +338,7 @@ function ProgressBar({ pct, color = COLORS.green600 }) {
 // ─────────────────────────────────────────────────
 function TaskCard({ task, index }) {
     const [expanded, setExpanded] = useState(false);
-    const status = STATUS_CONFIG[task.status] || STATUS_CONFIG.scheduled;
+    const status = task._statusConfig || STATUS_BASE[task.status] || STATUS_BASE.scheduled;
     const cat = CATEGORY_COLORS[task.category] || { bg: COLORS.gray50, icon: COLORS.gray600 };
     const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -401,7 +404,7 @@ function TaskCard({ task, index }) {
 // ─────────────────────────────────────────────────
 // SCHEDULE VIEW — Full calendar display
 // ─────────────────────────────────────────────────
-function ScheduleView({ data, onReset }) {
+function ScheduleView({ data, onReset, t }) {
     const [filter, setFilter] = useState('all');
     const [catFilter, setCatFilter] = useState('all');
 
@@ -412,11 +415,11 @@ function ScheduleView({ data, onReset }) {
     const progressPct = data?.progress_pct ?? 0;
 
     const FILTERS = [
-        { key: 'all', label: 'All' },
-        { key: 'urgent', label: '🔴 Urgent' },
-        { key: 'upcoming', label: '🟡 Upcoming' },
-        { key: 'scheduled', label: '🔵 Planned' },
-        { key: 'done', label: '✅ Done' },
+        { key: 'all', label: t.cc_all },
+        { key: 'urgent', label: `🔴 ${t.cc_urgent}` },
+        { key: 'upcoming', label: `🟡 ${t.cc_upcoming}` },
+        { key: 'scheduled', label: `🔵 ${t.cc_planned}` },
+        { key: 'done', label: `✅ ${t.cc_done}` },
     ];
 
     const CAT_FILTERS = ['all', 'irrigation', 'nutrition', 'pest', 'harvest', 'monitoring'];
@@ -442,13 +445,13 @@ function ScheduleView({ data, onReset }) {
                         )}
                     </View>
                     <TouchableOpacity style={styles.resetBtn} onPress={onReset}>
-                        <Text style={styles.resetText}>✕ Reset</Text>
+                        <Text style={styles.resetText}>✕ {t.cc_reset}</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.progressSection}>
                     <View style={styles.progressLabelRow}>
-                        <Text style={styles.progressLabel}>Growth Progress</Text>
+                        <Text style={styles.progressLabel}>{t.cc_growth_progress}</Text>
                         <Text style={styles.progressPct}>{progressPct}%</Text>
                     </View>
                     <ProgressBar pct={progressPct} color={progressPct > 75 ? COLORS.amber500 : COLORS.green600} />
@@ -457,23 +460,23 @@ function ScheduleView({ data, onReset }) {
                 <View style={styles.statsRow}>
                     <View style={styles.statChip}>
                         <Text style={styles.statChipVal}>{daysElapsed}d</Text>
-                        <Text style={styles.statChipLbl}>Elapsed</Text>
+                        <Text style={styles.statChipLbl}>{t.cc_elapsed}</Text>
                     </View>
                     <View style={styles.statChip}>
                         <Text style={styles.statChipVal}>{Math.max(0, growthDays - daysElapsed)}d</Text>
-                        <Text style={styles.statChipLbl}>Remaining</Text>
+                        <Text style={styles.statChipLbl}>{t.cc_remaining}</Text>
                     </View>
                     <View style={styles.statChip}>
                         <Text style={styles.statChipVal}>
                             {fmtDate(data.harvest_date)}
                         </Text>
-                        <Text style={styles.statChipLbl}>Harvest</Text>
+                        <Text style={styles.statChipLbl}>{t.cc_harvest}</Text>
                     </View>
                     <View style={styles.statChip}>
                         <Text style={[styles.statChipVal, { color: '#f59e0b' }]}>
                             {tasks.filter(t => t.status === 'urgent').length}
                         </Text>
-                        <Text style={styles.statChipLbl}>Urgent</Text>
+                        <Text style={styles.statChipLbl}>{t.cc_urgent}</Text>
                     </View>
                 </View>
             </View>
@@ -489,7 +492,7 @@ function ScheduleView({ data, onReset }) {
                             {data.weather_summary.temperature?.toFixed(1) ?? '--'}°C · {data.weather_summary.description ?? 'Clear'}
                         </Text>
                         <Text style={{ fontSize: 12, color: COLORS.gray500 }}>
-                            💧 {data.weather_summary.humidity?.toFixed(0) ?? '--'}% humidity · 🌧️ {data.weather_summary.rainfall?.toFixed(1) ?? '0'}mm today
+                            💧 {data.weather_summary.humidity?.toFixed(0) ?? '--'}% {t.cc_humidity} · 🌧️ {data.weather_summary.rainfall?.toFixed(1) ?? '0'}mm {t.cc_today}
                         </Text>
                     </View>
                     <Text style={{ fontSize: 11, color: COLORS.green600, fontWeight: '600' }}>{data.state}</Text>
@@ -500,16 +503,16 @@ function ScheduleView({ data, onReset }) {
             {data.next_task && (
                 <View style={styles.nextTaskBanner}>
                     <View style={styles.nextTaskLeft}>
-                        <Text style={styles.nextTaskLabel}>⚡ NEXT ACTION</Text>
+                        <Text style={styles.nextTaskLabel}>⚡ {t.cc_next_action}</Text>
                         <Text style={styles.nextTaskTitle}>{data.next_task.icon} {data.next_task.title}</Text>
                         <Text style={styles.nextTaskDate}>{data.next_task.date_label}</Text>
                     </View>
                     <View style={styles.nextTaskRight}>
                         <Text style={styles.nextTaskDays}>
-                            {data.next_task.days_from_today <= 0 ? 'Overdue!' : `${data.next_task.days_from_today}d`}
+                            {data.next_task.days_from_today <= 0 ? t.cc_overdue : `${data.next_task.days_from_today}d`}
                         </Text>
                         <Text style={{ fontSize: 10, color: 'rgba(255,255,255,0.7)' }}>
-                            {data.next_task.days_from_today <= 0 ? '' : 'to go'}
+                            {data.next_task.days_from_today <= 0 ? '' : t.cc_to_go}
                         </Text>
                     </View>
                 </View>
@@ -549,12 +552,12 @@ function ScheduleView({ data, onReset }) {
                 </View>
             </ScrollView>
 
-            <Text style={styles.taskCount}>{filtered.length} task{filtered.length !== 1 ? 's' : ''}</Text>
+            <Text style={styles.taskCount}>{filtered.length} {filtered.length !== 1 ? t.cc_tasks : t.cc_task}</Text>
 
             {filtered.length === 0 ? (
                 <View style={[SHARED.card, { alignItems: 'center', padding: 32 }]}>
                     <Text style={{ fontSize: 36, marginBottom: 8 }}>🔍</Text>
-                    <Text style={SHARED.emptyText}>No tasks match this filter</Text>
+                    <Text style={SHARED.emptyText}>{t.cc_no_tasks}</Text>
                 </View>
             ) : (
                 filtered.map((task, i) => (
@@ -569,6 +572,7 @@ function ScheduleView({ data, onReset }) {
 // MAIN SCREEN
 // ─────────────────────────────────────────────────
 export default function CropCalendarScreen() {
+    const { t } = useLang();
     const [schedule, setSchedule] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -601,15 +605,15 @@ export default function CropCalendarScreen() {
                 <View style={styles.errorBox}>
                     <Text style={styles.errorText}>⚠️ {error}</Text>
                     <TouchableOpacity onPress={() => setError('')} style={{ marginTop: 8 }}>
-                        <Text style={{ color: '#b45309', fontWeight: '700', fontSize: 13 }}>✕ Dismiss</Text>
+                        <Text style={{ color: '#b45309', fontWeight: '700', fontSize: 13 }}>✕ {t.cc_dismiss}</Text>
                     </TouchableOpacity>
                 </View>
             ) : null}
 
             {!schedule ? (
-                <SetupWizard onGenerate={handleGenerate} loading={loading} />
+                <SetupWizard onGenerate={handleGenerate} loading={loading} t={t} />
             ) : (
-                <ScheduleView data={schedule} onReset={() => { setSchedule(null); setError(''); }} />
+                <ScheduleView data={schedule} onReset={() => { setSchedule(null); setError(''); }} t={t} />
             )}
         </ScrollView>
     );

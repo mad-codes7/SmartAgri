@@ -12,16 +12,16 @@ export default function MoreScreen({ navigation }) {
     const { t, lang, changeLang, LANGUAGES } = useLang();
 
     const ITEMS = [
-        { name: 'Crops', icon: '🌾', label: t.nav_crops || 'Crop Library', desc: 'Explore crops with growing guides' },
-        { name: 'Schemes', icon: '🏛️', label: t.nav_schemes || 'Schemes', desc: 'Government subsidies & schemes' },
-        { name: 'Weather', icon: '🌤️', label: t.nav_weather || 'Weather', desc: 'Current weather & 5-day forecast' },
-        { name: 'Community', icon: '🤝', label: t.nav_community || 'Community', desc: 'Connect with farmers near you' },
-        { name: 'History', icon: '📋', label: t.nav_history || 'History', desc: 'Past crop advisory sessions' },
-        { name: 'DiseaseDetection', icon: '🔬', label: t.nav_disease || 'Disease Detection', desc: 'Scan crop leaves for disease' },
-        { name: 'FarmMap', icon: '🗺️', label: t.nav_map || 'Farm Map', desc: 'Crop zones & nearby mandis' },
-        { name: 'CropCalendar', icon: '📅', label: 'Crop Calendar', desc: 'Smart crop scheduling & task planner' },
-        { name: 'Fertilizer', icon: '🧪', label: 'Fertilizer & Pesticide', desc: 'Get fertilizer & pest management advice' },
-        { name: 'Profile', icon: '👤', label: t.profile || 'Profile', desc: 'Manage your account details' },
+        { name: 'Crops', icon: '🌾', label: t.nav_crops || 'Crop Library', desc: t.crops_desc || 'Explore crops with growing guides' },
+        { name: 'Schemes', icon: '🏛️', label: t.nav_schemes || 'Schemes', desc: t.schemes_short_desc || 'Government subsidies & schemes' },
+        { name: 'Weather', icon: '🌤️', label: t.nav_weather || 'Weather', desc: t.weather_short_desc || 'Current weather & 5-day forecast' },
+        { name: 'Community', icon: '🤝', label: t.community || 'Community', desc: t.community_desc || 'Connect with farmers near you' },
+        { name: 'History', icon: '📋', label: t.nav_history || 'History', desc: t.history_short_desc || 'Past crop advisory sessions' },
+        { name: 'DiseaseDetection', icon: '🔬', label: t.nav_disease || 'Disease Detection', desc: t.disease_desc || 'Scan crop leaves for disease' },
+        { name: 'FarmMap', icon: '🗺️', label: t.nav_map || 'Farm Map', desc: t.map_desc || 'Crop zones & nearby mandis' },
+        { name: 'CropCalendar', icon: '📅', label: t.crop_calendar || 'Crop Calendar', desc: t.crop_calendar_desc || 'Smart crop scheduling & task planner' },
+        { name: 'Fertilizer', icon: '🧪', label: t.fertilizer_pesticide || 'Fertilizer & Pesticide', desc: t.fertilizer_pesticide_desc || 'Get fertilizer & pest management advice' },
+        { name: 'Profile', icon: '👤', label: t.profile || 'Profile', desc: t.profile_desc_short || 'Manage your account details' },
     ];
 
     return (
@@ -62,7 +62,7 @@ export default function MoreScreen({ navigation }) {
             {/* Language Switcher */}
             <View style={[SHARED.card, { marginTop: 4 }]}>
                 <Text style={styles.sectionLabel}>🌐 {t.language || 'Language'}</Text>
-                <View style={styles.langRow}>
+                <View style={styles.langGrid}>
                     {Object.entries(LANGUAGES).map(([code, info]) => (
                         <TouchableOpacity
                             key={code}
@@ -106,9 +106,9 @@ const styles = StyleSheet.create({
     menuLabel: { fontSize: 15, fontWeight: '600', color: COLORS.gray900, marginBottom: 2 },
     menuDesc: { fontSize: 12, color: COLORS.gray500 },
     sectionLabel: { fontSize: 14, fontWeight: '700', color: COLORS.gray800, marginBottom: 10 },
-    langRow: { flexDirection: 'row', gap: 8 },
+    langGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
     langBtn: {
-        flex: 1, paddingVertical: 10, borderRadius: 10, alignItems: 'center',
+        width: '47%', paddingVertical: 10, borderRadius: 10, alignItems: 'center',
         borderWidth: 1, borderColor: COLORS.borderLight, backgroundColor: COLORS.gray50,
     },
     langActive: { backgroundColor: COLORS.green50, borderColor: COLORS.green300 },

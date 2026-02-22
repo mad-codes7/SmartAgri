@@ -9,25 +9,9 @@ import {
 } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useAuth } from '../context/AuthContext';
+import { useLang } from '../i18n';
 import api from '../api';
 import { COLORS, SHARED, SHADOWS } from '../theme';
-
-const CATEGORIES = [
-    { key: 'all', label: '🌐 All', color: COLORS.gray600 },
-    { key: 'tip', label: '💡 Tips', color: '#7c3aed' },
-    { key: 'price', label: '💰 Price', color: COLORS.green700 },
-    { key: 'pest', label: '🐛 Pest', color: '#dc2626' },
-    { key: 'question', label: '❓ Q&A', color: '#d97706' },
-    { key: 'general', label: '📢 General', color: COLORS.gray700 },
-];
-
-const CAT_STYLE = {
-    tip: { bg: '#f5f3ff', border: '#c4b5fd', text: '#6d28d9' },
-    price: { bg: '#f0fdf4', border: COLORS.green300, text: COLORS.green800 },
-    pest: { bg: '#fef2f2', border: '#fca5a5', text: '#b91c1c' },
-    question: { bg: '#fffbeb', border: '#fde68a', text: '#92400e' },
-    general: { bg: COLORS.gray50, border: COLORS.gray300, text: COLORS.gray700 },
-};
 
 function timeAgo(iso) {
     if (!iso) return '';
@@ -38,8 +22,26 @@ function timeAgo(iso) {
     return `${Math.floor(diff / 86400)}d ago`;
 }
 
-function PostCard({ post, onPress, onUpvote }) {
+const CAT_STYLE = {
+    tip: { bg: '#f5f3ff', border: '#c4b5fd', text: '#6d28d9' },
+    price: { bg: '#f0fdf4', border: COLORS.green300, text: COLORS.green800 },
+    pest: { bg: '#fef2f2', border: '#fca5a5', text: '#b91c1c' },
+    question: { bg: '#fffbeb', border: '#fde68a', text: '#92400e' },
+    general: { bg: COLORS.gray50, border: COLORS.gray300, text: COLORS.gray700 },
+};
+
+function PostCard({ post, onPress, onUpvote, t }) {
     const cat = CAT_STYLE[post.category] || CAT_STYLE.general;
+
+    const CATEGORIES = [
+        { key: 'all', label: `🌐 ${t.comm_all}`, color: COLORS.gray600 },
+        { key: 'tip', label: `💡 ${t.comm_tips}`, color: '#7c3aed' },
+        { key: 'price', label: `💰 ${t.comm_price}`, color: COLORS.green700 },
+        { key: 'pest', label: `🐛 ${t.comm_pest}`, color: '#dc2626' },
+        { key: 'question', label: `❓ ${t.comm_qa}`, color: '#d97706' },
+        { key: 'general', label: `📢 ${t.comm_general}`, color: COLORS.gray700 },
+    ];
+
     return (
         <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.85}>
             {/* Header */}
@@ -74,7 +76,7 @@ function PostCard({ post, onPress, onUpvote }) {
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.actionBtn} onPress={onPress}>
-                    <Text style={styles.actionText}>💬 {post.comment_count} comments</Text>
+                    <Text style={styles.actionText}>💬 {post.comment_count} {t.comm_comments}</Text>
                 </TouchableOpacity>
             </View>
         </TouchableOpacity>
@@ -83,6 +85,7 @@ function PostCard({ post, onPress, onUpvote }) {
 
 export default function CommunityScreen({ navigation }) {
     const { user } = useAuth();
+    const { t } = useLang();
     const [tab, setTab] = useState('district');   // district | nearby | mine
     const [category, setCategory] = useState('all');
     const [posts, setPosts] = useState([]);
@@ -93,6 +96,15 @@ export default function CommunityScreen({ navigation }) {
 
     const district = user?.district;
     const state = user?.state;
+
+    const CATEGORIES = [
+        { key: 'all', label: `🌐 ${t.comm_all}`, color: COLORS.gray600 },
+        { key: 'tip', label: `💡 ${t.comm_tips}`, color: '#7c3aed' },
+        { key: 'price', label: `💰 ${t.comm_price}`, color: COLORS.green700 },
+        { key: 'pest', label: `🐛 ${t.comm_pest}`, color: '#dc2626' },
+        { key: 'question', label: `❓ ${t.comm_qa}`, color: '#d97706' },
+        { key: 'general', label: `📢 ${t.comm_general}`, color: COLORS.gray700 },
+    ];
 
     const fetchPosts = useCallback(async (reset = false) => {
         const currentPage = reset ? 1 : page;
@@ -136,7 +148,7 @@ export default function CommunityScreen({ navigation }) {
         setPage(1);
         setHasMore(true);
         fetchPosts(true);
-    }, [tab, category]));
+    }, [tab, category, district, state]));
 
     const onRefresh = () => {
         setRefreshing(true);
@@ -156,24 +168,24 @@ export default function CommunityScreen({ navigation }) {
     };
 
     const TABS = [
-        { key: 'district', label: `📍 ${district || 'My District'}` },
-        { key: 'nearby', label: '🗺️ Nearby' },
-        { key: 'mine', label: '👤 My Posts' },
+        { key: 'district', label: `📍 ${district || t.comm_my_district}` },
+        { key: 'nearby', label: `🗺️ ${t.comm_nearby}` },
+        { key: 'mine', label: `👤 ${t.comm_my_posts}` },
     ];
 
     if (!district && tab === 'district') {
         return (
             <View style={styles.center}>
                 <Text style={{ fontSize: 48 }}>📍</Text>
-                <Text style={SHARED.emptyText}>Set Your District</Text>
+                <Text style={SHARED.emptyText}>{t.comm_set_district}</Text>
                 <Text style={[SHARED.emptySubtext, { marginHorizontal: 32, textAlign: 'center' }]}>
-                    Go to Profile and select your Maharashtra district to see local community posts.
+                    {t.comm_set_district_desc}
                 </Text>
                 <TouchableOpacity
                     style={[SHARED.btnPrimary, { marginTop: 20, paddingHorizontal: 32 }]}
                     onPress={() => navigation.navigate('Profile')}
                 >
-                    <Text style={SHARED.btnPrimaryText}>Open Profile →</Text>
+                    <Text style={SHARED.btnPrimaryText}>{t.comm_open_profile}</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -183,14 +195,14 @@ export default function CommunityScreen({ navigation }) {
         <View style={{ flex: 1, backgroundColor: COLORS.background }}>
             {/* Tab bar */}
             <View style={styles.tabBar}>
-                {TABS.map(t => (
+                {TABS.map(tb => (
                     <TouchableOpacity
-                        key={t.key}
-                        style={[styles.tabBtn, tab === t.key && styles.tabActive]}
-                        onPress={() => setTab(t.key)}
+                        key={tb.key}
+                        style={[styles.tabBtn, tab === tb.key && styles.tabActive]}
+                        onPress={() => setTab(tb.key)}
                     >
-                        <Text style={[styles.tabText, tab === t.key && styles.tabTextActive]} numberOfLines={1}>
-                            {t.label}
+                        <Text style={[styles.tabText, tab === tb.key && styles.tabTextActive]} numberOfLines={1}>
+                            {tb.label}
                         </Text>
                     </TouchableOpacity>
                 ))}
@@ -233,6 +245,7 @@ export default function CommunityScreen({ navigation }) {
                     renderItem={({ item }) => (
                         <PostCard
                             post={item}
+                            t={t}
                             onPress={() => navigation.navigate('PostDetail', { postId: item.id, post: item })}
                             onUpvote={handleUpvote}
                         />
@@ -240,9 +253,9 @@ export default function CommunityScreen({ navigation }) {
                     ListEmptyComponent={
                         <View style={styles.empty}>
                             <Text style={{ fontSize: 48, marginBottom: 12 }}>🌾</Text>
-                            <Text style={SHARED.emptyText}>No posts yet</Text>
+                            <Text style={SHARED.emptyText}>{t.comm_no_posts}</Text>
                             <Text style={SHARED.emptySubtext}>
-                                Be the first farmer in {district} to share something!
+                                {t.comm_be_first}
                             </Text>
                         </View>
                     }

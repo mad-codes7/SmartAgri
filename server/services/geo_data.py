@@ -2,6 +2,8 @@
 SmartAgri AI - Geographic & Crop Priority Data
 Real state → district → primary crop mappings based on ICAR/APEDA reports.
 """
+import json
+import os
 
 # ─────────────────────────────────────────────────────────────────────
 # REAL STATE → DISTRICT MAP
@@ -239,6 +241,13 @@ STATE_DISTRICTS = {
 }
 
 # ─────────────────────────────────────────────────────────────────────
+# REGIONAL CROPS — loaded from the authoritative per-district JSON
+# ─────────────────────────────────────────────────────────────────────
+_DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "raw")
+with open(os.path.join(_DATA_DIR, "regional_crops.json"), "r", encoding="utf-8") as _f:
+    REGIONAL_CROPS = json.load(_f)
+
+# ─────────────────────────────────────────────────────────────────────
 # STATE-LEVEL DEFAULT PRIMARY CROPS
 # Based on ICAR annual agricultural statistics & state agri dept reports
 # ─────────────────────────────────────────────────────────────────────
@@ -446,11 +455,34 @@ def get_crops_ranked_for_location(state: str, district: str, current_month: int)
       - local_crops: crop entries sorted by regional priority
       - other_crops: remaining crops
     Each entry has season_fit: 'optimal' | 'marginal' | 'offseason'
+
+    Data priority:
+      1. regional_crops.json  (district-specific, then state _default)
+      2. DISTRICT_CROP_OVERRIDES (legacy fallback)
+      3. STATE_PRIMARY_CROPS   (final fallback)
     """
     from services.crop_calendar_service import CROP_TIMELINES
 
-    # Get priority list from district override, else fall to state default
-    priority = DISTRICT_CROP_OVERRIDES.get(district) or STATE_PRIMARY_CROPS.get(state, [])
+    # ── Build priority list from regional_crops.json first ──────────
+    priority = []
+    state_data = REGIONAL_CROPS.get(state)
+    if state_data:
+        # Try district-specific entry, fall back to state _default
+        region = state_data.get(district) if district else None
+        if not region:
+            region = state_data.get("_default", {})
+        # Collect crops from all seasons (de-duplicated, order preserved)
+        seen = set()
+        for season_key in ("Kharif", "Rabi", "Summer"):
+            for crop in region.get(season_key, []):
+                if crop not in seen:
+                    priority.append(crop)
+                    seen.add(crop)
+
+    # Fallback to legacy overrides / state defaults if regional JSON
+    # didn't yield any crops for this location
+    if not priority:
+        priority = DISTRICT_CROP_OVERRIDES.get(district) or STATE_PRIMARY_CROPS.get(state, [])
 
     def season_fit(crop_name: str) -> str:
         window = CROP_SOWING_WINDOWS.get(crop_name)

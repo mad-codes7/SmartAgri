@@ -7,16 +7,9 @@ import {
     ScrollView, ActivityIndicator, Alert, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import { useLang } from '../i18n';
 import api from '../api';
 import { COLORS, SHARED, SHADOWS } from '../theme';
-
-const CATEGORIES = [
-    { key: 'tip', label: '💡 Crop Tip', desc: 'Share a growing tip or technique' },
-    { key: 'price', label: '💰 Price Report', desc: 'Report mandi price you got today' },
-    { key: 'pest', label: '🐛 Pest Alert', desc: 'Warn others about a pest or disease' },
-    { key: 'question', label: '❓ Question', desc: 'Ask other farmers for advice' },
-    { key: 'general', label: '📢 General', desc: 'Anything else worth sharing' },
-];
 
 const PLACEHOLDERS = {
     tip: 'E.g. "For better soybean yield, apply zinc sulfate 15 days after sowing..."',
@@ -28,17 +21,26 @@ const PLACEHOLDERS = {
 
 export default function CreatePostScreen({ navigation }) {
     const { user } = useAuth();
+    const { t } = useLang();
     const [category, setCategory] = useState('general');
     const [content, setContent] = useState('');
     const [saving, setSaving] = useState(false);
 
+    const CATEGORIES = [
+        { key: 'tip', label: `💡 ${t.cp_crop_tip}`, desc: t.cp_crop_tip_desc },
+        { key: 'price', label: `💰 ${t.cp_price_report}`, desc: t.cp_price_report_desc },
+        { key: 'pest', label: `🐛 ${t.cp_pest_alert}`, desc: t.cp_pest_alert_desc },
+        { key: 'question', label: `❓ ${t.cp_question}`, desc: t.cp_question_desc },
+        { key: 'general', label: `📢 ${t.cp_general}`, desc: t.cp_general_desc },
+    ];
+
     const handlePost = async () => {
         if (content.trim().length < 10) {
-            Alert.alert('Too short', 'Please write at least 10 characters.');
+            Alert.alert(t.cp_too_short, t.cp_too_short_msg);
             return;
         }
         if (!user?.district) {
-            Alert.alert('District required', 'Please set your district in Profile before posting.');
+            Alert.alert(t.cp_district_required, t.cp_district_required_msg);
             return;
         }
         setSaving(true);
@@ -47,13 +49,11 @@ export default function CreatePostScreen({ navigation }) {
             navigation.goBack();
         } catch (e) {
             const msg = e.response?.data?.detail || 'Could not publish post. Try again.';
-            Alert.alert('Error', msg);
+            Alert.alert(t.cp_error, msg);
         } finally {
             setSaving(false);
         }
     };
-
-    const selectedCat = CATEGORIES.find(c => c.key === category);
 
     return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -64,19 +64,19 @@ export default function CreatePostScreen({ navigation }) {
                 {user?.district ? (
                     <View style={styles.districtBanner}>
                         <Text style={styles.districtText}>
-                            📍 Posting to <Text style={{ fontWeight: '800' }}>{user.district}</Text> community · {user.state}
+                            📍 {t.cp_posting_to} <Text style={{ fontWeight: '800' }}>{user.district}</Text> {t.cp_community} · {user.state}
                         </Text>
                     </View>
                 ) : (
                     <View style={[styles.districtBanner, { backgroundColor: '#fef2f2', borderColor: '#fca5a5' }]}>
                         <Text style={[styles.districtText, { color: '#dc2626' }]}>
-                            ⚠️ Set your district in Profile before posting
+                            ⚠️ {t.cp_set_district_warning}
                         </Text>
                     </View>
                 )}
 
                 {/* Category picker */}
-                <Text style={styles.sectionLabel}>What are you sharing?</Text>
+                <Text style={styles.sectionLabel}>{t.cp_what_sharing}</Text>
                 <View style={styles.catGrid}>
                     {CATEGORIES.map(cat => (
                         <TouchableOpacity
@@ -91,7 +91,7 @@ export default function CreatePostScreen({ navigation }) {
                 </View>
 
                 {/* Content input */}
-                <Text style={styles.sectionLabel}>Your post</Text>
+                <Text style={styles.sectionLabel}>{t.cp_your_post}</Text>
                 <TextInput
                     style={styles.textArea}
                     value={content}
@@ -113,12 +113,12 @@ export default function CreatePostScreen({ navigation }) {
                 >
                     {saving
                         ? <ActivityIndicator color="#fff" />
-                        : <Text style={SHARED.btnPrimaryText}>🌾 Post to {user?.district || 'Community'}</Text>
+                        : <Text style={SHARED.btnPrimaryText}>🌾 {t.cp_post_to} {user?.district || t.community}</Text>
                     }
                 </TouchableOpacity>
 
                 <TouchableOpacity style={[SHARED.btnSecondary, { marginTop: 10 }]} onPress={() => navigation.goBack()}>
-                    <Text style={SHARED.btnSecondaryText}>Cancel</Text>
+                    <Text style={SHARED.btnSecondaryText}>{t.cp_cancel}</Text>
                 </TouchableOpacity>
             </ScrollView>
         </KeyboardAvoidingView>

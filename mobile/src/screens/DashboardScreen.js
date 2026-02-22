@@ -1,8 +1,8 @@
 /**
  * SmartAgri AI Mobile - Dashboard Screen
  */
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator, FlatList } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator, FlatList, RefreshControl } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import { useLang } from '../context/LanguageContext';
 import api from '../api';
@@ -33,8 +33,9 @@ export default function DashboardScreen({ navigation }) {
     const [expenseSummary, setExpenseSummary] = useState(null);
     const [topForecasts, setTopForecasts] = useState([]);
     const [loadingStates, setLoadingStates] = useState({ stats: true, weather: true, regional: true });
+    const [refreshing, setRefreshing] = useState(false);
 
-    useEffect(() => {
+    const loadAll = useCallback(() => {
         const state = user?.state || 'Maharashtra';
         const district = user?.district || null;
 
@@ -52,6 +53,7 @@ export default function DashboardScreen({ navigation }) {
             if (exp.status === 'fulfilled') setExpenseSummary(exp.value.data);
 
             setLoadingStates({ stats: false, weather: false, regional: false });
+            setRefreshing(false);
         });
 
         // Fetch top harvest forecasts
@@ -60,7 +62,14 @@ export default function DashboardScreen({ navigation }) {
         }).then(res => {
             setTopForecasts((res.data?.forecasts || []).slice(0, 3));
         }).catch(() => { });
-    }, [user?.id]); // Re-run if user changes
+    }, [user?.state, user?.district]);
+
+    useEffect(() => { loadAll(); }, [loadAll]);
+
+    const onRefresh = useCallback(() => {
+        setRefreshing(true);
+        loadAll();
+    }, [loadAll]);
 
     const hour = new Date().getHours();
     const greeting = hour < 12 ? t.good_morning : hour < 17 ? t.good_afternoon : t.good_evening;
@@ -74,11 +83,28 @@ export default function DashboardScreen({ navigation }) {
     const getCropEmoji = (name) => CROP_EMOJI[name?.toLowerCase()] || '🌿';
 
     return (
-        <ScrollView style={SHARED.pageContainer} contentContainerStyle={SHARED.scrollContent}>
+        <ScrollView
+            style={SHARED.pageContainer}
+            contentContainerStyle={SHARED.scrollContent}
+            refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={[COLORS.green600]} tintColor={COLORS.green600} />
+            }
+        >
             {/* Hero Card */}
             <View style={styles.heroCard}>
-                <Text style={styles.heroTitle}>{greeting}, {user?.name || 'Farmer'} 👋</Text>
-                <Text style={styles.heroSub}>{t.dashboard_subtitle}</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <View style={{ flex: 1 }}>
+                        <Text style={styles.heroTitle}>{greeting}, {user?.name || 'Farmer'} 👋</Text>
+                        <Text style={styles.heroSub}>{t.dashboard_subtitle}</Text>
+                    </View>
+                    <TouchableOpacity
+                        style={styles.refreshBtn}
+                        onPress={onRefresh}
+                        activeOpacity={0.7}
+                    >
+                        <Text style={{ fontSize: 18 }}>🔄</Text>
+                    </TouchableOpacity>
+                </View>
                 {user?.state && (
                     <Text style={styles.heroLocation}>📍 {user.district ? `${user.district}, ` : ''}{user.state}</Text>
                 )}
@@ -109,7 +135,7 @@ export default function DashboardScreen({ navigation }) {
                                     <Text style={{ fontSize: 10, color: COLORS.gray400 }}>{fc.days_to_harvest}d to harvest · {fc.confidence} conf.</Text>
                                 </View>
                                 <View style={{ alignItems: 'flex-end' }}>
-                                    <Text style={{ fontSize: 14, fontWeight: '800', color: COLORS.green700 }}>₹{fc.predicted_harvest_price?.toLocaleString('en-IN')}</Text>
+                                    <Text style={{ fontSize: 14, fontWeight: '800', color: COLORS.green700 }}>₹{fc.predicted_harvest_price?.toLocaleString('en-IN')}/q</Text>
                                     <Text style={{ fontSize: 10, fontWeight: '700', color: isUp ? COLORS.green600 : '#dc2626' }}>
                                         {isUp ? '▲' : '▼'} {Math.abs(fc.price_change_pct)}%
                                     </Text>
@@ -336,6 +362,16 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     heroBtnText: { color: '#fff', fontWeight: '700', fontSize: 14 },
+    refreshBtn: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        backgroundColor: 'rgba(255,255,255,0.15)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: 'rgba(255,255,255,0.2)',
+    },
     /* ─── Schemes Banner ─── */
     schemesBanner: {
         flexDirection: 'row',

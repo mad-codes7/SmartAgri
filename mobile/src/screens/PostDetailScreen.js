@@ -8,6 +8,7 @@ import {
     ActivityIndicator, KeyboardAvoidingView, Platform, Alert,
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import { useLang } from '../i18n';
 import api from '../api';
 import { COLORS, SHARED, SHADOWS } from '../theme';
 
@@ -17,10 +18,6 @@ const CAT_STYLE = {
     pest: { bg: '#fef2f2', border: '#fca5a5', text: '#b91c1c' },
     question: { bg: '#fffbeb', border: '#fde68a', text: '#92400e' },
     general: { bg: '#f8fafc', border: '#e2e8f0', text: '#475569' },
-};
-const CAT_LABEL = {
-    tip: '💡 Crop Tip', price: '💰 Price Report', pest: '🐛 Pest Alert',
-    question: '❓ Question', general: '📢 General',
 };
 
 function timeAgo(iso) {
@@ -35,6 +32,7 @@ function timeAgo(iso) {
 export default function PostDetailScreen({ route, navigation }) {
     const { postId, post: initialPost } = route.params;
     const { user } = useAuth();
+    const { t } = useLang();
 
     const [post, setPost] = useState(initialPost || null);
     const [comments, setComments] = useState([]);
@@ -42,6 +40,11 @@ export default function PostDetailScreen({ route, navigation }) {
     const [newComment, setNewComment] = useState('');
     const [submitting, setSubmitting] = useState(false);
     const scrollRef = useRef(null);
+
+    const CAT_LABEL = {
+        tip: `💡 ${t.cp_crop_tip}`, price: `💰 ${t.cp_price_report}`, pest: `🐛 ${t.cp_pest_alert}`,
+        question: `❓ ${t.cp_question}`, general: `📢 ${t.cp_general}`,
+    };
 
     useEffect(() => {
         fetchComments();
@@ -65,7 +68,7 @@ export default function PostDetailScreen({ route, navigation }) {
     const handleComment = async () => {
         if (newComment.trim().length < 2) return;
         if (!user?.district) {
-            Alert.alert('Profile incomplete', 'Please set your district in Profile first.');
+            Alert.alert(t.pd_profile_incomplete, t.pd_profile_incomplete_msg);
             return;
         }
         setSubmitting(true);
@@ -76,7 +79,7 @@ export default function PostDetailScreen({ route, navigation }) {
             setNewComment('');
             setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 300);
         } catch (e) {
-            Alert.alert('Error', e.response?.data?.detail || 'Could not post comment.');
+            Alert.alert(t.cp_error, e.response?.data?.detail || 'Could not post comment.');
         } finally {
             setSubmitting(false);
         }
@@ -122,21 +125,21 @@ export default function PostDetailScreen({ route, navigation }) {
                             onPress={handleUpvote}
                         >
                             <Text style={[styles.actionText, post.upvoted_by_me && { color: COLORS.green700 }]}>
-                                👍 {post.upvote_count} Helpful
+                                👍 {post.upvote_count} {t.pd_helpful}
                             </Text>
                         </TouchableOpacity>
-                        <Text style={styles.commentCountText}>💬 {post.comment_count} comments</Text>
+                        <Text style={styles.commentCountText}>💬 {post.comment_count} {t.pd_comments}</Text>
                     </View>
                 </View>
 
                 {/* Comments */}
-                <Text style={styles.commentsTitle}>Comments ({comments.length})</Text>
+                <Text style={styles.commentsTitle}>{t.pd_comments_title} ({comments.length})</Text>
                 {loadingComments ? (
                     <ActivityIndicator color={COLORS.green600} style={{ marginVertical: 20 }} />
                 ) : comments.length === 0 ? (
                     <View style={styles.noComments}>
                         <Text style={{ fontSize: 32, marginBottom: 8 }}>💬</Text>
-                        <Text style={SHARED.emptySubtext}>No comments yet. Be the first to reply!</Text>
+                        <Text style={SHARED.emptySubtext}>{t.pd_no_comments}</Text>
                     </View>
                 ) : (
                     comments.map(c => (
@@ -164,7 +167,7 @@ export default function PostDetailScreen({ route, navigation }) {
                     style={styles.commentInput}
                     value={newComment}
                     onChangeText={setNewComment}
-                    placeholder="Add a comment..."
+                    placeholder={t.pd_add_comment}
                     placeholderTextColor={COLORS.gray400}
                     multiline
                     maxLength={500}

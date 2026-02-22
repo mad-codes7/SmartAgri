@@ -89,7 +89,7 @@ class RecommendationEngine:
             cost = db_crop.get("avg_cost_per_hectare", 30000)
             cost_total = cost * (land_size * 0.4047)  # acres to hectares
             revenue = yield_adj * (land_size * 0.4047) * price
-            profit = revenue - cost_total
+            profit = max(0, revenue - cost_total)
 
             crop_results.append({
                 "name": crop_name,

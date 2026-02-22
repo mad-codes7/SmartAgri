@@ -32,7 +32,7 @@ export default function HistoryScreen() {
                     <Text style={styles.meta}>{item.season} • {item.created_at ? new Date(item.created_at).toLocaleDateString() : ''}</Text>
                 </View>
                 <View style={{ alignItems: 'flex-end' }}>
-                    <Text style={styles.profit}>{item.profit_estimate}</Text>
+                    <Text style={styles.profit}>{(item.profit_estimate || '').replace('-', '')}</Text>
                     <Text style={styles.profitLabel}>{t.est_profit}</Text>
                 </View>
                 <View style={[SHARED.badge, { marginLeft: 8 },
@@ -69,7 +69,7 @@ export default function HistoryScreen() {
                         <Text style={SHARED.widgetLabel}>{t.top_crop}</Text>
                     </View>
                     <View style={styles.statItem}>
-                        <Text style={[SHARED.widgetValue, { color: COLORS.green600, fontSize: 16 }]}>₹{stats.avg_profit_estimate?.toLocaleString()}</Text>
+                        <Text style={[SHARED.widgetValue, { color: COLORS.green600, fontSize: 16 }]}>₹{Math.abs(stats.avg_profit_estimate || 0).toLocaleString()}</Text>
                         <Text style={SHARED.widgetLabel}>{t.avg_profit}</Text>
                     </View>
                 </View>

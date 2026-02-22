@@ -37,49 +37,49 @@ from services.real_crop_prices import (
 CROP_PROFILES: Dict[str, Dict] = {
     # ── CEREALS ──
     "Wheat": {
-        "base_price": 2275, "msp": 2275,
+        "base_price": 2425, "msp": 2425,
         "seasonal_curve": [1.02, 1.05, 0.92, 0.88, 0.90, 0.95, 1.08, 1.12, 1.10, 1.06, 1.00, 0.98],
         "harvest_months": [3, 4], "growth_days": 120, "yield_per_acre": 18,
         "hold_advice_days": 60, "storage_loss_pct": 0.5,
         "peak_months": [7, 8], "category": "Cereals",
     },
     "Rice": {
-        "base_price": 2320, "msp": 2320,
+        "base_price": 2369, "msp": 2369,
         "seasonal_curve": [1.05, 1.08, 1.10, 1.12, 1.10, 1.05, 0.98, 0.95, 0.92, 0.88, 0.90, 0.95],
         "harvest_months": [10, 11], "growth_days": 135, "yield_per_acre": 22,
         "hold_advice_days": 45, "storage_loss_pct": 0.4,
         "peak_months": [3, 4], "category": "Cereals",
     },
     "Maize": {
-        "base_price": 2090, "msp": 2090,
+        "base_price": 2400, "msp": 2400,
         "seasonal_curve": [1.04, 1.06, 1.08, 1.05, 1.00, 0.95, 0.90, 0.88, 0.92, 0.95, 1.00, 1.02],
         "harvest_months": [9, 10], "growth_days": 100, "yield_per_acre": 12,
         "hold_advice_days": 30, "storage_loss_pct": 0.8,
         "peak_months": [2, 3], "category": "Cereals",
     },
     "Bajra": {
-        "base_price": 2500, "msp": 2500,
+        "base_price": 2775, "msp": 2775,
         "seasonal_curve": [1.06, 1.08, 1.10, 1.08, 1.04, 0.98, 0.94, 0.90, 0.88, 0.92, 0.98, 1.02],
         "harvest_months": [9, 10], "growth_days": 90, "yield_per_acre": 8,
         "hold_advice_days": 30, "storage_loss_pct": 0.6,
         "peak_months": [3, 4], "category": "Cereals",
     },
     "Jowar": {
-        "base_price": 3180, "msp": 3180,
+        "base_price": 3699, "msp": 3699,
         "seasonal_curve": [1.04, 1.06, 1.08, 1.06, 1.02, 0.98, 0.94, 0.90, 0.88, 0.92, 0.96, 1.00],
         "harvest_months": [10, 11], "growth_days": 110, "yield_per_acre": 7,
         "hold_advice_days": 30, "storage_loss_pct": 0.5,
         "peak_months": [4, 5], "category": "Cereals",
     },
     "Ragi": {
-        "base_price": 3846, "msp": 3846,
+        "base_price": 4886, "msp": 4886,
         "seasonal_curve": [1.05, 1.07, 1.08, 1.06, 1.02, 0.98, 0.95, 0.92, 0.88, 0.90, 0.96, 1.00],
         "harvest_months": [10, 11], "growth_days": 120, "yield_per_acre": 6,
         "hold_advice_days": 45, "storage_loss_pct": 0.3,
         "peak_months": [3, 4], "category": "Cereals",
     },
     "Barley": {
-        "base_price": 1850, "msp": 1850,
+        "base_price": 1980, "msp": 1980,
         "seasonal_curve": [1.02, 1.04, 0.92, 0.88, 0.90, 0.95, 1.06, 1.10, 1.08, 1.04, 1.00, 0.98],
         "harvest_months": [3, 4], "growth_days": 130, "yield_per_acre": 14,
         "hold_advice_days": 45, "storage_loss_pct": 0.5,
@@ -88,35 +88,35 @@ CROP_PROFILES: Dict[str, Dict] = {
 
     # ── PULSES ──
     "Chickpea": {
-        "base_price": 5440, "msp": 5440,
+        "base_price": 5650, "msp": 5650,
         "seasonal_curve": [1.02, 1.04, 0.90, 0.86, 0.88, 0.94, 1.04, 1.10, 1.12, 1.08, 1.04, 1.00],
         "harvest_months": [3, 4], "growth_days": 110, "yield_per_acre": 7,
         "hold_advice_days": 60, "storage_loss_pct": 0.3,
         "peak_months": [8, 9], "category": "Pulses",
     },
     "Tur": {
-        "base_price": 7000, "msp": 7000,
+        "base_price": 8000, "msp": 8000,
         "seasonal_curve": [0.92, 0.88, 0.90, 0.94, 1.00, 1.05, 1.10, 1.12, 1.08, 1.04, 0.98, 0.95],
         "harvest_months": [1, 2], "growth_days": 180, "yield_per_acre": 5,
         "hold_advice_days": 60, "storage_loss_pct": 0.3,
         "peak_months": [7, 8], "category": "Pulses",
     },
     "Moong": {
-        "base_price": 8558, "msp": 8558,
+        "base_price": 8768, "msp": 8768,
         "seasonal_curve": [1.04, 1.06, 1.08, 1.10, 1.06, 1.00, 0.94, 0.90, 0.88, 0.92, 0.98, 1.02],
         "harvest_months": [9, 10], "growth_days": 70, "yield_per_acre": 4,
         "hold_advice_days": 30, "storage_loss_pct": 0.3,
         "peak_months": [3, 4], "category": "Pulses",
     },
     "Urad": {
-        "base_price": 6950, "msp": 6950,
+        "base_price": 7800, "msp": 7800,
         "seasonal_curve": [1.04, 1.06, 1.08, 1.06, 1.02, 0.98, 0.94, 0.90, 0.88, 0.92, 0.98, 1.02],
         "harvest_months": [9, 10], "growth_days": 80, "yield_per_acre": 4,
         "hold_advice_days": 30, "storage_loss_pct": 0.3,
         "peak_months": [3, 4], "category": "Pulses",
     },
     "Masoor": {
-        "base_price": 6425, "msp": 6425,
+        "base_price": 6700, "msp": 6700,
         "seasonal_curve": [1.02, 1.04, 0.90, 0.86, 0.90, 0.96, 1.04, 1.08, 1.10, 1.06, 1.02, 0.98],
         "harvest_months": [3, 4], "growth_days": 120, "yield_per_acre": 5,
         "hold_advice_days": 45, "storage_loss_pct": 0.3,
@@ -132,35 +132,35 @@ CROP_PROFILES: Dict[str, Dict] = {
 
     # ── OILSEEDS ──
     "Soybean": {
-        "base_price": 4600, "msp": 4600,
+        "base_price": 5328, "msp": 5328,
         "seasonal_curve": [1.06, 1.08, 1.10, 1.08, 1.04, 0.98, 0.94, 0.90, 0.88, 0.86, 0.94, 1.00],
         "harvest_months": [10, 11], "growth_days": 110, "yield_per_acre": 8,
         "hold_advice_days": 45, "storage_loss_pct": 0.5,
         "peak_months": [3, 4], "category": "Oilseeds",
     },
     "Mustard": {
-        "base_price": 5650, "msp": 5650,
+        "base_price": 5950, "msp": 5950,
         "seasonal_curve": [1.02, 1.04, 0.90, 0.86, 0.88, 0.94, 1.02, 1.08, 1.12, 1.10, 1.06, 1.00],
         "harvest_months": [3, 4], "growth_days": 110, "yield_per_acre": 6,
         "hold_advice_days": 60, "storage_loss_pct": 0.3,
         "peak_months": [8, 9], "category": "Oilseeds",
     },
     "Groundnut": {
-        "base_price": 6377, "msp": 6377,
+        "base_price": 7263, "msp": 7263,
         "seasonal_curve": [1.04, 1.06, 1.08, 1.06, 1.02, 0.98, 0.94, 0.90, 0.88, 0.86, 0.94, 1.00],
         "harvest_months": [10, 11], "growth_days": 120, "yield_per_acre": 7,
         "hold_advice_days": 45, "storage_loss_pct": 0.6,
         "peak_months": [3, 4], "category": "Oilseeds",
     },
     "Sunflower": {
-        "base_price": 6760, "msp": 6760,
+        "base_price": 7721, "msp": 7721,
         "seasonal_curve": [1.04, 1.06, 0.92, 0.88, 0.90, 0.96, 1.04, 1.08, 1.10, 1.06, 1.02, 0.98],
         "harvest_months": [3, 4], "growth_days": 100, "yield_per_acre": 5,
         "hold_advice_days": 30, "storage_loss_pct": 0.5,
         "peak_months": [8, 9], "category": "Oilseeds",
     },
     "Sesame": {
-        "base_price": 8635, "msp": 8635,
+        "base_price": 9846, "msp": 9846,
         "seasonal_curve": [1.04, 1.06, 1.08, 1.10, 1.06, 1.00, 0.96, 0.92, 0.88, 0.90, 0.96, 1.00],
         "harvest_months": [9, 10], "growth_days": 90, "yield_per_acre": 3,
         "hold_advice_days": 30, "storage_loss_pct": 0.3,
@@ -176,14 +176,14 @@ CROP_PROFILES: Dict[str, Dict] = {
 
     # ── CASH CROPS ──
     "Cotton": {
-        "base_price": 7121, "msp": 7121,
+        "base_price": 7710, "msp": 7710,
         "seasonal_curve": [1.04, 1.06, 1.08, 1.06, 1.02, 0.98, 0.94, 0.90, 0.88, 0.86, 0.92, 0.98],
         "harvest_months": [10, 11, 12], "growth_days": 180, "yield_per_acre": 8,
         "hold_advice_days": 45, "storage_loss_pct": 0.2,
         "peak_months": [3, 4], "category": "Cash Crops",
     },
     "Sugarcane": {
-        "base_price": 3150, "msp": 3150,
+        "base_price": 340, "msp": 340,  # FRP ₹340/quintal (raw cane, NOT refined sugar)
         "seasonal_curve": [0.96, 0.94, 0.92, 0.94, 0.98, 1.02, 1.04, 1.06, 1.08, 1.06, 1.02, 0.98],
         "harvest_months": [11, 12, 1, 2], "growth_days": 365, "yield_per_acre": 350,
         "hold_advice_days": 0, "storage_loss_pct": 2.0,
@@ -673,6 +673,7 @@ def predict_harvest_price(
         "predicted_harvest_price": predicted,
         "price_change": price_change,
         "price_change_pct": price_change_pct,
+        "price_unit": "₹/quintal",
         "msp": msp,
 
         "peak_price": peak_price,
@@ -682,6 +683,7 @@ def predict_harvest_price(
         "sell_strategy": sell_strategy,
 
         "yield_per_acre": yield_per_acre,
+        "yield_unit": "quintals",
         "land_size": land_size,
         "total_yield": total_yield,
         "cultivation_cost": total_cost,
@@ -707,8 +709,8 @@ def get_bulk_forecast(
 ) -> Dict:
     """Forecast for multiple crops at once (regional or specified)."""
     if not crops:
-        # Use all crops
-        crops = list(CROP_PROFILES.keys())
+        # Use all crops except Sugarcane (priced per tonne, not per quintal)
+        crops = [c for c in CROP_PROFILES.keys() if c != "Sugarcane"]
 
     results = []
     for crop in crops:

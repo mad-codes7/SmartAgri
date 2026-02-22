@@ -1,12 +1,10 @@
-/**
- * SmartAgri AI Mobile - Fertilizer & Pesticide Recommendation Screen
- */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View, Text, ScrollView, TouchableOpacity, StyleSheet,
     ActivityIndicator, Alert, TextInput, Modal, FlatList
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import { useLang } from '../i18n';
 import { COLORS, SHARED, SHADOWS } from '../theme';
 import api from '../api';
 
@@ -16,22 +14,13 @@ const CROPS = [
     'Pigeon Peas', 'Mung Bean', 'Black Gram', 'Orange', 'Watermelon',
 ];
 
-const GROWTH_STAGES = [
-    { label: 'Basal (Before Sowing)', value: 'basal' },
-    { label: 'Seedling Stage', value: 'seedling' },
-    { label: 'Vegetative Stage', value: 'vegetative' },
-    { label: 'Flowering Stage', value: 'flowering' },
-    { label: 'Fruiting Stage', value: 'fruiting' },
-    { label: 'Maturity Stage', value: 'maturity' },
-];
-
 const SOIL_TYPES = [
     'Loamy', 'Sandy', 'Sandy Loam', 'Clayey', 'Clayey Loam',
     'Black Soil', 'Red Soil', 'Alluvial', 'Laterite',
 ];
 
 // Simple dropdown component using Modal
-function DropdownPicker({ label, value, displayValue, options, onSelect }) {
+function DropdownPicker({ label, value, displayValue, options, onSelect, selectLabel }) {
     const [visible, setVisible] = useState(false);
     return (
         <View>
@@ -43,7 +32,7 @@ function DropdownPicker({ label, value, displayValue, options, onSelect }) {
             <Modal visible={visible} transparent animationType="fade">
                 <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={() => setVisible(false)}>
                     <View style={styles.modalCard}>
-                        <Text style={styles.modalTitle}>Select {label}</Text>
+                        <Text style={styles.modalTitle}>{selectLabel} {label}</Text>
                         <FlatList
                             data={options}
                             keyExtractor={(item, i) => String(i)}
@@ -74,17 +63,55 @@ function DropdownPicker({ label, value, displayValue, options, onSelect }) {
 
 export default function FertilizerScreen() {
     const { user } = useAuth();
+    const { t } = useLang();
     const [crop, setCrop] = useState('Rice');
     const [stage, setStage] = useState('vegetative');
     const [soilType, setSoilType] = useState('Loamy');
-    const [temperature, setTemperature] = useState('28');
-    const [humidity, setHumidity] = useState('75');
-    const [rainfall, setRainfall] = useState('120');
+    const [temperature, setTemperature] = useState('');
+    const [humidity, setHumidity] = useState('');
+    const [rainfall, setRainfall] = useState('');
+    const [weatherLive, setWeatherLive] = useState(false);
+    const [weatherLoading, setWeatherLoading] = useState(true);
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState(null);
     const [expandedSections, setExpandedSections] = useState({
         fertilizers: true, pests: true, pesticides: false, safety: false,
     });
+
+    const GROWTH_STAGES = [
+        { label: t.fert_stage_basal, value: 'basal' },
+        { label: t.fert_stage_seedling, value: 'seedling' },
+        { label: t.fert_stage_vegetative, value: 'vegetative' },
+        { label: t.fert_stage_flowering, value: 'flowering' },
+        { label: t.fert_stage_fruiting, value: 'fruiting' },
+        { label: t.fert_stage_maturity, value: 'maturity' },
+    ];
+
+    // Auto-fetch real-time weather on mount
+    useEffect(() => {
+        const fetchWeather = async () => {
+            try {
+                const state = user?.state || 'Maharashtra';
+                const district = user?.district || '';
+                const res = await api.get(`/weather/current?state=${encodeURIComponent(state)}&district=${encodeURIComponent(district)}`);
+                const w = res.data;
+                if (w) {
+                    setTemperature(String(Math.round(w.temperature || w.temp || 28)));
+                    setHumidity(String(Math.round(w.humidity || 70)));
+                    setRainfall(String(Math.round(w.rainfall || w.rain || 100)));
+                    setWeatherLive(true);
+                }
+            } catch (e) {
+                setTemperature('28');
+                setHumidity('70');
+                setRainfall('100');
+                setWeatherLive(false);
+            } finally {
+                setWeatherLoading(false);
+            }
+        };
+        fetchWeather();
+    }, [user?.state, user?.district]);
 
     const toggleSection = (key) => {
         setExpandedSections(prev => ({ ...prev, [key]: !prev[key] }));
@@ -113,7 +140,7 @@ export default function FertilizerScreen() {
         } catch (e) {
             const detail = e.response?.data?.detail;
             const msg = typeof detail === 'string' ? detail : 'Failed to get recommendations. Check server connection.';
-            Alert.alert('Error', msg);
+            Alert.alert(t.cp_error, msg);
         } finally {
             setLoading(false);
         }
@@ -135,39 +162,52 @@ export default function FertilizerScreen() {
 
     return (
         <ScrollView style={SHARED.pageContainer} contentContainerStyle={SHARED.scrollContent}>
-            <Text style={SHARED.pageTitle}>Fertilizer & Pesticide</Text>
-            <Text style={SHARED.pageSubtitle}>
-                Get scientifically accurate fertilizer schedules, pest risk analysis, and pesticide recommendations
-            </Text>
+            <Text style={SHARED.pageTitle}>{t.fert_title}</Text>
+            <Text style={SHARED.pageSubtitle}>{t.fert_desc}</Text>
 
             {/* Input Form */}
             <View style={[SHARED.card, { marginBottom: 12 }]}>
-                <Text style={styles.sectionTitle}>Select Crop & Stage</Text>
-                <DropdownPicker label="Crop" value={crop} displayValue={crop} options={CROPS} onSelect={setCrop} />
+                <Text style={styles.sectionTitle}>{t.fert_select_crop}</Text>
+                <DropdownPicker label={t.fert_crop} value={crop} displayValue={crop} options={CROPS} onSelect={setCrop} selectLabel={t.fert_select} />
                 <View style={{ height: 10 }} />
-                <DropdownPicker label="Growth Stage" value={stage} displayValue={getStageLabel(stage)} options={GROWTH_STAGES} onSelect={setStage} />
+                <DropdownPicker label={t.fert_growth_stage} value={stage} displayValue={getStageLabel(stage)} options={GROWTH_STAGES} onSelect={setStage} selectLabel={t.fert_select} />
                 <View style={{ height: 10 }} />
-                <DropdownPicker label="Soil Type" value={soilType} displayValue={soilType} options={SOIL_TYPES} onSelect={setSoilType} />
+                <DropdownPicker label={t.fert_soil_type} value={soilType} displayValue={soilType} options={SOIL_TYPES} onSelect={setSoilType} selectLabel={t.fert_select} />
             </View>
 
             {/* Weather Inputs */}
             <View style={[SHARED.card, { marginBottom: 12 }]}>
-                <Text style={styles.sectionTitle}>Weather Conditions</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                    <Text style={styles.sectionTitle}>{t.fert_weather}</Text>
+                    {weatherLoading ? (
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                            <ActivityIndicator size="small" color={COLORS.green600} />
+                            <Text style={{ fontSize: 11, color: COLORS.gray400 }}>{t.fert_fetching}</Text>
+                        </View>
+                    ) : weatherLive ? (
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, backgroundColor: '#f0fdf4', paddingHorizontal: 8, paddingVertical: 3, borderRadius: 10, borderWidth: 1, borderColor: '#bbf7d0' }}>
+                            <Text style={{ fontSize: 8, color: COLORS.green600 }}>🟢</Text>
+                            <Text style={{ fontSize: 11, fontWeight: '700', color: COLORS.green700 }}>{t.fert_live_weather}</Text>
+                        </View>
+                    ) : (
+                        <Text style={{ fontSize: 11, color: COLORS.gray400 }}>{t.fert_manual_input}</Text>
+                    )}
+                </View>
                 <View style={styles.weatherRow}>
                     <View style={styles.weatherInput}>
-                        <Text style={SHARED.formLabel}>Temp (C)</Text>
+                        <Text style={SHARED.formLabel}>{t.fert_temp}</Text>
                         <TextInput style={SHARED.formInput} value={temperature}
-                            onChangeText={setTemperature} keyboardType="numeric" placeholder="28" />
+                            onChangeText={(v) => { setTemperature(v); setWeatherLive(false); }} keyboardType="numeric" placeholder="28" />
                     </View>
                     <View style={styles.weatherInput}>
-                        <Text style={SHARED.formLabel}>Humidity (%)</Text>
+                        <Text style={SHARED.formLabel}>{t.fert_humidity}</Text>
                         <TextInput style={SHARED.formInput} value={humidity}
-                            onChangeText={setHumidity} keyboardType="numeric" placeholder="75" />
+                            onChangeText={(v) => { setHumidity(v); setWeatherLive(false); }} keyboardType="numeric" placeholder="75" />
                     </View>
                     <View style={styles.weatherInput}>
-                        <Text style={SHARED.formLabel}>Rain (mm)</Text>
+                        <Text style={SHARED.formLabel}>{t.fert_rain}</Text>
                         <TextInput style={SHARED.formInput} value={rainfall}
-                            onChangeText={setRainfall} keyboardType="numeric" placeholder="120" />
+                            onChangeText={(v) => { setRainfall(v); setWeatherLive(false); }} keyboardType="numeric" placeholder="120" />
                     </View>
                 </View>
             </View>
@@ -177,7 +217,7 @@ export default function FertilizerScreen() {
                 {loading ? (
                     <ActivityIndicator color="#fff" />
                 ) : (
-                    <Text style={SHARED.btnPrimaryText}>Get Recommendations</Text>
+                    <Text style={SHARED.btnPrimaryText}>{t.fert_get_recommendations}</Text>
                 )}
             </TouchableOpacity>
 
@@ -187,16 +227,16 @@ export default function FertilizerScreen() {
                     {/* Overview */}
                     <View style={[SHARED.card, styles.overviewCard]}>
                         <Text style={styles.overviewTitle}>
-                            {result.crop} - {(result.growth_stage || '').charAt(0).toUpperCase() + (result.growth_stage || '').slice(1)} Stage
+                            {result.crop} - {(result.growth_stage || '').charAt(0).toUpperCase() + (result.growth_stage || '').slice(1)}
                         </Text>
                         <View style={styles.overviewRow}>
-                            <Text style={styles.overviewLabel}>Overall Risk:</Text>
+                            <Text style={styles.overviewLabel}>{t.fert_overall_risk}</Text>
                             {riskBadge(result.overall_risk)}
                         </View>
                         <Text style={styles.overviewSummary}>{result.risk_summary}</Text>
                         {result.fertilizers?.total_npk ? (
                             <View style={styles.npkBox}>
-                                <Text style={styles.npkLabel}>Recommended NPK</Text>
+                                <Text style={styles.npkLabel}>{t.fert_recommended_npk}</Text>
                                 <Text style={styles.npkValue}>{result.fertilizers.total_npk}</Text>
                             </View>
                         ) : null}
@@ -204,14 +244,14 @@ export default function FertilizerScreen() {
 
                     {/* 1. Fertilizer Schedule */}
                     <TouchableOpacity style={[SHARED.card, styles.accordionHeader]} onPress={() => toggleSection('fertilizers')}>
-                        <Text style={styles.accordionTitle}>Fertilizer Schedule</Text>
+                        <Text style={styles.accordionTitle}>{t.fert_schedule}</Text>
                         <Text style={styles.arrow}>{expandedSections.fertilizers ? '\u25BC' : '\u25B6'}</Text>
                     </TouchableOpacity>
                     {expandedSections.fertilizers && (
                         <View style={styles.accordionBody}>
                             {result.fertilizers?.current_stage?.length > 0 ? (
                                 <>
-                                    <Text style={styles.subHeader}>Current Stage Fertilizers</Text>
+                                    <Text style={styles.subHeader}>{t.fert_current_stage}</Text>
                                     {result.fertilizers.current_stage.map((f, i) => (
                                         <View key={i} style={styles.fertCard}>
                                             <View style={styles.fertHeader}>
@@ -222,39 +262,39 @@ export default function FertilizerScreen() {
                                             </View>
                                             <View style={styles.fertDetails}>
                                                 <View style={styles.doseRow}>
-                                                    <Text style={styles.doseLabel}>Per Hectare:</Text>
+                                                    <Text style={styles.doseLabel}>{t.fert_per_hectare}</Text>
                                                     <Text style={styles.doseValue}>{f.dosage_kg_per_ha} kg</Text>
                                                 </View>
                                                 <View style={styles.doseRow}>
-                                                    <Text style={styles.doseLabel}>Per Acre:</Text>
+                                                    <Text style={styles.doseLabel}>{t.fert_per_acre}</Text>
                                                     <Text style={styles.doseValue}>{f.dosage_kg_per_acre} kg</Text>
                                                 </View>
                                             </View>
                                             <Text style={styles.fertMethod}>{f.method}</Text>
-                                            <Text style={styles.fertNutrient}>Nutrient: {f.nutrient}</Text>
+                                            <Text style={styles.fertNutrient}>{t.fert_nutrient} {f.nutrient}</Text>
                                         </View>
                                     ))}
                                 </>
                             ) : (
                                 <View style={styles.emptyStage}>
-                                    <Text style={styles.emptyText}>No specific fertilizer application at this stage.</Text>
-                                    <Text style={styles.emptySubtext}>Refer to basal application below for reference.</Text>
+                                    <Text style={styles.emptyText}>{t.fert_no_fertilizer}</Text>
+                                    <Text style={styles.emptySubtext}>{t.fert_refer_basal}</Text>
                                 </View>
                             )}
 
                             {result.fertilizers?.basal_reference?.length > 0 ? (
                                 <>
-                                    <Text style={[styles.subHeader, { marginTop: 12 }]}>Basal Application (Reference)</Text>
+                                    <Text style={[styles.subHeader, { marginTop: 12 }]}>{t.fert_basal_ref}</Text>
                                     {result.fertilizers.basal_reference.map((f, i) => (
                                         <View key={'b' + i} style={[styles.fertCard, { borderColor: COLORS.borderLight, opacity: 0.85 }]}>
                                             <Text style={styles.fertName}>{f.name}</Text>
                                             <View style={styles.fertDetails}>
                                                 <View style={styles.doseRow}>
-                                                    <Text style={styles.doseLabel}>Per Hectare:</Text>
+                                                    <Text style={styles.doseLabel}>{t.fert_per_hectare}</Text>
                                                     <Text style={styles.doseValue}>{f.dosage_kg_per_ha} kg</Text>
                                                 </View>
                                                 <View style={styles.doseRow}>
-                                                    <Text style={styles.doseLabel}>Per Acre:</Text>
+                                                    <Text style={styles.doseLabel}>{t.fert_per_acre}</Text>
                                                     <Text style={styles.doseValue}>{f.dosage_kg_per_acre} kg</Text>
                                                 </View>
                                             </View>
@@ -274,7 +314,7 @@ export default function FertilizerScreen() {
 
                     {/* 2. Pest & Disease Risks */}
                     <TouchableOpacity style={[SHARED.card, styles.accordionHeader]} onPress={() => toggleSection('pests')}>
-                        <Text style={styles.accordionTitle}>Pest & Disease Risks</Text>
+                        <Text style={styles.accordionTitle}>{t.fert_pest_risks}</Text>
                         <Text style={styles.arrow}>{expandedSections.pests ? '\u25BC' : '\u25B6'}</Text>
                     </TouchableOpacity>
                     {expandedSections.pests && (
@@ -291,13 +331,13 @@ export default function FertilizerScreen() {
                                     {p.weather_match ? (
                                         <View style={styles.weatherAlert}>
                                             <Text style={styles.weatherAlertText}>
-                                                Current weather favors this pest/disease
+                                                {t.fert_weather_favors}
                                             </Text>
                                         </View>
                                     ) : null}
                                     <Text style={styles.pestTrigger}>{p.trigger_description}</Text>
                                     <Text style={styles.pestStages}>
-                                        Affects: {(p.affected_stages || []).join(', ')}
+                                        {t.fert_affects} {(p.affected_stages || []).join(', ')}
                                     </Text>
                                 </View>
                             ))}
@@ -308,7 +348,7 @@ export default function FertilizerScreen() {
                     {(result.pesticides || []).length > 0 ? (
                         <>
                             <TouchableOpacity style={[SHARED.card, styles.accordionHeader]} onPress={() => toggleSection('pesticides')}>
-                                <Text style={styles.accordionTitle}>Pesticide Recommendations</Text>
+                                <Text style={styles.accordionTitle}>{t.fert_pesticide_recs}</Text>
                                 <Text style={styles.arrow}>{expandedSections.pesticides ? '\u25BC' : '\u25B6'}</Text>
                             </TouchableOpacity>
                             {expandedSections.pesticides && (
@@ -332,15 +372,15 @@ export default function FertilizerScreen() {
                                                 {riskBadge(p.risk_level)}
                                             </View>
                                             <Text style={styles.pesticideName}>{p.product_name}</Text>
-                                            <Text style={styles.pesticideTarget}>For: {p.for_pest}</Text>
+                                            <Text style={styles.pesticideTarget}>{t.fert_for_pest} {p.for_pest}</Text>
                                             <View style={styles.pesticideDose}>
-                                                <Text style={styles.doseLabel}>Dosage:</Text>
+                                                <Text style={styles.doseLabel}>{t.fert_dosage}</Text>
                                                 <Text style={styles.pesticideDoseText}>{p.dosage}</Text>
                                             </View>
                                             {p.safety_interval_days > 0 ? (
                                                 <View style={styles.phiBox}>
                                                     <Text style={styles.phiText}>
-                                                        PHI: {p.safety_interval_days} days before harvest
+                                                        {t.fert_phi} {p.safety_interval_days} {t.fert_phi_days}
                                                     </Text>
                                                 </View>
                                             ) : null}
@@ -354,7 +394,7 @@ export default function FertilizerScreen() {
 
                     {/* 4. Safety Precautions */}
                     <TouchableOpacity style={[SHARED.card, styles.accordionHeader]} onPress={() => toggleSection('safety')}>
-                        <Text style={styles.accordionTitle}>Safety Precautions</Text>
+                        <Text style={styles.accordionTitle}>{t.fert_safety}</Text>
                         <Text style={styles.arrow}>{expandedSections.safety ? '\u25BC' : '\u25B6'}</Text>
                     </TouchableOpacity>
                     {expandedSections.safety && (

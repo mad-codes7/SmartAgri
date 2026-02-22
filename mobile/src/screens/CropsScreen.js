@@ -45,7 +45,7 @@ export default function CropsScreen() {
             })
             .catch(() => setCrops([]))
             .finally(() => setLoading(false));
-    }, [user?.id]);
+    }, [user?.state, user?.district]);
 
     if (loading) {
         return (

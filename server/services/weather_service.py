@@ -164,6 +164,8 @@ class WeatherService:
             "owm_icon": weather.get("icon", "01d"),
             "city": data.get("name", coords["city"]),
             "source": "openweathermap",
+            "timestamp": datetime.now().isoformat(),
+            "time_of_day": self._time_of_day(),
         }
 
     def _fetch_forecast(self, state: str, days: int) -> List[Dict]:
@@ -241,6 +243,8 @@ class WeatherService:
             "icon": self._icon(base["humidity"]),
             "city": STATE_COORDS.get(state, {}).get("city", state),
             "source": "simulated",
+            "timestamp": datetime.now().isoformat(),
+            "time_of_day": self._time_of_day(),
         }
 
     def _mock_forecast(self, state: str, days: int) -> List[Dict]:
@@ -272,6 +276,13 @@ class WeatherService:
         if hum > 80: return "cloudy"
         if hum > 60: return "partly-cloudy"
         return "sunny"
+
+    def _time_of_day(self) -> str:
+        h = datetime.now().hour
+        if 5 <= h < 12:  return "morning"
+        if 12 <= h < 17: return "afternoon"
+        if 17 <= h < 20: return "evening"
+        return "night"
 
 
 _weather_instance: Optional[WeatherService] = None

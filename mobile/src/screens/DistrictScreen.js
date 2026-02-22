@@ -8,10 +8,10 @@ import {
     ActivityIndicator, Linking, Alert
 } from 'react-native';
 import { useAuth } from '../context/AuthContext';
+import { useLang } from '../i18n';
 import api from '../api';
 import { COLORS, SHADOWS, SHARED } from '../theme';
 
-const SEASON_EMOJI = { Kharif: '🌧️', Rabi: '❄️', Summer: '☀️' };
 const CROP_EMOJI = {
     rice: '🌾', wheat: '🌾', maize: '🌽', cotton: '🧵', soybean: '🌿',
     sugarcane: '🎋', banana: '🍌', mango: '🥭', orange: '🍊', grapes: '🍇',
@@ -24,6 +24,7 @@ const getCropEmoji = (name) => CROP_EMOJI[name?.toLowerCase()] || '🌿';
 
 export default function DistrictScreen({ navigation }) {
     const { user } = useAuth();
+    const { t } = useLang();
     const [profile, setProfile] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -44,36 +45,36 @@ export default function DistrictScreen({ navigation }) {
 
     const callPhone = (phone) => {
         Linking.openURL(`tel:${phone}`).catch(() =>
-            Alert.alert('Error', 'Unable to open phone app.')
+            Alert.alert(t.cp_error, t.ds_error_phone)
         );
     };
 
     const sendEmail = (email) => {
         Linking.openURL(`mailto:${email}`).catch(() =>
-            Alert.alert('Error', 'Unable to open email app.')
+            Alert.alert(t.cp_error, t.ds_error_email)
         );
     };
 
     if (loading) return (
         <View style={styles.center}>
             <ActivityIndicator size="large" color={COLORS.green600} />
-            <Text style={{ marginTop: 12, color: COLORS.gray500 }}>Loading district profile...</Text>
+            <Text style={{ marginTop: 12, color: COLORS.gray500 }}>{t.ds_loading}</Text>
         </View>
     );
 
     if (error) return (
         <View style={styles.center}>
             <Text style={{ fontSize: 40, marginBottom: 12 }}>🗺️</Text>
-            <Text style={SHARED.emptyText}>Profile Not Found</Text>
+            <Text style={SHARED.emptyText}>{t.ds_not_found}</Text>
             <Text style={[SHARED.emptySubtext, { marginHorizontal: 32 }]}>{error}</Text>
         </View>
     );
 
     const TABS = [
-        { key: 'crops', label: '🌾 Crops' },
-        { key: 'mandis', label: '🏪 Mandis' },
-        { key: 'alerts', label: '📊 Alerts' },
-        { key: 'contact', label: '📞 Krishi' },
+        { key: 'crops', label: `🌾 ${t.ds_crops_tab}` },
+        { key: 'mandis', label: `🏪 ${t.ds_mandis_tab}` },
+        { key: 'alerts', label: `📊 ${t.ds_alerts_tab}` },
+        { key: 'contact', label: `📞 ${t.ds_krishi_tab}` },
     ];
 
     return (
@@ -83,15 +84,15 @@ export default function DistrictScreen({ navigation }) {
                 <View style={styles.headerRow}>
                     <View>
                         <Text style={styles.districtName}>📍 {district}</Text>
-                        <Text style={styles.regionName}>{profile.region} · {profile.division} Division</Text>
+                        <Text style={styles.regionName}>{profile.region} · {profile.division} {t.ds_division}</Text>
                     </View>
                     <View style={styles.climateBadge}>
                         <Text style={styles.climateText} numberOfLines={2}>{profile.agro_climate}</Text>
                     </View>
                 </View>
                 <View style={styles.irrigationRow}>
-                    <Text style={styles.irrigLabel}>💧 Irrigation:</Text>
-                    <Text style={styles.irrigVal}>{profile.irrigation?.type} · {profile.irrigation?.coverage_percent}% coverage</Text>
+                    <Text style={styles.irrigLabel}>💧 {t.ds_irrigation}:</Text>
+                    <Text style={styles.irrigVal}>{profile.irrigation?.type} · {profile.irrigation?.coverage_percent}% {t.ds_coverage}</Text>
                 </View>
                 <Text style={styles.irrigSource}>⛲ {profile.irrigation?.main_source}</Text>
                 <View style={styles.soilRow}>
@@ -105,13 +106,13 @@ export default function DistrictScreen({ navigation }) {
 
             {/* Tab Bar */}
             <View style={styles.tabBar}>
-                {TABS.map(t => (
+                {TABS.map(tb => (
                     <TouchableOpacity
-                        key={t.key}
-                        style={[styles.tabBtn, tab === t.key && styles.tabBtnActive]}
-                        onPress={() => setTab(t.key)}
+                        key={tb.key}
+                        style={[styles.tabBtn, tab === tb.key && styles.tabBtnActive]}
+                        onPress={() => setTab(tb.key)}
                     >
-                        <Text style={[styles.tabText, tab === t.key && styles.tabTextActive]}>{t.label}</Text>
+                        <Text style={[styles.tabText, tab === tb.key && styles.tabTextActive]}>{tb.label}</Text>
                     </TouchableOpacity>
                 ))}
             </View>
@@ -119,7 +120,7 @@ export default function DistrictScreen({ navigation }) {
             {/* ── CROPS TAB ── */}
             {tab === 'crops' && (
                 <View>
-                    <Text style={styles.sectionTitle}>Dominant Crops in {district}</Text>
+                    <Text style={styles.sectionTitle}>{t.ds_dominant_crops} {district}</Text>
                     {(profile.dominant_crops || []).map((crop, i) => (
                         <View key={i} style={[SHARED.card, { marginBottom: 12 }]}>
                             <View style={styles.cropHeader}>
@@ -129,24 +130,24 @@ export default function DistrictScreen({ navigation }) {
                                 <View style={{ flex: 1 }}>
                                     <Text style={styles.cropName}>{crop.name}</Text>
                                     <Text style={styles.cropHindi}>{crop.hindi_name}</Text>
-                                    <Text style={styles.cropArea}>📏 {crop.area_lakh_ha} lakh ha cultivated</Text>
+                                    <Text style={styles.cropArea}>📏 {crop.area_lakh_ha} {t.ds_cultivated}</Text>
                                 </View>
                                 <View style={styles.priceBox}>
-                                    <Text style={styles.priceLabel}>Avg Price</Text>
+                                    <Text style={styles.priceLabel}>{t.ds_avg_price}</Text>
                                     <Text style={styles.priceVal}>₹{crop.avg_price_per_quintal}/q</Text>
                                 </View>
                             </View>
                             <View style={styles.statsRow}>
                                 <View style={styles.statBox}>
-                                    <Text style={styles.statLabel}>Sowing</Text>
+                                    <Text style={styles.statLabel}>{t.ds_sowing}</Text>
                                     <Text style={styles.statVal}>{(crop.sowing_months || []).join(', ')}</Text>
                                 </View>
                                 <View style={styles.statBox}>
-                                    <Text style={styles.statLabel}>Harvest</Text>
+                                    <Text style={styles.statLabel}>{t.ds_harvest}</Text>
                                     <Text style={styles.statVal}>{(crop.harvest_months || []).join(', ')}</Text>
                                 </View>
                                 <View style={styles.statBox}>
-                                    <Text style={styles.statLabel}>Yield/Acre</Text>
+                                    <Text style={styles.statLabel}>{t.ds_yield_acre}</Text>
                                     <Text style={styles.statVal}>{crop.avg_yield_ton_per_acre} ton</Text>
                                 </View>
                             </View>
@@ -158,7 +159,7 @@ export default function DistrictScreen({ navigation }) {
             {/* ── MANDIS TAB ── */}
             {tab === 'mandis' && (
                 <View>
-                    <Text style={styles.sectionTitle}>Top APMC Mandis — {district}</Text>
+                    <Text style={styles.sectionTitle}>{t.ds_top_mandis} — {district}</Text>
                     {(profile.mandis || []).map((mandi, i) => (
                         <View key={i} style={[SHARED.card, { marginBottom: 12 }]}>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 }}>
@@ -196,9 +197,9 @@ export default function DistrictScreen({ navigation }) {
             {/* ── ALERTS TAB ── */}
             {tab === 'alerts' && (
                 <View>
-                    <Text style={styles.sectionTitle}>Price Trend Alerts — {district}</Text>
+                    <Text style={styles.sectionTitle}>{t.ds_price_alerts} — {district}</Text>
                     <View style={styles.alertDisclaimer}>
-                        <Text style={styles.alertDisclaimerText}>🤖 AI-generated weekly market signals based on mandi data trends</Text>
+                        <Text style={styles.alertDisclaimerText}>🤖 {t.ds_ai_disclaimer}</Text>
                     </View>
                     {(profile.price_alerts || []).map((alert, i) => {
                         const isUp = alert.direction === 'up';
@@ -223,7 +224,7 @@ export default function DistrictScreen({ navigation }) {
             {/* ── CONTACT TAB ── */}
             {tab === 'contact' && profile.krishi_vibhag && (
                 <View>
-                    <Text style={styles.sectionTitle}>Krishi Vibhag — {district}</Text>
+                    <Text style={styles.sectionTitle}>{t.ds_krishi_vibhag} — {district}</Text>
                     <View style={[SHARED.card, { marginBottom: 12 }]}>
                         <Text style={styles.kvOffice}>{profile.krishi_vibhag.office}</Text>
                         <Text style={styles.kvDao}>👤 {profile.krishi_vibhag.dao_name}</Text>
@@ -234,14 +235,14 @@ export default function DistrictScreen({ navigation }) {
                                 style={[styles.contactBtn, { backgroundColor: COLORS.green600 }]}
                                 onPress={() => callPhone(profile.krishi_vibhag.mobile || profile.krishi_vibhag.phone)}
                             >
-                                <Text style={styles.contactBtnText}>📞 Call Mobile</Text>
+                                <Text style={styles.contactBtnText}>📞 {t.ds_call_mobile}</Text>
                                 <Text style={styles.contactBtnSub}>{profile.krishi_vibhag.mobile}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={[styles.contactBtn, { backgroundColor: COLORS.blue500 }]}
                                 onPress={() => callPhone(profile.krishi_vibhag.phone)}
                             >
-                                <Text style={styles.contactBtnText}>☎️ Office</Text>
+                                <Text style={styles.contactBtnText}>☎️ {t.ds_office}</Text>
                                 <Text style={styles.contactBtnSub}>{profile.krishi_vibhag.phone}</Text>
                             </TouchableOpacity>
                         </View>
@@ -256,7 +257,7 @@ export default function DistrictScreen({ navigation }) {
                     {/* KVK Card */}
                     {profile.krishi_vibhag.kvk && (
                         <View style={[SHARED.card, styles.kvkCard]}>
-                            <Text style={styles.kvkTitle}>🏫 Krishi Vigyan Kendra (KVK)</Text>
+                            <Text style={styles.kvkTitle}>🏫 {t.ds_kvk}</Text>
                             <Text style={styles.kvkName}>{profile.krishi_vibhag.kvk.name}</Text>
                             <Text style={styles.kvkAddr}>📍 {profile.krishi_vibhag.kvk.address}</Text>
                             <TouchableOpacity
