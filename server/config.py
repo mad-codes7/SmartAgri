@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "info"
 
     # Database
-    DATABASE_URL: str = "sqlite+aiosqlite:///./smartagri.db"
+    DATABASE_URL: str = "sqlite+aiosqlite:///./smartagri.db"  # overridden by env var on Render
 
     # JWT
     SECRET_KEY: str = "smartagri-dev-secret-key-change-in-production"
